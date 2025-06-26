@@ -1,0 +1,91 @@
+name: Deploy Frontend and Storybook
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - prod
+
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'staging' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3 (Production)
+        if: github.event.inputs.environment == 'prod'
+        run: aws s3 sync --delete ./dist s3://${{ secrets.PROD_S3_BUCKET }}
+
+      - name: Deploy to S3 (Staging)
+        if: github.event.inputs.environment == 'staging' || github.event.inputs.environment == ''
+        run: aws s3 sync --delete ./dist s3://${{ secrets.STAGING_S3_BUCKET }}
+
+      - name: Invalidate CloudFront (Production)
+        if: github.event.inputs.environment == 'prod'
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+      - name: Invalidate CloudFront (Staging)
+        if: github.event.inputs.environment == 'staging' || github.event.inputs.environment == ''
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+  deploy-storybook:
+    runs-on: ubuntu-latest
+    environment: staging
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build storybook
+        run: npm run build-storybook
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy Storybook to S3
+        run: aws s3 sync --delete ./storybook-static s3://${{ secrets.STORYBOOK_S3_BUCKET }}
+
+      - name: Invalidate Storybook CloudFront
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.STORYBOOK_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

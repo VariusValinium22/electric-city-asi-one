@@ -1,23 +1,11 @@
-# Apiary Project: project_name
-
-## Creating a new project (Delete this section)
-
-- Replace instances of `project_name` with your project's title
-- Update `index.html` with your project's title, favicon, etc
-- Update the logo file in `/public`
-- Update `tailwind.config.js` with your project's theme configuration (colors, fonts, etc)
-- Change any defaults in `global/default.css`
-- (Optional) Create deployment buckets in AWS for Production and for Storybook, update links below with those URLs
-  - - Add secrets to the github repo to support the github actions for deploying both sites
-  - - Update the deploy actions to use the correct buckets and cloudfront distributions
-- The `package.json` contains a lot of dependencies that are commonly used in these projects; Feel free to delete or add any that are likely to pop up in this project.
+# Apiary Project: Electric City Aquarium: Sharks Interactive
 
 ## Getting Started
 
 Cloning the repository:
 
 ```
-git clone git@github.com:tripleten-externships/frontend-template.git
+git clone git@github.com:tripleten-externships/electric-city-asi-one.git
 ```
 
 !!!IMPORTANT Make sure to install dependencies before making any code changes. This repository utilizes git-hooks which must be installed using npm before they will function.
@@ -52,11 +40,12 @@ npm run test
 Contributors are not allowed to commit directly to `main`. This rule is enforced using git hooks. Instead, you must create a new branch off of `main` using the following naming pattern:
 
 ```
-Pattern:"/^(master|main|develop){1}$|^(feature|fix|hotfix|release)\/.+$/g"
+Pattern:"/^(master|main|develop){1}$|^(feature|fix|hotfix|release|ECASI-[^/]+)\/.+$/g"
 ```
 
 Example:
 `feature/my-dev-task`
+`ECASI-[JIRA-KEY]/my-dev-task`
 
 ### Commit messages
 
