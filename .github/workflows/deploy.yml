@@ -20,6 +20,8 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment || 'staging' }}
+    # only allow deployments from mentor or main branch
+    if: github.actor == 'costjonah' || github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v4

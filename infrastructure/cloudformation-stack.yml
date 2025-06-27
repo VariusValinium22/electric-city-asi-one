@@ -1,0 +1,314 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Electric City Aquarium: Sharks Interactive - Frontend Infrastructure - S3 Buckets, CloudFront Distributions, and IAM Resources'
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: electric-city-sharks
+    Description: Project name used for resource naming
+  
+
+
+Resources:
+  # S3 buckets
+  StagingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-frontend-staging"
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, HEAD]
+            AllowedOrigins: ['*']
+            MaxAge: 3000
+
+  ProductionBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-frontend-prod"
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, HEAD]
+            AllowedOrigins: ['*']
+            MaxAge: 3000
+
+  StorybookBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-storybook"
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, HEAD]
+            AllowedOrigins: ['*']
+            MaxAge: 3000
+
+  # S3 bucket policies
+  StagingBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StagingBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub "${StagingBucket.Arn}/*"
+
+  ProductionBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ProductionBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub "${ProductionBucket.Arn}/*"
+
+  StorybookBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StorybookBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub "${StorybookBucket.Arn}/*"
+
+  # CloudFront origin access control
+  CloudFrontOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${ProjectName}-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # CloudFront distributions
+  StagingDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} Frontend Staging Distribution"
+        Aliases: []
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub "${ProjectName}-staging-origin"
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+        Origins:
+          - Id: !Sub "${ProjectName}-staging-origin"
+            DomainName: !GetAtt StagingBucket.RegionalDomainName
+            S3OriginConfig: {}
+            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+        Enabled: true
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+        PriceClass: PriceClass_100
+
+  ProductionDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} Frontend Production Distribution"
+        Aliases: []
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub "${ProjectName}-prod-origin"
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+        Origins:
+          - Id: !Sub "${ProjectName}-prod-origin"
+            DomainName: !GetAtt ProductionBucket.RegionalDomainName
+            S3OriginConfig: {}
+            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+        Enabled: true
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+        PriceClass: PriceClass_100
+
+  StorybookDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} Storybook Distribution"
+        Aliases: []
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub "${ProjectName}-storybook-origin"
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+        Origins:
+          - Id: !Sub "${ProjectName}-storybook-origin"
+            DomainName: !GetAtt StorybookBucket.RegionalDomainName
+            S3OriginConfig: {}
+            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+        Enabled: true
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 300
+        PriceClass: PriceClass_100
+
+  # IAM user for GitHub actions
+  GitHubActionsUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Sub "${ProjectName}-github-actions"
+      Policies:
+        - PolicyName: !Sub "${ProjectName}-deployment-policy"
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:PutObjectAcl
+                  - s3:GetObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub "arn:aws:s3:::${StagingBucket}/*"
+                  - !Sub "arn:aws:s3:::${ProductionBucket}/*"
+                  - !Sub "arn:aws:s3:::${StorybookBucket}/*"
+                  - !Sub "arn:aws:s3:::${StagingBucket}"
+                  - !Sub "arn:aws:s3:::${ProductionBucket}"
+                  - !Sub "arn:aws:s3:::${StorybookBucket}"
+              - Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                Resource: 
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StagingDistribution}"
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${ProductionDistribution}"
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StorybookDistribution}"
+
+  # access keys for GitHub actions
+  GitHubActionsAccessKey:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !Ref GitHubActionsUser
+
+Outputs:
+  StagingBucketName:
+    Description: Name of the staging S3 bucket
+    Value: !Ref StagingBucket
+    Export:
+      Name: !Sub "${AWS::StackName}-StagingBucket"
+
+  ProductionBucketName:
+    Description: Name of the production S3 bucket
+    Value: !Ref ProductionBucket
+    Export:
+      Name: !Sub "${AWS::StackName}-ProductionBucket"
+
+  StorybookBucketName:
+    Description: Name of the storybook S3 bucket
+    Value: !Ref StorybookBucket
+    Export:
+      Name: !Sub "${AWS::StackName}-StorybookBucket"
+
+  StagingWebsiteURL:
+    Description: URL of the staging website
+    Value: !GetAtt StagingBucket.WebsiteURL
+
+  ProductionWebsiteURL:
+    Description: URL of the production website
+    Value: !GetAtt ProductionBucket.WebsiteURL
+
+  StorybookWebsiteURL:
+    Description: URL of the storybook website
+    Value: !GetAtt StorybookBucket.WebsiteURL
+
+  StagingDistributionId:
+    Description: CloudFront distribution ID for staging
+    Value: !Ref StagingDistribution
+    Export:
+      Name: !Sub "${AWS::StackName}-StagingDistributionId"
+
+  ProductionDistributionId:
+    Description: CloudFront distribution ID for production
+    Value: !Ref ProductionDistribution
+    Export:
+      Name: !Sub "${AWS::StackName}-ProductionDistributionId"
+
+  StorybookDistributionId:
+    Description: CloudFront distribution ID for storybook
+    Value: !Ref StorybookDistribution
+    Export:
+      Name: !Sub "${AWS::StackName}-StorybookDistributionId"
+
+  StagingDistributionDomainName:
+    Description: CloudFront distribution domain name for staging
+    Value: !GetAtt StagingDistribution.DomainName
+
+  ProductionDistributionDomainName:
+    Description: CloudFront distribution domain name for production
+    Value: !GetAtt ProductionDistribution.DomainName
+
+  StorybookDistributionDomainName:
+    Description: CloudFront distribution domain name for storybook
+    Value: !GetAtt StorybookDistribution.DomainName
+
+  GitHubActionsAccessKeyId:
+    Description: Access Key ID for GitHub Actions
+    Value: !Ref GitHubActionsAccessKey
+
+  GitHubActionsSecretAccessKey:
+    Description: Secret Access Key for GitHub Actions
+    Value: !GetAtt GitHubActionsAccessKey.SecretAccessKey 
