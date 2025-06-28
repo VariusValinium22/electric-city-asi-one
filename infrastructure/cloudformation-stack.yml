@@ -105,16 +105,6 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub "${StorybookBucket.Arn}/*"
 
-  # CloudFront origin access control
-  CloudFrontOriginAccessControl:
-    Type: AWS::CloudFront::OriginAccessControl
-    Properties:
-      OriginAccessControlConfig:
-        Name: !Sub "${ProjectName}-oac"
-        OriginAccessControlOriginType: s3
-        SigningBehavior: always
-        SigningProtocol: sigv4
-
   # CloudFront distributions
   StagingDistribution:
     Type: AWS::CloudFront::Distribution
@@ -130,9 +120,11 @@ Resources:
           ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
         Origins:
           - Id: !Sub "${ProjectName}-staging-origin"
-            DomainName: !GetAtt StagingBucket.RegionalDomainName
-            S3OriginConfig: {}
-            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+            DomainName: !Select [1, !Split ["//", !GetAtt StagingBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: index.html
         CustomErrorResponses:
@@ -160,9 +152,11 @@ Resources:
           ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
         Origins:
           - Id: !Sub "${ProjectName}-prod-origin"
-            DomainName: !GetAtt ProductionBucket.RegionalDomainName
-            S3OriginConfig: {}
-            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+            DomainName: !Select [1, !Split ["//", !GetAtt ProductionBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: index.html
         CustomErrorResponses:
@@ -190,9 +184,11 @@ Resources:
           ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
         Origins:
           - Id: !Sub "${ProjectName}-storybook-origin"
-            DomainName: !GetAtt StorybookBucket.RegionalDomainName
-            S3OriginConfig: {}
-            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+            DomainName: !Select [1, !Split ["//", !GetAtt StorybookBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: index.html
         CustomErrorResponses:
