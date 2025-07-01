@@ -146,7 +146,7 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
           CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
           OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c  # SecurityHeadersPolicy
         Origins:
           - Id: !Sub "${ProjectName}-staging-origin"
             DomainName: !Select [1, !Split ["//", !GetAtt StagingBucket.WebsiteURL]]
@@ -178,7 +178,7 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
           OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c  # SecurityHeadersPolicy
         Origins:
           - Id: !Sub "${ProjectName}-prod-origin"
             DomainName: !Select [1, !Split ["//", !GetAtt ProductionBucket.WebsiteURL]]
@@ -248,6 +248,8 @@ Resources:
                   - s3:GetObject
                   - s3:DeleteObject
                   - s3:ListBucket
+                  - s3:PutObjectTagging
+                  - s3:GetObjectTagging
                 Resource:
                   - !Sub "arn:aws:s3:::${StagingBucket}/*"
                   - !Sub "arn:aws:s3:::${ProductionBucket}/*"
@@ -270,6 +272,33 @@ Resources:
     Type: AWS::IAM::AccessKey
     Properties:
       UserName: !Ref GitHubActionsUser
+
+  # CloudFront Function to set content type headers
+  ContentTypeFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: AddContentTypeHeader
+      AutoPublish: true
+      FunctionConfig:
+        Comment: "Add correct content type headers for .cjs files"
+        Runtime: cloudfront-js-1.0
+      FunctionCode: |
+        function handler(event) {
+          var response = event.response;
+          var request = event.request;
+          
+          // Add CORS headers
+          response.headers['access-control-allow-origin'] = {value: '*'};
+          response.headers['access-control-allow-methods'] = {value: 'GET,HEAD,OPTIONS'};
+          response.headers['access-control-allow-headers'] = {value: '*'};
+          
+          // Set content type for .cjs files
+          if (request.uri.endsWith('.cjs')) {
+            response.headers['content-type'] = {value: 'application/javascript'};
+          }
+          
+          return response;
+        }
 
 Outputs:
   StagingBucketName:

@@ -25,10 +25,9 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        format: 'cjs',
-        // consistent file naming for Electron with .cjs extension
-        entryFileNames: "assets/[name].[hash].cjs",
-        chunkFileNames: "assets/[name].[hash].cjs",
+        format: 'es',
+        entryFileNames: "assets/[name].[hash].js",
+        chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[hash].[ext]",
       },
     },
