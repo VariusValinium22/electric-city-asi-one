@@ -22,8 +22,8 @@
     "electron:pack": "npm run build && npm run electron:build && electron-builder",
     "electron:build": "tsc -p electron/tsconfig.json && node -e \"require('fs').readdirSync('dist-electron').forEach(f => { if (f.endsWith('.js')) require('fs').renameSync('dist-electron/' + f, 'dist-electron/' + f.replace('.js', '.cjs')); })\"",
     "electron:dist": "npm run build && npm run electron:build && electron-builder --publish=never",
-    "deploy:web:staging": "npm run build && aws s3 sync dist/ s3://$STAGING_S3_BUCKET/ --delete && aws cloudfront create-invalidation --distribution-id $STAGING_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
-    "deploy:web:prod": "npm run build && aws s3 sync dist/ s3://$PROD_S3_BUCKET/ --delete && aws cloudfront create-invalidation --distribution-id $PROD_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
+    "deploy:web:staging": "npm run build && aws s3 sync dist/ s3://$STAGING_S3_BUCKET/ --delete --content-type application/javascript --exclude '*' --include '*.cjs' && aws s3 sync dist/ s3://$STAGING_S3_BUCKET/ --delete --exclude '*.cjs' && aws cloudfront create-invalidation --distribution-id $STAGING_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
+    "deploy:web:prod": "npm run build && aws s3 sync dist/ s3://$PROD_S3_BUCKET/ --delete --content-type application/javascript --exclude '*' --include '*.cjs' && aws s3 sync dist/ s3://$PROD_S3_BUCKET/ --delete --exclude '*.cjs' && aws cloudfront create-invalidation --distribution-id $PROD_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
     "deploy:electron": "npm run electron:dist && aws s3 sync release/ s3://$ELECTRON_DOWNLOADS_S3_BUCKET/latest/ --exclude '*.blockmap' --exclude '*.yaml'"
   },
   "dependencies": {
