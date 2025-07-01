@@ -1,0 +1,52 @@
+{
+  "appId": "com.tripleten.electric-city-asi",
+  "productName": "Electric City ASI",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "node_modules/**/*"
+  ],
+  "mac": {
+    "target": {
+      "target": "default",
+      "arch": ["x64", "arm64"]
+    },
+    "category": "public.app-category.education",
+    "icon": "assets/icon.icns"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "assets/icon.ico"
+  },
+  "linux": {
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "assets/icon.png",
+    "category": "Education"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  },
+  "publish": {
+    "provider": "s3",
+    "bucket": "your-electron-updates-bucket",
+    "region": "us-east-1",
+    "path": "/releases"
+  },
+  "extraMetadata": {
+    "main": "dist-electron/main.cjs"
+  }
+} 

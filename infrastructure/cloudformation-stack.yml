@@ -68,6 +68,23 @@ Resources:
             AllowedOrigins: ['*']
             MaxAge: 3000
 
+  # Electron app downloads bucket
+  ElectronDownloadsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-electron-downloads"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, HEAD]
+            AllowedOrigins: ['*']
+            MaxAge: 3000
+
   # S3 bucket policies
   StagingBucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -104,6 +121,18 @@ Resources:
             Principal: '*'
             Action: s3:GetObject
             Resource: !Sub "${StorybookBucket.Arn}/*"
+
+  ElectronDownloadsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ElectronDownloadsBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub "${ElectronDownloadsBucket.Arn}/*"
 
   # CloudFront distributions
   StagingDistribution:
@@ -223,9 +252,11 @@ Resources:
                   - !Sub "arn:aws:s3:::${StagingBucket}/*"
                   - !Sub "arn:aws:s3:::${ProductionBucket}/*"
                   - !Sub "arn:aws:s3:::${StorybookBucket}/*"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsBucket}/*"
                   - !Sub "arn:aws:s3:::${StagingBucket}"
                   - !Sub "arn:aws:s3:::${ProductionBucket}"
                   - !Sub "arn:aws:s3:::${StorybookBucket}"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsBucket}"
               - Effect: Allow
                 Action:
                   - cloudfront:CreateInvalidation
@@ -259,6 +290,12 @@ Outputs:
     Export:
       Name: !Sub "${AWS::StackName}-StorybookBucket"
 
+  ElectronDownloadsBucketName:
+    Description: Name of the Electron downloads S3 bucket
+    Value: !Ref ElectronDownloadsBucket
+    Export:
+      Name: !Sub "${AWS::StackName}-ElectronDownloadsBucket"
+
   StagingWebsiteURL:
     Description: URL of the staging website
     Value: !GetAtt StagingBucket.WebsiteURL
@@ -270,6 +307,10 @@ Outputs:
   StorybookWebsiteURL:
     Description: URL of the storybook website
     Value: !GetAtt StorybookBucket.WebsiteURL
+
+  ElectronDownloadsURL:
+    Description: URL of the Electron downloads bucket
+    Value: !Sub "https://${ElectronDownloadsBucket}.s3.${AWS::Region}.amazonaws.com"
 
   StagingDistributionId:
     Description: CloudFront distribution ID for staging

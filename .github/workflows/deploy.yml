@@ -91,3 +91,46 @@ jobs:
 
       - name: Invalidate Storybook CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.STORYBOOK_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+  deploy-electron:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'staging' }}
+    # only allow deployments from mentor or main branch
+    if: github.actor == 'costjonah' || github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Electron app
+        run: npm run electron:dist
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Deploy Electron installers to S3
+        run: |
+          # Create version directory structure
+          VERSION=$(node -p "require('./package.json').version")
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+          
+          # Upload to versioned directory
+          aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/v$VERSION-$TIMESTAMP/ --exclude "*.blockmap" --exclude "*.yaml"
+          
+          # Also upload to 'latest' for direct download links
+          aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/latest/ --exclude "*.blockmap" --exclude "*.yaml"
+          
+          # Upload release info
+          echo "{\"version\":\"$VERSION\",\"timestamp\":\"$TIMESTAMP\",\"build\":\"$GITHUB_SHA\"}" > release-info.json
+          aws s3 cp release-info.json s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/latest/release-info.json
