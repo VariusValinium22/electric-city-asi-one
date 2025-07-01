@@ -5,9 +5,18 @@ set -e
 
 # config
 STACK_NAME="electric-city-sharks-infrastructure"
-TEMPLATE_FILE="infrastructure/cloudformation-stack.yml"
 REGION="us-east-2"
 PROJECT_NAME="electric-city-sharks"
+
+# Determine template file path based on current directory
+if [ -f "cloudformation-stack.yml" ]; then
+    TEMPLATE_FILE="cloudformation-stack.yml"
+elif [ -f "infrastructure/cloudformation-stack.yml" ]; then
+    TEMPLATE_FILE="infrastructure/cloudformation-stack.yml"
+else
+    echo -e "${RED}CloudFormation template not found. Please run from project root or infrastructure directory.${NC}"
+    exit 1
+fi
 
 # colors for output
 RED='\033[0;31m'
@@ -16,7 +25,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # no color
 
-echo -e "${BLUE}🚀 Deploying Electric City Aquarium: Sharks Interactive - Frontend Infrastructure${NC}"
+echo -e "${BLUE}Deploying Electric City Aquarium: Sharks Interactive - Frontend Infrastructure${NC}"
 echo -e "${BLUE}Stack Name: ${STACK_NAME}${NC}"
 echo -e "${BLUE}Region: ${REGION}${NC}"
 echo -e "${BLUE}Project Name: ${PROJECT_NAME}${NC}"
@@ -66,6 +75,7 @@ OUTPUTS=$(aws cloudformation describe-stacks \
 STAGING_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingBucketName") | .OutputValue')
 PROD_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionBucketName") | .OutputValue')
 STORYBOOK_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StorybookBucketName") | .OutputValue')
+ELECTRON_DOWNLOADS_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsBucketName") | .OutputValue')
 
 STAGING_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingDistributionId") | .OutputValue')
 PROD_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionDistributionId") | .OutputValue')
@@ -74,6 +84,7 @@ STORYBOOK_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="S
 STAGING_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingDistributionDomainName") | .OutputValue')
 PROD_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionDistributionDomainName") | .OutputValue')
 STORYBOOK_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StorybookDistributionDomainName") | .OutputValue')
+ELECTRON_DOWNLOADS_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsURL") | .OutputValue')
 
 ACCESS_KEY_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="GitHubActionsAccessKeyId") | .OutputValue')
 SECRET_ACCESS_KEY=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="GitHubActionsSecretAccessKey") | .OutputValue')
@@ -87,6 +98,7 @@ echo -e "${BLUE}S3 Buckets:${NC}"
 echo "  • Staging: $STAGING_BUCKET"
 echo "  • Production: $PROD_BUCKET"
 echo "  • Storybook: $STORYBOOK_BUCKET"
+echo "  • Electron Downloads: $ELECTRON_DOWNLOADS_BUCKET"
 echo ""
 echo -e "${BLUE}CloudFront Distributions:${NC}"
 echo "  • Staging: $STAGING_DISTRIBUTION_ID"
@@ -97,6 +109,7 @@ echo -e "${BLUE}Website URLs:${NC}"
 echo "  • Staging: https://$STAGING_CLOUDFRONT_URL"
 echo "  • Production: https://$PROD_CLOUDFRONT_URL"
 echo "  • Storybook: https://$STORYBOOK_CLOUDFRONT_URL"
+echo "  • Electron Downloads: $ELECTRON_DOWNLOADS_URL"
 echo ""
 echo -e "${YELLOW}GitHub Secrets Configuration:${NC}"
 echo "Add these secrets to your GitHub repository environments:"
@@ -106,12 +119,14 @@ echo "  STAGING_S3_BUCKET: $STAGING_BUCKET"
 echo "  STAGING_CLOUDFRONT_DISTRIBUTION_ID: $STAGING_DISTRIBUTION_ID"
 echo "  STORYBOOK_S3_BUCKET: $STORYBOOK_BUCKET"
 echo "  STORYBOOK_CLOUDFRONT_DISTRIBUTION_ID: $STORYBOOK_DISTRIBUTION_ID"
+echo "  ELECTRON_DOWNLOADS_S3_BUCKET: $ELECTRON_DOWNLOADS_BUCKET"
 echo "  AWS_ACCESS_KEY_ID: $ACCESS_KEY_ID"
 echo "  AWS_SECRET_ACCESS_KEY: $SECRET_ACCESS_KEY"
 echo ""
 echo -e "${BLUE}Production Environment:${NC}"
 echo "  PROD_S3_BUCKET: $PROD_BUCKET"
 echo "  PROD_CLOUDFRONT_DISTRIBUTION_ID: $PROD_DISTRIBUTION_ID"
+echo "  ELECTRON_DOWNLOADS_S3_BUCKET: $ELECTRON_DOWNLOADS_BUCKET"
 echo "  AWS_ACCESS_KEY_ID: $ACCESS_KEY_ID"
 echo "  AWS_SECRET_ACCESS_KEY: $SECRET_ACCESS_KEY"
 echo ""
