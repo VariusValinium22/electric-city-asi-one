@@ -69,10 +69,26 @@ Resources:
             MaxAge: 3000
 
   # Electron app downloads bucket
-  ElectronDownloadsBucket:
+  ElectronDownloadsStagingBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub "${ProjectName}-electron-downloads"
+      BucketName: !Sub "${ProjectName}-electron-downloads-staging"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, HEAD]
+            AllowedOrigins: ['*']
+            MaxAge: 3000
+
+  ElectronDownloadsProductionBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-electron-downloads-prod"
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
@@ -122,17 +138,29 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub "${StorybookBucket.Arn}/*"
 
-  ElectronDownloadsBucketPolicy:
+  ElectronDownloadsStagingBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref ElectronDownloadsBucket
+      Bucket: !Ref ElectronDownloadsStagingBucket
       PolicyDocument:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
             Action: s3:GetObject
-            Resource: !Sub "${ElectronDownloadsBucket.Arn}/*"
+            Resource: !Sub "${ElectronDownloadsStagingBucket.Arn}/*"
+
+  ElectronDownloadsProductionBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ElectronDownloadsProductionBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub "${ElectronDownloadsProductionBucket.Arn}/*"
 
   # CloudFront distributions
   StagingDistribution:
@@ -231,6 +259,58 @@ Resources:
             ErrorCachingMinTTL: 300
         PriceClass: PriceClass_100
 
+  ElectronDownloadsStagingDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} Electron Downloads Staging Distribution"
+        Aliases: []
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub "${ProjectName}-electron-downloads-staging-origin"
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          FunctionAssociations:
+            - EventType: viewer-response
+              FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
+        Origins:
+          - Id: !Sub "${ProjectName}-electron-downloads-staging-origin"
+            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsStagingBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+        Enabled: true
+        DefaultRootObject: index.html
+        PriceClass: PriceClass_100
+
+  ElectronDownloadsProductionDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} Electron Downloads Production Distribution"
+        Aliases: []
+        DefaultCacheBehavior:
+          TargetOriginId: !Sub "${ProjectName}-electron-downloads-prod-origin"
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          FunctionAssociations:
+            - EventType: viewer-response
+              FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
+        Origins:
+          - Id: !Sub "${ProjectName}-electron-downloads-prod-origin"
+            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsProductionBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+        Enabled: true
+        DefaultRootObject: index.html
+        PriceClass: PriceClass_100
+
   # IAM user for GitHub actions
   GitHubActionsUser:
     Type: AWS::IAM::User
@@ -254,11 +334,13 @@ Resources:
                   - !Sub "arn:aws:s3:::${StagingBucket}/*"
                   - !Sub "arn:aws:s3:::${ProductionBucket}/*"
                   - !Sub "arn:aws:s3:::${StorybookBucket}/*"
-                  - !Sub "arn:aws:s3:::${ElectronDownloadsBucket}/*"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsStagingBucket}/*"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsProductionBucket}/*"
                   - !Sub "arn:aws:s3:::${StagingBucket}"
                   - !Sub "arn:aws:s3:::${ProductionBucket}"
                   - !Sub "arn:aws:s3:::${StorybookBucket}"
-                  - !Sub "arn:aws:s3:::${ElectronDownloadsBucket}"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsStagingBucket}"
+                  - !Sub "arn:aws:s3:::${ElectronDownloadsProductionBucket}"
               - Effect: Allow
                 Action:
                   - cloudfront:CreateInvalidation
@@ -266,6 +348,8 @@ Resources:
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StagingDistribution}"
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${ProductionDistribution}"
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StorybookDistribution}"
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${ElectronDownloadsStagingDistribution}"
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${ElectronDownloadsProductionDistribution}"
 
   # access keys for GitHub actions
   GitHubActionsAccessKey:
@@ -319,11 +403,17 @@ Outputs:
     Export:
       Name: !Sub "${AWS::StackName}-StorybookBucket"
 
-  ElectronDownloadsBucketName:
-    Description: Name of the Electron downloads S3 bucket
-    Value: !Ref ElectronDownloadsBucket
+  ElectronDownloadsStagingBucketName:
+    Description: Name of the Electron downloads staging S3 bucket
+    Value: !Ref ElectronDownloadsStagingBucket
     Export:
-      Name: !Sub "${AWS::StackName}-ElectronDownloadsBucket"
+      Name: !Sub "${AWS::StackName}-ElectronDownloadsStagingBucket"
+
+  ElectronDownloadsProductionBucketName:
+    Description: Name of the Electron downloads production S3 bucket
+    Value: !Ref ElectronDownloadsProductionBucket
+    Export:
+      Name: !Sub "${AWS::StackName}-ElectronDownloadsProductionBucket"
 
   StagingWebsiteURL:
     Description: URL of the staging website
@@ -337,9 +427,13 @@ Outputs:
     Description: URL of the storybook website
     Value: !GetAtt StorybookBucket.WebsiteURL
 
-  ElectronDownloadsURL:
-    Description: URL of the Electron downloads bucket
-    Value: !Sub "https://${ElectronDownloadsBucket}.s3.${AWS::Region}.amazonaws.com"
+  ElectronDownloadsStagingURL:
+    Description: URL of the Electron downloads staging bucket
+    Value: !Sub "https://${ElectronDownloadsStagingBucket}.s3.${AWS::Region}.amazonaws.com"
+
+  ElectronDownloadsProductionURL:
+    Description: URL of the Electron downloads production bucket
+    Value: !Sub "https://${ElectronDownloadsProductionBucket}.s3.${AWS::Region}.amazonaws.com"
 
   StagingDistributionId:
     Description: CloudFront distribution ID for staging
@@ -359,6 +453,18 @@ Outputs:
     Export:
       Name: !Sub "${AWS::StackName}-StorybookDistributionId"
 
+  ElectronDownloadsStagingDistributionId:
+    Description: CloudFront distribution ID for electron downloads staging
+    Value: !Ref ElectronDownloadsStagingDistribution
+    Export:
+      Name: !Sub "${AWS::StackName}-ElectronDownloadsStagingDistributionId"
+
+  ElectronDownloadsProductionDistributionId:
+    Description: CloudFront distribution ID for electron downloads production
+    Value: !Ref ElectronDownloadsProductionDistribution
+    Export:
+      Name: !Sub "${AWS::StackName}-ElectronDownloadsProductionDistributionId"
+
   StagingDistributionDomainName:
     Description: CloudFront distribution domain name for staging
     Value: !GetAtt StagingDistribution.DomainName
@@ -370,6 +476,14 @@ Outputs:
   StorybookDistributionDomainName:
     Description: CloudFront distribution domain name for storybook
     Value: !GetAtt StorybookDistribution.DomainName
+
+  ElectronDownloadsStagingDistributionDomainName:
+    Description: CloudFront distribution domain name for electron downloads staging
+    Value: !GetAtt ElectronDownloadsStagingDistribution.DomainName
+
+  ElectronDownloadsProductionDistributionDomainName:
+    Description: CloudFront distribution domain name for electron downloads production
+    Value: !GetAtt ElectronDownloadsProductionDistribution.DomainName
 
   GitHubActionsAccessKeyId:
     Description: Access Key ID for GitHub Actions
