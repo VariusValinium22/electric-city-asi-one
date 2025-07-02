@@ -124,12 +124,32 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           TIMESTAMP=$(date +%Y%m%d-%H%M%S)
           
-          # Upload to versioned directory
-          aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/v$VERSION-$TIMESTAMP/ --exclude "*.blockmap" --exclude "*.yaml"
-          
-          # Also upload to 'latest' for direct download links
-          aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/latest/ --exclude "*.blockmap" --exclude "*.yaml"
-          
-          # Upload release info
-          echo "{\"version\":\"$VERSION\",\"timestamp\":\"$TIMESTAMP\",\"build\":\"$GITHUB_SHA\"}" > release-info.json
-          aws s3 cp release-info.json s3://${{ secrets.ELECTRON_DOWNLOADS_S3_BUCKET }}/latest/release-info.json
+          if [ "${{ github.event.inputs.environment }}" = "prod" ]; then
+            # Upload to production versioned directory
+            aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_PROD_S3_BUCKET }}/v$VERSION-$TIMESTAMP/ --exclude "*.blockmap" --exclude "*.yaml"
+            
+            # Also upload to production 'latest' for direct download links
+            aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_PROD_S3_BUCKET }}/latest/ --exclude "*.blockmap" --exclude "*.yaml"
+            
+            # Upload release info to production
+            echo "{\"version\":\"$VERSION\",\"timestamp\":\"$TIMESTAMP\",\"build\":\"$GITHUB_SHA\"}" > release-info.json
+            aws s3 cp release-info.json s3://${{ secrets.ELECTRON_DOWNLOADS_PROD_S3_BUCKET }}/latest/release-info.json
+          else
+            # Upload to staging versioned directory
+            aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_STAGING_S3_BUCKET }}/v$VERSION-$TIMESTAMP/ --exclude "*.blockmap" --exclude "*.yaml"
+            
+            # Also upload to staging 'latest' for direct download links
+            aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_STAGING_S3_BUCKET }}/latest/ --exclude "*.blockmap" --exclude "*.yaml"
+            
+            # Upload release info to staging
+            echo "{\"version\":\"$VERSION\",\"timestamp\":\"$TIMESTAMP\",\"build\":\"$GITHUB_SHA\"}" > release-info.json
+            aws s3 cp release-info.json s3://${{ secrets.ELECTRON_DOWNLOADS_STAGING_S3_BUCKET }}/latest/release-info.json
+          fi
+
+      - name: Invalidate Electron Downloads CloudFront (Production)
+        if: github.event.inputs.environment == 'prod'
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.ELECTRON_DOWNLOADS_PROD_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+      - name: Invalidate Electron Downloads CloudFront (Staging)
+        if: github.event.inputs.environment == 'staging' || github.event.inputs.environment == ''
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.ELECTRON_DOWNLOADS_STAGING_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
