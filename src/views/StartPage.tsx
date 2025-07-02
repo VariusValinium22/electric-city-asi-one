@@ -1,17 +1,32 @@
-import React from 'react';
-import { KioskLayout } from '../components/KioskLayout';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../store';
 
-export const StartPage: React.FC = () => {
+export const StartPage = observer(() => {
+  const { exampleStore } = useStore();
+
   return (
-    <KioskLayout>
-      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-8">
-        <h2 className="text-4xl font-bold text-center">
-          Electric City Aquarium
-        </h2>
-        <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center animate-pulse">
-          <span className="text-2xl">🦈</span>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-8">Welcome to Electric City</h1>
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <p className="text-xl mb-4">Counter: {exampleStore.count}</p>
+        <p className="text-lg mb-4">
+          Is Positive: {exampleStore.isPositive ? 'Yes' : 'No'}
+        </p>
+        <div className="flex gap-4">
+          <button
+            onClick={() => exampleStore.increment()}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Increment
+          </button>
+          <button
+            onClick={() => exampleStore.decrement()}
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            Decrement
+          </button>
         </div>
       </div>
-    </KioskLayout>
+    </div>
   );
-};
+});
