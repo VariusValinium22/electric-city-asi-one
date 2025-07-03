@@ -1,11 +1,15 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, afterEach } from 'vitest';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { ExampleButton } from './ExampleButton';
 
 describe('ExampleButton', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it('renders with the provided label', () => {
     render(<ExampleButton label="Test Button" />);
-    expect(screen.getByText('Test Button')).toBeInTheDocument();
+    expect(screen.getByText('Test Button')).toBeDefined();
   });
 
   it('calls onClick handler when clicked', () => {
@@ -31,7 +35,7 @@ describe('ExampleButton', () => {
   it('disables the button when disabled prop is true', () => {
     render(<ExampleButton label="Disabled Button" disabled />);
     const button = screen.getByTestId('example-button');
-    expect(button).toBeDisabled();
+    expect(button.hasAttribute('disabled')).toBe(true);
   });
 
   it('does not call onClick handler when disabled', () => {
