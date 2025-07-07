@@ -31,7 +31,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci --omit=optional
+        run: npm ci
 
       - name: Build application
         run: npm run build
@@ -73,7 +73,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci --omit=optional
+        run: npm ci
 
       - name: Build storybook
         run: npm run build-storybook
@@ -106,7 +106,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci --omit=optional
+        run: npm ci
 
       - name: Build Electron app
         run: npm run electron:dist

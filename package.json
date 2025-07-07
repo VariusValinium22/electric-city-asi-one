@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "main": "dist-electron/main.cjs",
+  "overrides": {
+    "dir-compare": "5.0.0"
+  },
   "scripts": {
     "prepare": "husky install",
     "dev": "vite",

@@ -1,13 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const { app, BrowserWindow, Menu, globalShortcut } = require('electron');
-const { join } = require('path');
-const isDev = require('electron-is-dev');
+const electron_1 = require("electron");
+const path_1 = require("path");
+const electron_is_dev_1 = __importDefault(require("electron-is-dev"));
 // Keep a global reference of the window object
 let mainWindow = null;
 function createWindow() {
     // Create the browser window optimized for kiosk/tablet use
-    mainWindow = new BrowserWindow({
+    mainWindow = new electron_1.BrowserWindow({
         width: 1024,
         height: 768,
         fullscreen: true, // Start in fullscreen for kiosk mode
@@ -18,7 +21,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: false, // Security: disable node integration
             contextIsolation: true, // Security: enable context isolation
-            preload: join(__dirname, 'preload.js'), // Load preload script
+            preload: (0, path_1.join)(__dirname, 'preload.js'), // Load preload script
             webSecurity: true, // Keep web security enabled
             allowRunningInsecureContent: false, // Security
             experimentalFeatures: false, // Disable experimental features
@@ -28,9 +31,9 @@ function createWindow() {
         backgroundColor: '#000000', // Black background while loading
     });
     // Load the app
-    const startUrl = isDev
+    const startUrl = electron_is_dev_1.default
         ? 'http://localhost:3000'
-        : `file://${join(__dirname, '../dist/index.html')}`;
+        : `file://${(0, path_1.join)(__dirname, '../dist/index.html')}`;
     mainWindow.loadURL(startUrl);
     // Show window when ready to prevent visual flash
     mainWindow.once('ready-to-show', () => {
@@ -39,7 +42,7 @@ function createWindow() {
             // Focus the window for kiosk mode
             mainWindow.focus();
             // Optional: Open DevTools in development
-            if (isDev) {
+            if (electron_is_dev_1.default) {
                 mainWindow.webContents.openDevTools();
             }
         }
@@ -61,45 +64,45 @@ function createWindow() {
     });
 }
 // App event handlers
-app.whenReady().then(() => {
+electron_1.app.whenReady().then(() => {
     // Hide menu bar completely
-    Menu.setApplicationMenu(null);
+    electron_1.Menu.setApplicationMenu(null);
     createWindow();
     // Disable keyboard shortcuts that could exit kiosk mode
-    globalShortcut.register('Alt+F4', () => {
+    electron_1.globalShortcut.register('Alt+F4', () => {
         return false; // Prevent Alt+F4
     });
-    globalShortcut.register('Ctrl+Shift+I', () => {
+    electron_1.globalShortcut.register('Ctrl+Shift+I', () => {
         return false; // Prevent DevTools shortcut in production
     });
     // Handle app activation (macOS)
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
+    electron_1.app.on('activate', () => {
+        if (electron_1.BrowserWindow.getAllWindows().length === 0) {
             createWindow();
         }
     });
 });
 // Quit when all windows are closed (except on macOS)
-app.on('window-all-closed', () => {
+electron_1.app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit();
+        electron_1.app.quit();
     }
 });
 // Security: Prevent new window creation
-app.on('web-contents-created', (_, contents) => {
+electron_1.app.on('web-contents-created', (_, contents) => {
     contents.setWindowOpenHandler(() => {
         return { action: 'deny' };
     });
 });
 // Clean up global shortcuts when app is quitting
-app.on('will-quit', () => {
-    globalShortcut.unregisterAll();
+electron_1.app.on('will-quit', () => {
+    electron_1.globalShortcut.unregisterAll();
 });
 // Handle certificate errors for offline operation
-app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
+electron_1.app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
     // For offline operation, we might need to handle local certificates
     // In production, implement proper certificate validation
-    if (isDev) {
+    if (electron_is_dev_1.default) {
         event.preventDefault();
         callback(true);
     }
