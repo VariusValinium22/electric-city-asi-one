@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from "mobx";
 
 export class ExampleStore {
   count = 0;
@@ -19,4 +19,4 @@ export class ExampleStore {
   get isPositive() {
     return this.count > 0;
   }
-} 
+}

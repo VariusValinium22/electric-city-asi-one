@@ -4,6 +4,9 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --biscay-950: #1b3567;
+  }
   html {
     font-family:
       "Rubik",
