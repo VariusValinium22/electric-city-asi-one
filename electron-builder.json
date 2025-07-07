@@ -42,8 +42,8 @@
   },
   "publish": {
     "provider": "s3",
-    "bucket": "your-electron-updates-bucket",
-    "region": "us-east-1",
+    "bucket": "electric-city-asi-electron-updates",
+    "region": "us-east-2",
     "path": "/releases"
   },
   "extraMetadata": {

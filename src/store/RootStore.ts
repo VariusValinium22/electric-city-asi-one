@@ -1,11 +1,11 @@
 import { makeAutoObservable } from 'mobx';
-import { ExampleStore } from './ExampleStore';
+import { MainStore } from './MainStore';
 
 export class RootStore {
-  exampleStore: ExampleStore;
+  mainStore: MainStore;
 
   constructor() {
-    this.exampleStore = new ExampleStore();
+    this.mainStore = new MainStore();
     makeAutoObservable(this);
   }
 }

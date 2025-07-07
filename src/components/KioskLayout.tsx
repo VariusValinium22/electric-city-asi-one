@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useOfflineStatus } from '../hooks/use-electron';
+import { useOfflineStatus } from '../hooks/useElectron';
 
 interface KioskLayoutProps {
   children: ReactNode;

@@ -30,9 +30,13 @@ npm run test
 
 ## Deployments
 
-- [Production](https://d2iglzmdn49e7r.cloudfront.net/)
+- [WebApp Staging](https://d2ar1l3x08s5gx.cloudfront.net/)
+- [Electron Staging](https://dr8igenkfpdcq.cloudfront.net/)
+
 - [Storybook](https://dd79xas6ef12x.cloudfront.net/)
-- [Staging](https://d2ar1l3x08s5gx.cloudfront.net/)
+
+- [WebApp Production](https://d2iglzmdn49e7r.cloudfront.net/)
+- [Electron Production](https://d2fhuq64y8upd7.cloudfront.net/)
 
 ## Contributing
 

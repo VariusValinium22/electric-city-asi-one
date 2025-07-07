@@ -276,13 +276,10 @@ Resources:
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
         Origins:
           - Id: !Sub "${ProjectName}-electron-downloads-staging-origin"
-            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsStagingBucket.WebsiteURL]]
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: http-only
+            DomainName: !GetAtt ElectronDownloadsStagingBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ""
         Enabled: true
-        DefaultRootObject: index.html
         PriceClass: PriceClass_100
 
   ElectronDownloadsProductionDistribution:
@@ -302,13 +299,10 @@ Resources:
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
         Origins:
           - Id: !Sub "${ProjectName}-electron-downloads-prod-origin"
-            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsProductionBucket.WebsiteURL]]
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: http-only
+            DomainName: !GetAtt ElectronDownloadsProductionBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ""
         Enabled: true
-        DefaultRootObject: index.html
         PriceClass: PriceClass_100
 
   # IAM user for GitHub actions

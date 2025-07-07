@@ -1,4 +1,4 @@
-// Store exports - can be used for state management in the future
+// Store exports
 
 export { StoreProvider } from './StoreProvider';
 export { useStore } from './useStore';

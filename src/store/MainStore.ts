@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-export class ExampleStore {
+export class MainStore {
   count = 0;
 
   constructor() {

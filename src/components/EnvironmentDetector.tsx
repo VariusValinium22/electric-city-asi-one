@@ -1,5 +1,5 @@
 import React from 'react';
-import { useElectron } from '../hooks/use-electron';
+import { useElectron } from '../hooks/useElectron';
 
 interface EnvironmentDetectorProps {
   children: React.ReactNode;

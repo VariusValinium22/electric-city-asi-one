@@ -46,7 +46,8 @@ fi
 # Extract values
 STAGING_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingBucketName") | .OutputValue')
 PROD_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionBucketName") | .OutputValue')
-ELECTRON_DOWNLOADS_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsBucketName") | .OutputValue')
+ELECTRON_DOWNLOADS_STAGING_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsStagingBucketName") | .OutputValue')
+ELECTRON_DOWNLOADS_PROD_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsProductionBucketName") | .OutputValue')
 
 STAGING_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingDistributionId") | .OutputValue')
 PROD_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionDistributionId") | .OutputValue')
@@ -54,14 +55,16 @@ PROD_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="Produc
 # Export environment variables
 export STAGING_S3_BUCKET="$STAGING_BUCKET"
 export PROD_S3_BUCKET="$PROD_BUCKET"
-export ELECTRON_DOWNLOADS_S3_BUCKET="$ELECTRON_DOWNLOADS_BUCKET"
+export ELECTRON_DOWNLOADS_STAGING_S3_BUCKET="$ELECTRON_DOWNLOADS_STAGING_BUCKET"
+export ELECTRON_DOWNLOADS_PROD_S3_BUCKET="$ELECTRON_DOWNLOADS_PROD_BUCKET"
 export STAGING_CLOUDFRONT_DISTRIBUTION_ID="$STAGING_DISTRIBUTION_ID"
 export PROD_CLOUDFRONT_DISTRIBUTION_ID="$PROD_DISTRIBUTION_ID"
 
 echo -e "${GREEN}Environment variables configured:${NC}"
 echo -e "${BLUE}  STAGING_S3_BUCKET=${NC}$STAGING_BUCKET"
 echo -e "${BLUE}  PROD_S3_BUCKET=${NC}$PROD_BUCKET"
-echo -e "${BLUE}  ELECTRON_DOWNLOADS_S3_BUCKET=${NC}$ELECTRON_DOWNLOADS_BUCKET"
+echo -e "${BLUE}  ELECTRON_DOWNLOADS_STAGING_S3_BUCKET=${NC}$ELECTRON_DOWNLOADS_STAGING_BUCKET"
+echo -e "${BLUE}  ELECTRON_DOWNLOADS_PROD_S3_BUCKET=${NC}$ELECTRON_DOWNLOADS_PROD_BUCKET"
 echo ""
 
 # Show deployment options

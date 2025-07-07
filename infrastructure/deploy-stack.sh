@@ -75,16 +75,23 @@ OUTPUTS=$(aws cloudformation describe-stacks \
 STAGING_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingBucketName") | .OutputValue')
 PROD_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionBucketName") | .OutputValue')
 STORYBOOK_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StorybookBucketName") | .OutputValue')
-ELECTRON_DOWNLOADS_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsBucketName") | .OutputValue')
+ELECTRON_DOWNLOADS_STAGING_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsStagingBucketName") | .OutputValue')
+ELECTRON_DOWNLOADS_PROD_BUCKET=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsProductionBucketName") | .OutputValue')
 
 STAGING_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingDistributionId") | .OutputValue')
 PROD_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionDistributionId") | .OutputValue')
 STORYBOOK_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StorybookDistributionId") | .OutputValue')
+ELECTRON_DOWNLOADS_STAGING_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsStagingDistributionId") | .OutputValue')
+ELECTRON_DOWNLOADS_PROD_DISTRIBUTION_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsProductionDistributionId") | .OutputValue')
 
 STAGING_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StagingDistributionDomainName") | .OutputValue')
 PROD_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ProductionDistributionDomainName") | .OutputValue')
 STORYBOOK_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="StorybookDistributionDomainName") | .OutputValue')
-ELECTRON_DOWNLOADS_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsURL") | .OutputValue')
+ELECTRON_DOWNLOADS_STAGING_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsStagingURL") | .OutputValue')
+ELECTRON_DOWNLOADS_PROD_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsProductionURL") | .OutputValue')
+
+ELECTRON_DOWNLOADS_STAGING_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsStagingDistributionDomainName") | .OutputValue')
+ELECTRON_DOWNLOADS_PROD_CLOUDFRONT_URL=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="ElectronDownloadsProductionDistributionDomainName") | .OutputValue')
 
 ACCESS_KEY_ID=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="GitHubActionsAccessKeyId") | .OutputValue')
 SECRET_ACCESS_KEY=$(echo "$OUTPUTS" | jq -r '.[] | select(.OutputKey=="GitHubActionsSecretAccessKey") | .OutputValue')
@@ -98,18 +105,26 @@ echo -e "${BLUE}S3 Buckets:${NC}"
 echo "  • Staging: $STAGING_BUCKET"
 echo "  • Production: $PROD_BUCKET"
 echo "  • Storybook: $STORYBOOK_BUCKET"
-echo "  • Electron Downloads: $ELECTRON_DOWNLOADS_BUCKET"
+echo "  • Electron Downloads Staging: $ELECTRON_DOWNLOADS_STAGING_BUCKET"
+echo "  • Electron Downloads Production: $ELECTRON_DOWNLOADS_PROD_BUCKET"
 echo ""
 echo -e "${BLUE}CloudFront Distributions:${NC}"
 echo "  • Staging: $STAGING_DISTRIBUTION_ID"
 echo "  • Production: $PROD_DISTRIBUTION_ID"
 echo "  • Storybook: $STORYBOOK_DISTRIBUTION_ID"
+echo "  • Electron Downloads Staging: $ELECTRON_DOWNLOADS_STAGING_DISTRIBUTION_ID"
+echo "  • Electron Downloads Production: $ELECTRON_DOWNLOADS_PROD_DISTRIBUTION_ID"
 echo ""
 echo -e "${BLUE}Website URLs:${NC}"
 echo "  • Staging: https://$STAGING_CLOUDFRONT_URL"
 echo "  • Production: https://$PROD_CLOUDFRONT_URL"
 echo "  • Storybook: https://$STORYBOOK_CLOUDFRONT_URL"
-echo "  • Electron Downloads: $ELECTRON_DOWNLOADS_URL"
+echo ""
+echo -e "${BLUE}Electron Downloads:${NC}"
+echo "  • Staging (S3 Direct): $ELECTRON_DOWNLOADS_STAGING_URL"
+echo "  • Staging (CloudFront): https://$ELECTRON_DOWNLOADS_STAGING_CLOUDFRONT_URL"
+echo "  • Production (S3 Direct): $ELECTRON_DOWNLOADS_PROD_URL"
+echo "  • Production (CloudFront): https://$ELECTRON_DOWNLOADS_PROD_CLOUDFRONT_URL"
 echo ""
 echo -e "${YELLOW}GitHub Secrets Configuration:${NC}"
 echo "Add these secrets to your GitHub repository environments:"
@@ -119,14 +134,16 @@ echo "  STAGING_S3_BUCKET: $STAGING_BUCKET"
 echo "  STAGING_CLOUDFRONT_DISTRIBUTION_ID: $STAGING_DISTRIBUTION_ID"
 echo "  STORYBOOK_S3_BUCKET: $STORYBOOK_BUCKET"
 echo "  STORYBOOK_CLOUDFRONT_DISTRIBUTION_ID: $STORYBOOK_DISTRIBUTION_ID"
-echo "  ELECTRON_DOWNLOADS_S3_BUCKET: $ELECTRON_DOWNLOADS_BUCKET"
+echo "  ELECTRON_DOWNLOADS_STAGING_S3_BUCKET: $ELECTRON_DOWNLOADS_STAGING_BUCKET"
+echo "  ELECTRON_DOWNLOADS_STAGING_CLOUDFRONT_DISTRIBUTION_ID: $ELECTRON_DOWNLOADS_STAGING_DISTRIBUTION_ID"
 echo "  AWS_ACCESS_KEY_ID: $ACCESS_KEY_ID"
 echo "  AWS_SECRET_ACCESS_KEY: $SECRET_ACCESS_KEY"
 echo ""
 echo -e "${BLUE}Production Environment:${NC}"
 echo "  PROD_S3_BUCKET: $PROD_BUCKET"
 echo "  PROD_CLOUDFRONT_DISTRIBUTION_ID: $PROD_DISTRIBUTION_ID"
-echo "  ELECTRON_DOWNLOADS_S3_BUCKET: $ELECTRON_DOWNLOADS_BUCKET"
+echo "  ELECTRON_DOWNLOADS_PROD_S3_BUCKET: $ELECTRON_DOWNLOADS_PROD_BUCKET"
+echo "  ELECTRON_DOWNLOADS_PROD_CLOUDFRONT_DISTRIBUTION_ID: $ELECTRON_DOWNLOADS_PROD_DISTRIBUTION_ID"
 echo "  AWS_ACCESS_KEY_ID: $ACCESS_KEY_ID"
 echo "  AWS_SECRET_ACCESS_KEY: $SECRET_ACCESS_KEY"
 echo ""
