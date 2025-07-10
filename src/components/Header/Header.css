@@ -1,0 +1,25 @@
+.header {
+    background-color: transparent;
+    text-align: center;
+    padding-top: 52px;
+    line-height: 100%;
+    font-weight: 400;
+}
+
+.header__legend{
+    /* font-family: "Inter"; */
+    font-family: inherit;
+    font-size: 32px;
+    letter-spacing: 0%;
+    color: #F3F3F199;
+    padding-top: 0;
+}
+
+.header__title{
+    /* font-family: "Lilita One"; */
+    font-family: inherit;
+    font-size: 120px;
+    letter-spacing: -2%;
+    color: #F3F3F1;
+    padding-top: 39px;
+}
