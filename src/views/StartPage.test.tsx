@@ -1,19 +1,39 @@
 import { render, screen } from "@testing-library/react";
 import { StartPage } from "./StartPage";
+import { StoreProvider } from "../store";
 import { expect, describe, it } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 
 describe("StartPage", () => {
   it("renders without crashing", () => {
-    render(<StartPage />);
+    render(
+      <MemoryRouter>
+        <StoreProvider>
+          <StartPage />
+        </StoreProvider>
+      </MemoryRouter>
+    );
   });
 
   it("displays welcome header", () => {
-    render(<StartPage />);
+    render(
+      <MemoryRouter>
+        <StoreProvider>
+          <StartPage />
+        </StoreProvider>
+      </MemoryRouter>
+    );
     expect(screen.getByText(/Welcome to Electric City/i)).toBeInTheDocument();
   });
 
   it("has the right background color", () => {
-    const { container } = render(<StartPage />);
+    const { container } = render(
+      <MemoryRouter>
+        <StoreProvider>
+          <StartPage />
+        </StoreProvider>
+      </MemoryRouter>
+    );
     expect(container.firstChild).toHaveClass("start-view-page-container");
   });
 });
