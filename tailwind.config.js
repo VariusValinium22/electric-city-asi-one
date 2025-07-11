@@ -39,6 +39,7 @@ export default {
       },
       fontFamily: {
         text: ["Rubik", "Arial", "sans"],
+        lilita: ['"Lilita One"', 'cursive'],
       },
       maxWidth: {
         pageContent: "370px",
