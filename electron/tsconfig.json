@@ -17,13 +17,6 @@
     "moduleResolution": "node",
     "types": ["node", "electron"]
   },
-  "include": [
-    "*.ts",
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "../dist",
-    "../dist-electron"
-  ]
-} 
+  "include": ["*.ts", "**/*.ts"],
+  "exclude": ["node_modules", "../dist", "../dist-electron"]
+}

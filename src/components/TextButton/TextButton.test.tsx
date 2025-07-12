@@ -2,7 +2,8 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { TextButton } from "./TextButton";
 
-describe("ExampleButton", () => {
+describe("TextButton", () => {
+
   it("renders with the provided label", () => {
     render(<TextButton label="Test Button" id="test-button" />);
     expect(screen.getByText("Test Button")).toBeInTheDocument();
@@ -15,4 +16,4 @@ describe("ExampleButton", () => {
     fireEvent.click(screen.getByTestId("text-button"));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
-});
+  });
