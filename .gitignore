@@ -28,3 +28,7 @@ dist-ssr
 
 .env
 release
+
+# Test and coverage reports
+coverage/
+test-results/

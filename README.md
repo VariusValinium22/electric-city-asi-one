@@ -26,7 +26,33 @@ Running tests:
 
 ```
 npm run test
+
+# Run tests in watch mode (for development)
+npm run test:watch
+
+# Run tests with verbose output
+npm run test:full
+
+# Generate and view coverage report
+npm run coverage
+npm run coverage:open  # Also opens coverage report in browser
+
+# Generate and view test results
+npm run test:results   # Generates and opens test results in browser
+
+# Run everything - tests with coverage and detailed reports
+npm run test:all
 ```
+
+### Generated Reports
+
+After running tests with coverage or detailed reporting, you'll find:
+
+- **Coverage Report**: `coverage/index.html` - Interactive HTML coverage report
+- **Test Results**: `test-results/index.html` - Detailed test results and statistics
+- **JSON Reports**: Available for CI/CD integration in `coverage/` and `test-results/` directories
+
+The coverage report shows line, function, branch, and statement coverage with a target threshold of 80% for each metric.
 
 ## Deployments
 
