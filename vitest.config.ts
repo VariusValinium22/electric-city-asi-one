@@ -1,13 +1,14 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   test: {
-    environment: 'jsdom',
+    /* testTimeout: 5000, */
+    environment: "jsdom",
     globals: true,
-    setupFiles: ['./setup-tests.js'],
+    setupFiles: ["./setup-tests.js"],
     deps: {
-      inline: ['jsdom'],
+      inline: ["jsdom"],
     },
     coverage: {
       provider: 'v8',
@@ -46,4 +47,4 @@ export default defineConfig({
       html: './test-results/index.html',
     },
   },
-}); 
+});

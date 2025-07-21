@@ -1,5 +1,5 @@
-import { makeAutoObservable } from 'mobx';
-import { MainStore } from './MainStore';
+import { makeAutoObservable } from "mobx";
+import { MainStore } from "./MainStore";
 
 export class RootStore {
   mainStore: MainStore;
@@ -11,4 +11,4 @@ export class RootStore {
 }
 
 // Create a single instance of the store
-export const rootStore = new RootStore(); 
+export const rootStore = new RootStore();

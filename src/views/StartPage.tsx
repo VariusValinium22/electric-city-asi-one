@@ -27,16 +27,16 @@ export const StartPage = observer(() => {
   }
 
   return (
-      <div className="start-view-page-container relative flex flex-col items-center justify-center min-h-screen overflow-hidden z-9">
-        <VideoBackground />
-        <SharkTitle />
-        <LogoCircle />
-        <div className="sr-only">
-          <h1>Welcome to Electric City</h1>
-          <TextButton  label="A" id="a-button" onClick={onButtonAClick} />
-          <TextButton label="B" id="b-button" onClick={onButtonBClick} />
-        </div>
-        <SharkCounter />
+    <div className="start-view-page-container relative flex flex-col items-center justify-center min-h-screen overflow-hidden z-9">
+      <VideoBackground />
+      <SharkTitle />
+      <LogoCircle />
+      <div className="sr-only">
+        <h1>Welcome to Electric City</h1>
+        <TextButton label="A" id="a-button" onClick={onButtonAClick} />
+        <TextButton label="B" id="b-button" onClick={onButtonBClick} />
       </div>
+      <SharkCounter />
+    </div>
   );
 });

@@ -16,6 +16,10 @@
       "Rubik",
       system-ui sans-serif;
   }
+  
+  :root {
+    --color-blue: #64affa, --color-black: #121212;
+  }
 }
 
 .font-lilita {
