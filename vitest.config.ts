@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   test: {
-    /* testTimeout: 5000, */
     environment: "jsdom",
     globals: true,
     setupFiles: ["./setup-tests.js"],
