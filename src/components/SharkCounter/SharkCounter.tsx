@@ -30,7 +30,7 @@ const SharkCounter: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center gap-4 z-10">
-      <p className="h-[67px] w-fit px-4 text-[40px] leading-[40px] font-bold bg-white rounded-lg flex items-center justify-center">
+      <p className="h-[67px] w-fit px-4 text-[40px] leading-[40px] font-bold text-black bg-white rounded-lg flex items-center justify-center">
         {sharkCount}
       </p>
       <p className="text-white text-[40px] leading-[40px] font-medium whitespace-nowrap">

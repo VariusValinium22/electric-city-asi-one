@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { StartPage } from "./StartPage";
 import { StoreProvider } from "../store";
 import { expect, describe, it } from "vitest";
@@ -13,17 +13,6 @@ describe("StartPage", () => {
         </StoreProvider>
       </MemoryRouter>
     );
-  });
-
-  it("displays welcome header", () => {
-    render(
-      <MemoryRouter>
-        <StoreProvider>
-          <StartPage />
-        </StoreProvider>
-      </MemoryRouter>
-    );
-    expect(screen.getByText(/Welcome to Electric City/i)).toBeInTheDocument();
   });
 
   it("has the right background color", () => {

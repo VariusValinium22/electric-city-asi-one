@@ -8,7 +8,7 @@ interface KioskLayoutProps {
 
 export const KioskLayout: React.FC<KioskLayoutProps> = ({ 
   children, 
-  title = "Electric City ASI" 
+  title = "" 
 }) => {
   const { isOffline, isElectron } = useOfflineStatus();
 
@@ -39,7 +39,7 @@ export const KioskLayout: React.FC<KioskLayoutProps> = ({
 
       {/* Footer */}
       <div className="bg-black bg-opacity-20 px-4 py-2 text-center text-sm">
-        <p>Sharks Interactive</p>
+        <p>Electric City Aquarium</p>
       </div>
     </div>
   );
