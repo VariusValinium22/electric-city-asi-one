@@ -1,0 +1,40 @@
+name: Validate package-lock.json
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - '*'
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Verify package-lock.json is up to date
+        run: |
+          # check if package-lock.json has been modified by this script
+          cp package-lock.json package-lock.json.original
+          npm install --package-lock-only
+          
+          if ! cmp -s package-lock.json package-lock.json.original; then
+            echo "::error::package-lock.json is not in sync with package.json. Please run 'npm install --package-lock-only' and commit the changes."
+            echo "Diff:"
+            diff -u package-lock.json.original package-lock.json || true
+            exit 1
+          fi
+          
+          echo "package-lock.json is in sync with package.json" 

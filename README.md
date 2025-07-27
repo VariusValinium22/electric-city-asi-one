@@ -8,15 +8,57 @@ Cloning the repository:
 git clone git@github.com:tripleten-externships/electric-city-asi-one.git
 ```
 
+### Prerequisites
+
+This project requires:
+- Node.js version between 18.0.0 and 25.0.0 (recommended: 24.4.1)
+- npm version 9.0.0 or newer
+
+> **TIP:** Use [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm) to easily switch between Node.js versions.
+> After installing nvm, run: `nvm install 24.4.1` and then `nvm use 24.4.1`
+
+### Installation
+
 !!!IMPORTANT Make sure to install dependencies before making any code changes. This repository utilizes git-hooks which must be installed using npm before they will function.
 
-Install:
+#### Recommended Installation (Cross-Platform Compatible)
+
+For the most consistent installation experience across all platforms (Windows, macOS, Linux):
+
+```
+npm run setup
+```
+
+This command will check your Node.js version and ensure a clean installation of dependencies.
+
+#### Alternative Installation Methods
+
+Standard npm installation (may produce different results on different platforms):
 
 ```
 npm install
 ```
 
-Running the application:
+Or for a clean installation that strictly follows package-lock.json:
+
+```
+npm ci
+```
+
+### Troubleshooting Installation Issues
+
+If you encounter issues with dependency installation:
+
+1. Make sure you're using the correct Node.js version: `node -v` should return a version between 18.x and 24.x
+2. Try the clean setup process:
+   ```
+   rm -rf node_modules
+   rm package-lock.json  # Only if instructed by a teacher
+   npm run setup
+   ```
+3. For Windows users with OpenSSL issues: `set NODE_OPTIONS=--openssl-legacy-provider` before running npm commands
+
+### Running the application:
 
 ```
 npm run dev
