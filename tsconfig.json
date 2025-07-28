@@ -14,7 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "declaration": false,
+    "declarationMap": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

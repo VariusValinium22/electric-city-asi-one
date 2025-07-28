@@ -18,14 +18,31 @@ try {
   // read the commit message directly from the file
   const commitMsg = fs.readFileSync(msgFile, 'utf-8').trim();
   
-  // Format: <type>(<scope>): <subject>
-  const pattern = /^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|temp)(\([a-zA-Z0-9_\-]+\))?: .+/;
+  // Git commit messages can have comments starting with #, so we need to get only the first line
+  // and ignore any lines that start with #
+  const lines = commitMsg.split('\n');
+  const firstLine = lines[0].trim();
   
-  if (!pattern.test(commitMsg)) {
+  // If the first line is empty or starts with #, the commit message is invalid
+  if (!firstLine || firstLine.startsWith('#')) {
     console.error('\n************* Invalid Git Commit Message **************');
-    console.error(`commit message: ${commitMsg}`);
-    console.error('correct format: <type>(<scope>): <subject>');
-    console.error('example: docs(ECASI-1): update README\n');
+    console.error('Commit message cannot be empty or start with #');
+    process.exit(1);
+  }
+  
+  // Format 1: <type>(<scope>): <subject>
+  const conventionalPattern = /^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|temp)(\([a-zA-Z0-9_\-]+\))?: .+/;
+  // Format 2: Merge branch <branch> into <branch> (with optional quotes and special characters)
+  const mergePattern = /^Merge branch ['"]?[^'"]+['"]? into ['"]?[^'"]+['"]?$/;
+  
+  if (!conventionalPattern.test(firstLine) && !mergePattern.test(firstLine)) {
+    console.error('\n************* Invalid Git Commit Message **************');
+    console.error(`commit message: ${firstLine}`);
+    console.error('Allowed formats:');
+    console.error('1. <type>(<scope>): <subject>');
+    console.error('   example: docs(ECASI-1): update README\n');
+    console.error('2. Merge branch <branch> into <branch>');
+    console.error('   example: Merge branch \'feature/xyz\' into \'main\'\n');
     console.error('type:');
     console.error('  feat     A new feature.');
     console.error('  fix      A bug fix.');

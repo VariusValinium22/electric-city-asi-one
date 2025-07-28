@@ -7,10 +7,18 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true, // allow external connections
+    open: true, // open browser automatically
   },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    sourcemap: true, // enable source maps for debugging
   },
   base: './', // use relative paths for Electron
+  define: {
+    __DEV__: true,
+  },
+  esbuild: {
+    sourcemap: true,
+  },
 }); 
