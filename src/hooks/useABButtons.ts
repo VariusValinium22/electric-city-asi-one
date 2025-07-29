@@ -20,7 +20,7 @@ class Timer {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   start(fn: (...args: any[]) => void, duration: number, ...args: any[]): void {
     this.stop();
-    this._id = setTimeout(fn, duration, args);
+    this._id = setTimeout(fn, duration, ...args);
   }
 }
 
@@ -62,6 +62,10 @@ export const useABButtons = () => {
     startPromptTimer(setPromptState, timerRef.current);
   }
 
+  function resetInactivity() {
+    startPromptTimer(setPromptState, timerRef.current);
+  }
+
   // Stop the timer when component unmounts
   useEffect(() => {
     const timer = timerRef.current;
@@ -71,8 +75,14 @@ export const useABButtons = () => {
     };
   }, []);
 
+  // Start the inactivity timer automatically when component mounts
+useEffect(() => {
+  startPromptTimer(setPromptState, timerRef.current);
+}, []);
+
   return {
     clickButton,
+    resetInactivity,
     buttonLinks,
     promptState,
   };

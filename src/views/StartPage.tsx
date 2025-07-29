@@ -10,12 +10,13 @@ import "./StartPage.css";
 import SharkCounter from "../components/SharkCounter/SharkCounter";
 import VideoBackground from "../components/VideoBackground/VideoBackground";
 import SharkTitle from "../components/SharkTitle/SharkTitle";
-import LogoCircle from "../components/LogoCircle/LogoCircle";
+import LogoCircle from "../components/LogoCircle/LogoCircle"; 
+import InactivityManager from "../components/InactivityManager/InactivityManager";
 
 export const StartPage = observer(() => {
   // const { mainStore } = useStore();
 
-  const { clickButton, buttonLinks } = useABButtons();
+  const { clickButton, buttonLinks, promptState, resetInactivity } = useABButtons();
 
   function onButtonAClick() {
     buttonLinks.a = "/";
@@ -31,6 +32,7 @@ export const StartPage = observer(() => {
         <TextButton label="A" id="a-button" onClick={onButtonAClick} />
       </div>
       <SharkCounter />
+      <InactivityManager promptState={promptState} clickButton={clickButton} resetInactivity={resetInactivity} />
     </div>
   );
 });
