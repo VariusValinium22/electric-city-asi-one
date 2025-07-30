@@ -29,13 +29,30 @@ const SharkCounter: React.FC = () => {
   }, [userTickTotal]);
 
   return (
-    <div className="flex items-center justify-center gap-4 z-10">
-      <p className="h-[67px] w-fit px-4 text-[40px] leading-[40px] font-bold text-black bg-white rounded-lg flex items-center justify-center">
-        {sharkCount}
-      </p>
-      <p className="text-white text-[40px] leading-[40px] font-medium whitespace-nowrap">
-        {sharkCount === 1 ? "Shark already made" : "Sharks already made"}
-      </p>
+    <div className="flex justify-center absolute bottom-12 w-full">
+      <div
+        className="flex items-center justify-center 
+                 gap-4 z-10"
+      >
+        <p
+          className="flex items-center justify-center
+                    font-lilita font-normal bg-white text-[#1B1C38] rounded-lg w-fit
+                    h-[clamp(42px,5.5vw,67px)] 
+                    text-[clamp(26px,3.5vw,52px)]
+                    leading-[clamp(28px,4.2vw,52px)]
+                    px-[clamp(.2px,4vw,14px)]"
+        >
+          {sharkCount}
+        </p>
+        <p
+          className="text-[#FFFFFF]  
+                      font-inter font-medium whitespace-nowrap
+                      text-[clamp(16px,3.5vw,40px)]
+                      leading-[clamp(28px,4.2vw,52px)]"
+        >
+          {sharkCount === 1 ? "Shark already made" : "Sharks already made"}
+        </p>
+      </div>
     </div>
   );
 };

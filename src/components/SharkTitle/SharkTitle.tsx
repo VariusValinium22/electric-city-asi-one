@@ -9,8 +9,8 @@ const SharkTitle = () => (
                  whitespace-nowrap max-w-[95vw] px-2
                  will-change-transform
                  2xl:text-[180px] 2xl:w-[1167px] 2xl:h-[229px]"
-      style={{ 
-        WebkitTextStroke: 'clamp(15px, 3vw, 45px) white'
+      style={{
+        WebkitTextStroke: "clamp(15px, 3vw, 45px) white",
       }}
     >
       Make a Shark!
