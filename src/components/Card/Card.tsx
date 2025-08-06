@@ -46,7 +46,7 @@
 //       // - sizeClasses[size] for dynamic sizing
 //       // - disabled styles if needed
 //       // - allow parent to inject custom styles with className
-//       className={`card-container ${sizeClasses[size]} font-lilita rounded-[32px] border-none shadow-md p-4 bg-white hover:shadow-lg transition-all cursor-pointer bg-[var(--aqua-green)] ${
+//       className={`card-container ${sizeClasses[size]} font-lilita rounded-[32px] border-none shadow-md p-4 bg-white hover:shadow-lg transition-all cursor-pointer bg-(var(--color-shamrock)) ${
 //         disabled ? "opacity-50 pointer-events-none" : "opacity-100"
 //       } ${className}`}
 //       onClick={handleClick}
@@ -81,8 +81,6 @@
 
 
 import React from "react";
-import "../../global/default.css";
-import "./Card.css";
 
 // Define props Card can accept
 export interface CardProps {
@@ -121,7 +119,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       className={`
-        card-container
+        bg-(--color-shamrock)
         font-lilita
         rounded-[32px]
         border-none
@@ -131,7 +129,6 @@ const Card: React.FC<CardProps> = ({
         hover:shadow-lg
         transition-all
         cursor-pointer
-        bg-[var(--aqua-green)]
         ${sizeClasses[size]}
         ${disabled ? "opacity-50 pointer-events-none" : "opacity-100"}
         relative flex flex-col justify-start

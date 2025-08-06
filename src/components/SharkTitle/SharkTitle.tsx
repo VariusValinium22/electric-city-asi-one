@@ -1,4 +1,4 @@
-const SharkTitle = () => (
+const SharkTitle = ({ title }: { title: string }) => (
   <>
     {/* White Outline */}
     <h2
@@ -13,7 +13,7 @@ const SharkTitle = () => (
         WebkitTextStroke: "clamp(15px, 3vw, 45px) white",
       }}
     >
-      Make a Shark!
+      {title}
     </h2>
 
     {/* Blue Fill */}
@@ -26,7 +26,7 @@ const SharkTitle = () => (
                  will-change-transform
                  2xl:text-[180px] 2xl:w-[1167px] 2xl:h-[229px]"
     >
-      Make a Shark!
+      {title}
     </h2>
   </>
 );
