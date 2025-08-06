@@ -43,4 +43,5 @@ describe("InactivityManager", () => {
     );
     expect(mockResetInactivity).toHaveBeenCalledTimes(1);
   });
-});
+  }); 
+

@@ -1,44 +1,55 @@
-import React, { useEffect, useState } from "react";
+// Final code — remove conflict markers
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import InactivityModal from "../InactivityModal/InactivityModal";
 
 const COUNTDOWN_START = 30;
 
 interface InactivityManagerProps {
-    promptState: number;
-    clickButton: (button: "a" | "b") => void;
-    resetInactivity: () => void;
+  promptState: number;
+  clickButton: (button: "a" | "b") => void;
+  resetInactivity: () => void;
 }
 
-const InactivityManager: React.FC<InactivityManagerProps> = ({ promptState, clickButton, resetInactivity }) => {
+const InactivityManager: React.FC<InactivityManagerProps> = ({
+  promptState,
+  clickButton,
+  resetInactivity,
+}) => {
   const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_START);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
-
-  // Pages where inactivity timer should be active
-  const inactivityEnabled = location.pathname !== "/";
-
   const navigate = useNavigate();
 
-  // Handle countdown when modal is visible
+  const inactivityEnabled = location.pathname !== "/";
+
   useEffect(() => {
     if (!inactivityEnabled) return;
 
-    let interval: NodeJS.Timeout | null = null;
-
     if (promptState === 1) {
-      // Modal Active
       setSecondsLeft(COUNTDOWN_START);
-      interval = setInterval(() => {
+      intervalRef.current = setInterval(() => {
         setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
     }
 
     return () => {
-      if (interval) clearInterval(interval);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
     };
   }, [promptState, inactivityEnabled]);
 
-  // Handle when timeout occurs
+  useEffect(() => {
+    if (!inactivityEnabled || promptState === 1) return;
+
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, [promptState, inactivityEnabled]);
+
   useEffect(() => {
     if (!inactivityEnabled) return;
 

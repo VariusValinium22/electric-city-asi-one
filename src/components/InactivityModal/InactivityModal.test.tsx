@@ -19,4 +19,8 @@ describe("InactivityModal", () => {
     const { container } = render(<InactivityModal isVisible={false} secondsLeft={25} onContinue={() => {}} />);
     expect(container.firstChild).toBeNull();
   });
+
 });
+
+
+

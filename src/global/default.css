@@ -13,13 +13,7 @@
     --color-black: #121212;
   }
   html {
-    font-family:
-      "Rubik",
-      system-ui sans-serif;
-  }
-
-  :root {
-    --color-blue: #64affa, --color-black: #121212;
+    font-family: "Rubik", system-ui, sans-serif;
   }
 }
 
@@ -28,5 +22,5 @@
 }
 
 .font-inter {
-  font-family: "Inter", cursive !important;
+  font-family: "Inter", sans-serif !important;
 }
