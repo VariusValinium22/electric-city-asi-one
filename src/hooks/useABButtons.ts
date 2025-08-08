@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { getSecounds, getMinutes } from "../utils/timeConversion";
+import { getSecounds } from "../utils/timeConversion";
 
 // Note: Might be better to put this Timer class into util.
 type timerID = NodeJS.Timeout | undefined;
@@ -35,32 +34,20 @@ type setPromptState = React.Dispatch<React.SetStateAction<PromptState>>;
 
 function startTimeoutTimer(setPromptState: setPromptState, timer: Timer) {
   setPromptState(PromptState.Active);
-  timer.start(setPromptState, getSecounds(30), PromptState.TimedOut);
+  timer.start(() => {
+    setPromptState(PromptState.TimedOut);
+  }, getSecounds(30));
 }
 
 function startPromptTimer(setPromptState: setPromptState, timer: Timer) {
   setPromptState(PromptState.Inactive);
-  timer.start(startTimeoutTimer, getMinutes(2), setPromptState, timer);
+  timer.start(startTimeoutTimer, getSecounds(90), setPromptState, timer); // 1.5 minutes = 90 seconds
 }
-
-// AB button hooks
-type buttons = "a" | "b";
 
 export const useABButtons = () => {
   const [promptState, setPromptState] = useState(PromptState.Inactive);
 
-  const buttonLinks = {
-    a: "",
-    b: "",
-  };
-
   const timerRef = useRef(new Timer());
-  const navigate = useNavigate();
-
-  function clickButton(button: buttons) {
-    navigate(buttonLinks[button]);
-    startPromptTimer(setPromptState, timerRef.current);
-  }
 
   function resetInactivity() {
     startPromptTimer(setPromptState, timerRef.current);
@@ -76,14 +63,12 @@ export const useABButtons = () => {
   }, []);
 
   // Start the inactivity timer automatically when component mounts
-useEffect(() => {
-  startPromptTimer(setPromptState, timerRef.current);
-}, []);
+  useEffect(() => {
+    startPromptTimer(setPromptState, timerRef.current);
+  }, []);
 
   return {
-    clickButton,
     resetInactivity,
-    buttonLinks,
     promptState,
   };
 };

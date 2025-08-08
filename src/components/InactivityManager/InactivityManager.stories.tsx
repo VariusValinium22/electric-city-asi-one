@@ -14,7 +14,6 @@ const meta: Meta<typeof InactivityManager> = {
   ],
   args: {
     promptState: 1,
-    clickButton: () => alert("Continue pressed"),
     resetInactivity: () => alert("Reset inactivity called"),
   },
 };
