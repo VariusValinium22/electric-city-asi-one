@@ -5,6 +5,7 @@ import { SharkSpecies } from "../data/sharkData";
 
 export class MainStore {
   count = 0;
+  stepCount = 0;
   currentNodeId: string = "start";
   gameStage: GameStage = GameStage.START;
   playerChoices: Record<string, string> = {}; // tracks choices made by player
@@ -35,6 +36,18 @@ export class MainStore {
     return this.count;
   }
 
+  incrementStepCount() {
+    this.stepCount++;
+  }
+
+  resetStepCount() {
+    this.stepCount = 0
+  }
+  
+  get getCurrentStepCount(): number {
+    return this.stepCount;
+  }
+
   // game logic methods
   getCurrentNode(): GameNode {
     const node = gameDataManager.getNode(this.currentNodeId);
@@ -51,6 +64,7 @@ export class MainStore {
     if (this.gameStage === GameStage.START) {
       this.currentNodeId = currentNode.optionA.nextId;
       this.gameStage = GameStage.CHOICE;
+      this.incrementStepCount();
       return;
     }
 
@@ -68,7 +82,8 @@ export class MainStore {
 
     if (this.gameStage === GameStage.OUTCOME) {
       const currentOutcome = this.getCurrentNode() as Outcome;
-
+      this.incrementStepCount();
+      
       // handle restart button (B) - return to start without incrementing
       if (option === "b") {
         this.resetGame();
@@ -82,6 +97,8 @@ export class MainStore {
           this.hasCompletedGame = true;
           // shark creation completed - increment the counter
           this.increment(); // increment shark count on completion
+          // reset step count
+          this.resetStepCount();
         }
 
         this.resetGame();

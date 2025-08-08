@@ -13,6 +13,7 @@ export class GameDataManager {
   private static instance: GameDataManager;
   private gameData: Record<string, GameNode>;
   private sharkCount: number = 0;
+  private stepCount: number = 1;
 
   // a constructor is a special method that is called when an object is created
   // it is used to initialize the object

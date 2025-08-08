@@ -1,33 +1,23 @@
+type Option = {
+  text: string;
+  nextId: string;
+  image?: string;
+  cardHeader?: string;
+  leftIcon?: string;
+  rightIcons?: string[];
+  headerSize?: string;
+  iconSizes?: {
+    left?: string;
+    right?: string[];
+  };
+};
+
 export type Choice = {
   id: string;
   title: string;
   description: string;
-  optionA: {
-    text: string;
-    nextId: string;
-    image?: string;
-    cardHeader?: string;
-    leftIcon?: string;
-    rightIcons?: string[];
-    headerSize?: string;
-    iconSizes?: {
-      left?: string;
-      right?: string[];
-    };
-  };
-  optionB: {
-    text: string;
-    nextId: string;
-    image?: string;
-    cardHeader?: string;
-    leftIcon?: string;
-    rightIcons?: string[];
-    headerSize?: string;
-    iconSizes?: {
-      left?: string;
-      right?: string[];
-    };
-  };
+  optionA: Option;
+  optionB: Option;
   type: "choice";
   leftIcon?: string;
   rightIcons?: string[];

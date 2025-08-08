@@ -75,7 +75,7 @@ export class GameDataGenerator {
     this.gameData["small-shark-outcome"] = {
       id: "small-shark-outcome",
       title: "Small Shark",
-      description: "",
+      description: "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
       image: "/SharkIcon.svg",
       nextId: "habitat-choice-small",
       type: "outcome",
@@ -84,7 +84,7 @@ export class GameDataGenerator {
     this.gameData["large-shark-outcome"] = {
       id: "large-shark-outcome",
       title: "Large Shark",
-      description: "",
+      description: "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water.",
       image: "/SharkIcon.svg",
       nextId: "habitat-choice-large",
       type: "outcome",
@@ -141,7 +141,7 @@ export class GameDataGenerator {
     this.gameData["bottom-dwelling-small-outcome"] = {
       id: "bottom-dwelling-small-outcome",
       title: "Bottom Dwelling",
-      description: "",
+      description: "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-small-bottom",
       type: "outcome",
@@ -150,7 +150,7 @@ export class GameDataGenerator {
     this.gameData["open-water-small-outcome"] = {
       id: "open-water-small-outcome",
       title: "Open Water",
-      description: "",
+      description: "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-small-open",
       type: "outcome",
@@ -159,7 +159,7 @@ export class GameDataGenerator {
     this.gameData["bottom-dwelling-large-outcome"] = {
       id: "bottom-dwelling-large-outcome",
       title: "Bottom Dwelling",
-      description: "",
+      description: "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-large-bottom",
       type: "outcome",
@@ -168,7 +168,7 @@ export class GameDataGenerator {
     this.gameData["open-water-large-outcome"] = {
       id: "open-water-large-outcome",
       title: "Open Water",
-      description: "",
+      description: "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-large-open",
       type: "outcome",
@@ -207,7 +207,7 @@ export class GameDataGenerator {
       this.gameData[`warm-water-${id}-outcome`] = {
         id: `warm-water-${id}-outcome`,
         title: "Warm Water",
-        description: "",
+        description: "Some sharks spend the majority of their lives in warm waters in tropical and sub-tropical climates. Warmer waters typically have larger fish populations that sharks can feed on. These sharks balance reef ecosystems by feeding on sick or unhealthy fish.",
         image: "/WaterTemp_Warm.png",
         nextId: `skin-choice-warm-${id}`,
         type: "outcome",
@@ -217,7 +217,7 @@ export class GameDataGenerator {
       this.gameData[`cold-water-${id}-outcome`] = {
         id: `cold-water-${id}-outcome`,
         title: "Cold Water",
-        description: "",
+        description: "Some sharks inhabit the freezing waters of the arctic and sub-arctic. To survive in these frigid waters many of these sharks species have special adaptations such as higher body temperature, specially evolved blood, and higher metabolic rates.",
         image: "/WaterTemp_Cold.png",
         nextId: `skin-choice-cold-${id}`,
         type: "outcome",

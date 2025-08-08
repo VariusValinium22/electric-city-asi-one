@@ -2,7 +2,7 @@
 export interface SharkSpecies {
     id: string;
     name: string;
-    description: {
+    description: string | {
       range: string;
       size: string;
       fact: string;
@@ -36,9 +36,9 @@ export interface SharkSpecies {
       id: "epaulette-shark",
       name: "Epaulette Shark",
       description: {
-        range: "The epaulette shark can be found from the Red Sea to the Pacific Ocean.",
-        size: "1.5-2ft; 1.5-2.5lbs",
-        fact: "Epaulette sharks are known for their ability to “walk” on their fins in shallow water.",
+        range: "The epaulette shark is found in the shallow waters of Northern Australia and Papua New Guinea.",
+        size: "2-3.5ft; 5-10lbs",
+        fact: "Epaulette sharks can use their fins in a walking motion as they undulate their bodies, helping them move through coral reefs. This motion can even help them move on land between tide pools in search of food.",
       },
       image: "/EppauletteShark/SharkSkin_EppauletteShark.jpg",
       skinChoiceImage: "/EppauletteShark/SharkSkin_EppauletteShark.jpg",
@@ -47,13 +47,27 @@ export interface SharkSpecies {
       waterTemperature: "warm",
       skinType: "epaulette-shark",
     },
+    "spiny-dogfish": {
+      id: "spiny-dogfish",
+      name: "Spiny Dogfish",
+      description: {
+        range: "The spiny dogfish is found in cool temperate waters throughout the North Atlantic and North Pacific Oceans.",
+        size: "2-4ft; 7-15lbs",
+        fact: "The name “spiny” dogfish refers to two large spines on both of the shark's dorsal fins. When threatened, the spiny dogfish can use its spines to defend itself.",
+      },
+      image: "/SpinyDogfish/SharkSkin_SpinyDogfish.jpg",
+      size: "large",
+      habitat: "bottom-dwelling",
+      waterTemperature: "cold",
+      skinType: "spiny-dogfish",
+    },
     "chain-catshark": {
       id: "chain-catshark",
       name: "Chain Catshark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The chain catshark can be found in the deep waters of the Northwest Atlantic Ocean to the Gulf of Mexico.",
+        size: "1.5-2ft; 0.5-1lb",
+        fact: "The chain catshark has been observed to have a biofluorescent glow. It is believed that this glow may help it communicate with other sharks.",
       },
       image: "/ChainCatshark/SharkSkin_ChainCatshark.jpg",
       size: "small",
@@ -61,29 +75,15 @@ export interface SharkSpecies {
       waterTemperature: "cold",
       skinType: "chain-catshark",
     },
-    "spotted-wobbegong": {
-      id: "spotted-wobbegong",
-      name: "Spotted Wobbegong",
-      description: {
-        range: "",
-        size: "",
-        fact: "",
-      },
-      image: "/SpottedWobbegong/SharkSkin_SpottedWobbegong.jpg",
-      size: "small",
-      habitat: "bottom-dwelling",
-      waterTemperature: "cold",
-      skinType: "spotted-wobbegong",
-    },
   
     // Small Open Water Sharks
     "atlantic-sharpnose": {
       id: "atlantic-sharpnose",
       name: "Atlantic Sharpnose Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The Atlantic sharpnose shark is found in the Western Atlantic Ocean to the Gulf of Mexico.",
+        size: "3.5-4ft; 9-12lbs",
+        fact: "After a female is bred, she will move offshore to deeper waters. When she is ready to give birth she returns to shallow water and gives birth to 3-7 pups.",
       },
       image: "/AtlanticSharpnose/SharkSkin_AtlanticSharpnose.jpg",
       skinChoiceImage: "/AtlanticSharpnose/SharkSkin_AtlanticSharpnose.jpg",
@@ -92,13 +92,13 @@ export interface SharkSpecies {
       waterTemperature: "warm",
       skinType: "atlantic-sharpnose",
     },
-    bonnethead: {
+    "bonnethead": {
       id: "bonnethead",
       name: "Bonnethead Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The bonnethead shark is found in the Western Atlantic Ocean and Eastern Pacific Ocean.",
+        size: "3-4.5ft; 15-20lbs",
+        fact: "The bonnethead shark is the only shark that has been observed to be omnivorous, meaning they eat animals and plant material. They will readily feed on algae and seaweed.",
       },
       image: "/Bonnethead/SharkSkin_Bonnethead.jpg",
       skinChoiceImage: "/Bonnethead/SharkSkin_Bonnethead.jpg",
@@ -107,33 +107,19 @@ export interface SharkSpecies {
       waterTemperature: "warm",
       skinType: "bonnethead",
     },
-    "scalloped-hammerhead": {
-      id: "scalloped-hammerhead",
-      name: "Scalloped Hammerhead",
+    "school-shark": {
+      id: "school-shark",
+      name: "School Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The school shark is found in temperate waters throughout the world including the Northwest Atlantic Ocean, Mediterranean Sea, Southern Atlantic Ocean, Africa, and Australia.",
+        size: "5-6.5ft; 45-55lbs",
+        fact: "The school shark is ovoviviparous, meaning that its eggs are fertilized internally and develop within the female. When the embryo is ready the female gives birth to a fully developed shark ready to live on its own.",
       },
-      image: "/ScallopedHammerhead/SharkSkin_ScallopedHammerhead.jpg",
+      image: "/SharkSkin_Nurse.jpg", // Placeholder
       size: "small",
       habitat: "open-water",
       waterTemperature: "cold",
-      skinType: "scalloped-hammerhead",
-    },
-    "salmon-shark": {
-      id: "salmon-shark",
-      name: "Salmon Shark",
-      description: {
-        range: "",
-        size: "",
-        fact: "",
-      },
-      image: "/SalmonShark/SharkSkin_Salmon.jpg",
-      size: "small",
-      habitat: "open-water",
-      waterTemperature: "cold",
-      skinType: "salmon-shark",
+      skinType: "school-shark",
     },
   
     // Large Bottom Dwelling Sharks
@@ -141,9 +127,9 @@ export interface SharkSpecies {
       id: "nurse-shark",
       name: "Nurse Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The nurse shark is found in coastal waters of the Eastern and Western Atlantic Ocean, as well as the Eastern Pacific Ocean.",
+        size: "7-9ft; 160-230lbs",
+        fact: "The nurse shark is able to create a powerful vacuum with its mouth, allowing it to capture unsuspecting prey from the sandy shallows it inhabits.",
       },
       image: "/NurseShark/SharkSkin_Nurse.jpg",
       size: "large",
@@ -151,27 +137,27 @@ export interface SharkSpecies {
       waterTemperature: "warm",
       skinType: "nurse-shark",
     },
-    wobbegong: {
-      id: "wobbegong",
-      name: "Wobbegong Shark",
+    "spotted-wobbegong": {
+      id: "spotted-wobbegong",
+      name: "Spotted Wobbegong",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The spotted wobbegong is found along the Southern and Eastern coasts of Australia, the Eastern Indian Ocean, and the South China Sea.",
+        size: "6-9ft; 90-150lbs",
+        fact: "The spotted wobbegong is an ambush predator; it lies in wait relying on its unusual markings to camouflage it from unsuspecting prey.",
       },
       image: "/SpottedWobbegong/SharkSkin_SpottedWobbegong.jpg",
-      size: "large",
+      size: "small",
       habitat: "bottom-dwelling",
-      waterTemperature: "warm",
-      skinType: "wobbegong",
+      waterTemperature: "cold",
+      skinType: "spotted-wobbegong",
     },
     "greenland-shark": {
       id: "greenland-shark",
       name: "Greenland Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The Greenland shark is found in the cold waters of the Northern Atlantic Ocean and the Arctic Ocean.",
+        size: "8-20ft; 2200lbs",
+        fact: "These sharks have the longest lifespan of any vertebrate animal on the planet. Scientists have estimated the Greenland shark can live as long as 500 years!",
       },
       image: "/SharkSkin_Nurse.jpg", // Placeholder
       size: "large",
@@ -179,29 +165,29 @@ export interface SharkSpecies {
       waterTemperature: "cold",
       skinType: "greenland-shark",
     },
-    "spiny-dogfish": {
-      id: "spiny-dogfish",
-      name: "Spiny Dogfish",
-      description: {
-        range: "",
-        size: "",
-        fact: "",
-      },
-      image: "/SpinyDogfish/SharkSkin_SpinyDogfish.jpg",
-      size: "large",
-      habitat: "bottom-dwelling",
-      waterTemperature: "cold",
-      skinType: "spiny-dogfish",
-    },
   
     // Large Open Water Sharks
+    "scalloped-hammerhead": {
+      id: "scalloped-hammerhead",
+      name: "Scalloped Hammerhead",
+      description: {
+        range: "The scalloped hammerhead shark is found throughout coastal waters along the equator worldwide.",
+        size: "5-9ft; 60-90lbs",
+        fact: "The scalloped hammerhead can form large schools when in search of food. These groups of sharks can be made up of several hundred individuals.",
+      },
+      image: "/ScallopedHammerhead/SharkSkin_ScallopedHammerhead.jpg",
+      size: "small",
+      habitat: "open-water",
+      waterTemperature: "cold",
+      skinType: "scalloped-hammerhead",
+    },
     "whale-shark": {
       id: "whale-shark",
       name: "Whale Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The whale shark can be found worldwide in warm temperate and tropical seas.",
+        size: "18-32ft on average, up to 60ft; 40,000-70,000lbs",
+        fact: "Despite their huge size whale sharks feed primarily on plankton and small fish. A single whale shark can eat over 40lbs of plankton in a day.",
       },
       image: "/WhaleShark/SharkSkin_WhaleShark.jpg",
       size: "large",
@@ -209,27 +195,13 @@ export interface SharkSpecies {
       waterTemperature: "warm",
       skinType: "whale-shark",
     },
-    "tiger-shark": {
-      id: "tiger-shark",
-      name: "Tiger Shark",
-      description: {
-        range: "",
-        size: "",
-        fact: "",
-      },
-      image: "/SharkSkin_Nurse.jpg", // Placeholder
-      size: "large",
-      habitat: "open-water",
-      waterTemperature: "warm",
-      skinType: "tiger-shark",
-    },
-    porbeagle: {
+    "porbeagle": {
       id: "porbeagle",
       name: "Porbeagle Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The scalloped hammerhead shark is found throughout coastal waters along the equator worldwide.",
+        size: "5-9ft; 60-90lbs",
+        fact: "The scalloped hammerhead can form large schools when in search of food. These groups of sharks can be made up of several hundred individuals.",
       },
       image: "/PorbeagleShark/SharkSkin_Porbeagle.jpg",
       size: "large",
@@ -237,19 +209,19 @@ export interface SharkSpecies {
       waterTemperature: "cold",
       skinType: "porbeagle",      
     },
-    "great-white": {
-      id: "great-white",
-      name: "Great White Shark",
+    "salmon-shark": {
+      id: "salmon-shark",
+      name: "Salmon Shark",
       description: {
-        range: "",
-        size: "",
-        fact: "",
+        range: "The spotted wobbegong is found along the Southern and Eastern coasts of Australia, the Eastern Indian Ocean, and the South China Sea.",
+        size: "6-9ft; 90-150lbs",
+        fact: "The spotted wobbegong is an ambush predator; it lies in wait relying on its unusual markings to camouflage it from unsuspecting prey.",
       },
-      image: "/SharkSkin_Nurse.jpg", // Placeholder
-      size: "large",
+      image: "/SalmonShark/SharkSkin_Salmon.jpg",
+      size: "small",
       habitat: "open-water",
       waterTemperature: "cold",
-      skinType: "great-white",
+      skinType: "salmon-shark",
     },
   };
   

@@ -1,32 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { mainStore } from "../../store";
+import { useStore } from "../../store";
 
 const SharkCounter: React.FC = () => {
   const [sharkCount, setSharkCount] = useState(0);
-  const [userTickTotal, setUserTickTotal] = useState(2);
+  const { mainStore } = useStore()
 
   useEffect(() => {
     setSharkCount(mainStore.currentSharkCount);
-  }, []);
-
-  const testCounterIncrement = () => {
-    console.log("testCounterIncrement: ", userTickTotal);
-    setTimeout(() => {
-      const newUserTickTotal = userTickTotal - 1;
-      setUserTickTotal(newUserTickTotal);
-    }, 2500);
-  };
-
-  useEffect(() => {
-    console.log("userTickTotal: ", { userTickTotal, sharkCount });
-    if (userTickTotal > 0) {
-      testCounterIncrement();
-    } else if (userTickTotal === 0 && sharkCount === mainStore.currentSharkCount) {
-      mainStore.increment();
-      setSharkCount(mainStore.currentSharkCount);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userTickTotal]);
+  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
 
  return (
     <div className="flex justify-center absolute bottom-12 w-full" aria-live="polite" aria-atomic="true">
