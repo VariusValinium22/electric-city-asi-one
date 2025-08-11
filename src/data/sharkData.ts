@@ -56,7 +56,7 @@ export interface SharkSpecies {
         fact: "The name “spiny” dogfish refers to two large spines on both of the shark's dorsal fins. When threatened, the spiny dogfish can use its spines to defend itself.",
       },
       image: "/SpinyDogfish/SharkSkin_SpinyDogfish.jpg",
-      size: "large",
+      size: "small",
       habitat: "bottom-dwelling",
       waterTemperature: "cold",
       skinType: "spiny-dogfish",
@@ -121,6 +121,20 @@ export interface SharkSpecies {
       waterTemperature: "cold",
       skinType: "school-shark",
     },
+    "dogfish-shark": {
+      id: "dogfish-shark",
+      name: "Dogfish Shark",
+      description: {
+        range: "",
+        size: "",
+        fact: "",
+      },
+      image: "/SharkSkin_Dogfish.jpg", // Placeholder
+      size: "small",
+      habitat: "open-water",
+      waterTemperature: "cold",
+      skinType: "dogfish-shark",
+    },
   
     // Large Bottom Dwelling Sharks
     "nurse-shark": {
@@ -146,7 +160,7 @@ export interface SharkSpecies {
         fact: "The spotted wobbegong is an ambush predator; it lies in wait relying on its unusual markings to camouflage it from unsuspecting prey.",
       },
       image: "/SpottedWobbegong/SharkSkin_SpottedWobbegong.jpg",
-      size: "small",
+      size: "large",
       habitat: "bottom-dwelling",
       waterTemperature: "cold",
       skinType: "spotted-wobbegong",
@@ -165,6 +179,20 @@ export interface SharkSpecies {
       waterTemperature: "cold",
       skinType: "greenland-shark",
     },
+    "sixgill-shark": {
+      id: "sixgill-shark",
+      name: "Sixgill Shark",
+      description: {
+        range: "",
+        size: "",
+        fact: "",
+      },
+      image: "/SharkSkin_Sixgill.jpg", // Placeholder
+      size: "large",
+      habitat: "bottom-dwelling",
+      waterTemperature: "cold",
+      skinType: "sixgill-shark",
+    },
   
     // Large Open Water Sharks
     "scalloped-hammerhead": {
@@ -176,9 +204,9 @@ export interface SharkSpecies {
         fact: "The scalloped hammerhead can form large schools when in search of food. These groups of sharks can be made up of several hundred individuals.",
       },
       image: "/ScallopedHammerhead/SharkSkin_ScallopedHammerhead.jpg",
-      size: "small",
+      size: "large",
       habitat: "open-water",
-      waterTemperature: "cold",
+      waterTemperature: "warm",
       skinType: "scalloped-hammerhead",
     },
     "whale-shark": {
@@ -199,9 +227,9 @@ export interface SharkSpecies {
       id: "porbeagle",
       name: "Porbeagle Shark",
       description: {
-        range: "The scalloped hammerhead shark is found throughout coastal waters along the equator worldwide.",
-        size: "5-9ft; 60-90lbs",
-        fact: "The scalloped hammerhead can form large schools when in search of food. These groups of sharks can be made up of several hundred individuals.",
+        range: "",
+        size: "",
+        fact: "",
       },
       image: "/PorbeagleShark/SharkSkin_Porbeagle.jpg",
       size: "large",
@@ -213,12 +241,12 @@ export interface SharkSpecies {
       id: "salmon-shark",
       name: "Salmon Shark",
       description: {
-        range: "The spotted wobbegong is found along the Southern and Eastern coasts of Australia, the Eastern Indian Ocean, and the South China Sea.",
-        size: "6-9ft; 90-150lbs",
-        fact: "The spotted wobbegong is an ambush predator; it lies in wait relying on its unusual markings to camouflage it from unsuspecting prey.",
+        range: "",
+        size: "",
+        fact: "",
       },
       image: "/SalmonShark/SharkSkin_Salmon.jpg",
-      size: "small",
+      size: "large",
       habitat: "open-water",
       waterTemperature: "cold",
       skinType: "salmon-shark",
