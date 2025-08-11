@@ -42,8 +42,8 @@ export class GameDataGenerator {
         text: "Small Shark",
         nextId: "small-shark-outcome",
         cardHeader: "6 inches — 7 feet",
-        leftIcon: "/HumanIcon.svg",
-        rightIcons: ["/SharkIcon.svg", "/SharkIcon.svg"],
+        leftIcon: "/HumanIcons/HumanIcon.svg",
+        rightIcons: ["/SharkIcons/SharkIcon.svg", "/SharkIcons/SharkIcon.svg"],
         headerSize: "text-2xl font-bold",
         iconSizes: {
           left: "w-[clamp(40px,6vw,80px)] h-auto",
@@ -57,8 +57,8 @@ export class GameDataGenerator {
         text: "Large Shark",
         nextId: "large-shark-outcome",
         cardHeader: "7 feet — 62 feet",
-        leftIcon: "/HumanIcon.svg",
-        rightIcons: ["/SharkIcon.svg", "/SharkIcon.svg"],
+        leftIcon: "/HumanIcons/HumanIcon.svg",
+        rightIcons: ["/SharkIcons/SharkIcon.svg", "/SharkIcons/SharkIcon.svg"],
         headerSize: "text-2xl font-bold",
         iconSizes: {
           left: "w-[clamp(40px,6vw,80px)] h-auto",
@@ -76,7 +76,7 @@ export class GameDataGenerator {
       id: "small-shark-outcome",
       title: "Small Shark",
       description: "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
-      image: "/SharkIcon.svg",
+      image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-small",
       type: "outcome",
     };
@@ -85,7 +85,7 @@ export class GameDataGenerator {
       id: "large-shark-outcome",
       title: "Large Shark",
       description: "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water.",
-      image: "/SharkIcon.svg",
+      image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-large",
       type: "outcome",
     };

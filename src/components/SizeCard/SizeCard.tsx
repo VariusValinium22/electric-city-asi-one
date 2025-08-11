@@ -1,4 +1,3 @@
-import React from "react";
 import "../../global/default.css";
 import Card from "../Card/Card";
 
@@ -29,7 +28,7 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
       <div className="relative z-10 w-full h-full flex-1">
         {/* {human} */}
         <img
-          src={`/human-option_${isSmall ? "small" : "large"}.svg`}
+          src={`/HumanIcons/human-option_${isSmall ? "small" : "large"}.svg`}
           alt="human"
           className={`absolute object-contain ${
             isSmall
@@ -39,7 +38,7 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
         />
         {/* {large shark} */}
         <img
-          src={`/shark-${size}-option_large.svg`}
+          src={`/SharkIcons/shark-${size}-option_large.svg`}
           alt="shark large"
           className={`absolute object-contain ${
             isSmall
@@ -49,7 +48,7 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
         />
         {/* {small shark} */}
         <img
-          src={`/shark-${size}-option_small.svg`}
+          src={`/SharkIcons/shark-${size}-option_small.svg`}
           alt="shark small"
           className={`grid-card__shark absolute object-contain ${
             isSmall
