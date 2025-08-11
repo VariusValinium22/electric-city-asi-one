@@ -1,38 +1,47 @@
 import React from "react";
-import "../../global/default.css"
+import "../../global/default.css";
 
 interface TextButtonProps {
-  
-   // The text content of the button
+  // The text content of the button
   label: string;
-  
-   // The id of the button
+
+  // The id of the button
   id: string;
-  
-   // Optional click handler
+
+  // Optional click handler
   onClick?: () => void;
-  
-   // Variant prop for style differences in A/B buttons
+
+  // Variant prop for style differences in A/B buttons
   variant?: "a" | "b";
 
-   // Whether the button should be disabled visually and semantically
+  // Whether the button should be disabled visually and semantically
   disabled?: boolean;
 
-   // Optional class override for custom styling
+  // Optional class override for custom styling
   className?: string;
 
-   // accesible label for screen reader
+  // accesible label for screen reader
   ariaLabel?: string;
+
+  // a text props
+  text?: string;
 }
 
-export const TextButton: React.FC<TextButtonProps> = ({ label, id, onClick, variant = "a", disabled = false, className = "", ariaLabel}) => {
-
-
-const wrapperClass = `
+export const TextButton: React.FC<TextButtonProps> = ({
+  label,
+  text,
+  id,
+  onClick,
+  variant = "a",
+  disabled = false,
+  className = "",
+  ariaLabel,
+}) => {
+  const wrapperClass = `
 
     w-[clamp(40px,15vw,64px)]     
     aspect-square                
-    rounded-[20px]             
+    rounded-[20px]            
     bg-white                    
     shadow-lg                    
     flex flex-col justify-center items-center 
@@ -55,32 +64,36 @@ const wrapperClass = `
     tracking-normal
     transition-colors
     cursor-pointer
+    
   `;
 
+  // style for text
+  const textStyles = `font-lilita font-bold text-[45px] leading-[1] tracking-[0]`;
 
-// Applies conditional styles based on "a" or "b"
+  // Applies conditional styles based on "a" or "b"
   const variantStyles =
-    variant === "a"
-      ? "bg-[#FCBB23] hover:bg-[#274c8b]"
-      : "bg-[#28A9B4] hover:bg-[#1c6a73]";
+    variant === "a" ? "bg-[#FCBB23] hover:bg-[#274c8b]" : "bg-[#28A9B4] hover:bg-[#1c6a73]";
 
-      const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
+  const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   return (
-<div className={wrapperClass}>
-    <button 
-      type="button"
-      onClick={onClick}
-      id={id}
-      data-testid="text-button"
-      disabled={disabled}
-      aria-disabled={disabled}
-      aria-label={ariaLabel || label}
-      className={`${baseStyles} ${variantStyles} ${disabledStyles} ${className}`}
-    
-    >
-      {label}
-    </button>
+    <div className="flex gap-[20px] justify-between justify-center items-center">
+      <div className={wrapperClass}>
+        <button
+          type="button"
+          onClick={onClick}
+          id={id}
+          data-testid="text-button"
+          disabled={disabled}
+          aria-disabled={disabled}
+          aria-label={ariaLabel || label}
+          className={`${baseStyles} ${variantStyles} ${disabledStyles} ${className}`}
+        >
+          {label}
+          {/* {text && <span className="text-[clamp(16px,3vw,20px)]">{text}</span>} */}
+        </button>
+      </div>
+      <p className={textStyles}>{text}</p>
     </div>
   );
 };

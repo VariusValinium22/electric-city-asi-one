@@ -21,11 +21,11 @@
 //   onClick,
 //   disabled = false,
 //   children,
-//   className = "", // Default to empty string 
-//   size = "md",    // Default to "md" 
+//   className = "", // Default to empty string
+//   size = "md",    // Default to "md"
 // }) => {
 
-//   // Handle click events only if Card is not disabled 
+//   // Handle click events only if Card is not disabled
 //     const handleClick = () => {
 //     if (!disabled && onClick) {
 //       onClick();
@@ -79,7 +79,6 @@
 
 // export default Card;
 
-
 import React from "react";
 
 // Define props Card can accept
@@ -91,7 +90,7 @@ export interface CardProps {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
 }
 
 const Card: React.FC<CardProps> = ({
@@ -111,29 +110,23 @@ const Card: React.FC<CardProps> = ({
   };
 
   const sizeClasses = {
-    sm: "w-64 h-40",
-    md: "w-96 h-60",
-    lg: "w-[clamp(240px,80vw,820px)] h-[clamp(160px,55vw,553px)]",
+    sm: "w-[25vw] h-[16vh]", // Small card
+    md: "w-[30vw] h-[20vh]", // Medium card (default)
+    lg: "w-[40vw] h-[45vh]", // Large card (matches Figma) "w-[820px] h-[553px]"
   };
 
   return (
     <div
-      className={`
-        bg-(--color-shamrock)
-        font-lilita
-        rounded-[32px]
-        border-none
-        shadow-md
-        p-4
-        bg-white
-        hover:shadow-lg
-        transition-all
-        cursor-pointer
-        ${sizeClasses[size]}
-        ${disabled ? "opacity-50 pointer-events-none" : "opacity-100"}
-        relative flex flex-col justify-start
-        ${className}
-      `}
+      // Apply all styles:
+      // - sizeClasses[size] for dynamic sizing
+      // - disabled styles if needed
+      // - allow parent to inject custom styles with className
+      className={`bg-(--color-shamrock) ${sizeClasses[size]} rounded-[32px] shadow-md cursor-pointer] ${
+        disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+      } ${className}`}
+      // className={`card-container ${sizeClasses[size]} rounded-[32px] border-4 shadow-md p-4 bg-white hover:shadow-lg transition-all cursor-pointer bg-[var(--aqua-green)] ${
+      //   disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+      // } ${className}`}
       onClick={handleClick}
     >
       {/* Optional image */}
@@ -141,7 +134,7 @@ const Card: React.FC<CardProps> = ({
         <img
           src={imageUrl}
           alt={title}
-          className="card-image w-full h-40 object-cover rounded-xl mb-3"
+          className="card-image w-full h-full object-cover rounded-[32px]" // "card-image w-full h-full object-cover rounded-xl mb-3"
         />
       )}
 
@@ -152,7 +145,7 @@ const Card: React.FC<CardProps> = ({
       </h3> */}
 
       {/* Optional description */}
-      {description && <p className="text-gray-600 mb-2">{description}</p>}
+      {description && <p className="text-white mb-2">{description}</p>}
 
       {/* Children (usually GridCard content) */}
       {children}

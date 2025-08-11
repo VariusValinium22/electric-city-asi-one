@@ -6,13 +6,13 @@ import { Header } from "../../components/Header/Header";
 import { TextButton } from "../../components/TextButton/TextButton";
 
 import InactivityManager from "../../components/InactivityManager/InactivityManager";
+import Card from "../../components/Card/Card";
 
 export const OutcomeView = observer(() => {
   const { mainStore } = useStore();
   const currentNode = mainStore.getCurrentNode();
   const { promptState, resetInactivity } = useABButtons();
 
-  
   function onButtonAClick() {
     mainStore.makeChoice("a");
     resetInactivity();
@@ -23,31 +23,30 @@ export const OutcomeView = observer(() => {
     resetInactivity();
   }
 
-  const node = currentNode
+  const node = currentNode;
   if (!node) {
     return null;
   }
 
-  const { id, title, description, image } = node as Outcome
+  const { id, title, description, image } = node as Outcome;
 
   const stepCount = mainStore.getCurrentStepCount;
-  let legend = ""
+  let legend = "";
   let showBButton = true;
 
   if (stepCount !== 4) {
     legend = `${stepCount.toString()}/3 steps`;
   } else {
-    legend = "Your shark"
+    legend = "Your shark";
     showBButton = false;
   }
 
   const mainContainerStyle = "w-full h-screen p-[52px_100px] bg-[#1B3567]";
   const infoContainerStyle = "flex flex-col gap-[60px] text-red-500";
-  const headerStyle = "flex flex-col-reverse";
-  const imageViewStyle = "h-[553px] bg-black rounded-[32px]";
-  const descriptionStyle = "text-[40px] leading-[100%] text-inter text-[#F3F3F1]";
-  const descriptionContainerStyle = "flex flex-col gap-[20px]"
-  const boldStyle = "font-bold"
+  const headerStyle = "flex flex-col";
+  const descriptionStyle = "text-[40px] leading-[100%] text-inter text-white";
+  const descriptionContainerStyle = "flex flex-col gap-[20px]";
+  const boldStyle = "font-bold";
   const bottomContainerStyle = "grid grid-flow-row grid-cols-2 gap-[80px]";
   const buttonContainerStyle = "flex gap-[20px] items-center absolute";
   const aButtonContainerStyle = `${buttonContainerStyle} bottom-[52px] right-[52px]`;
@@ -65,27 +64,31 @@ export const OutcomeView = observer(() => {
           </div>
         )}
         <div className={infoContainerStyle}>
-          <Header legend={title} title={legend} className={headerStyle} />
+          <Header legend={legend} title={title} className={headerStyle} />
           <div className={bottomContainerStyle}>
-            <div className={imageViewStyle}>{image}</div>
-            {
-              typeof(description) === "string" ?
-                (<p className={descriptionStyle}>{description}</p>) :
-                (<div className={descriptionContainerStyle}>
-                  <p className={descriptionStyle}>
-                    <span className={boldStyle}>Range: </span>
-                    {description.range}
-                  </p>
-                  <p className={descriptionStyle}>
-                    <span className={boldStyle}>Size: </span>
-                    {description.size}
-                  </p>
-                  <p className={descriptionStyle}>
-                    <span className={boldStyle}>Fun Fact: </span>
-                    {description.fact}
-                  </p>
-                </div>)
-            }
+            {image && (
+          <div className="outcome-image-container mb-8 z-10 w-[50%]">
+            <Card title="" imageUrl={image} size="lg" />
+          </div>
+        )}
+            {typeof description === "string" ? (
+              <p className={descriptionStyle}>{description}</p>
+            ) : (
+              <div className={descriptionContainerStyle}>
+                <p className={descriptionStyle}>
+                  <span className={boldStyle}>Range: </span>
+                  {description.range}
+                </p>
+                <p className={descriptionStyle}>
+                  <span className={boldStyle}>Size: </span>
+                  {description.size}
+                </p>
+                <p className={descriptionStyle}>
+                  <span className={boldStyle}>Fun Fact: </span>
+                  {description.fact}
+                </p>
+              </div>
+            )}
           </div>
         </div>
         <div className={aButtonContainerStyle}>

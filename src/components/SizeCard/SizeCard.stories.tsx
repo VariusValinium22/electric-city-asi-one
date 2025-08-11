@@ -1,15 +1,15 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { GridCard } from "./GridCard";
+import { SizeCard } from "./SizeCard";
 
 // Default export with metadata
 export default {
   title: "Components/GridCard",
-  component: GridCard,
-} as Meta<typeof GridCard>;
+  component: SizeCard,
+} as Meta<typeof SizeCard>;
 
 // Template with proper typing
-const Template: StoryFn<typeof GridCard> = (args) => <GridCard {...args} />;
+const Template: StoryFn<typeof SizeCard> = (args) => <SizeCard {...args} />;
 
 export const SmallCard = Template.bind({});
 SmallCard.args = {

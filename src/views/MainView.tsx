@@ -3,6 +3,7 @@ import { useStore } from "../store";
 import { GameStage } from "../types/game";
 import { StartView } from "./StartView/StartView";
 import { ChoiceView } from "./ChoiceView/ChoiceView";
+// import { ChoiceCardView } from "./ChoiceCardView/ChoiceCardView";
 import { OutcomeView } from "./OutcomeView/OutcomeView";
 
 export const MainView = observer(() => {
