@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "Fai uno squalo!"
+  },
+  "inactivity": {
+    "restarting": "Riavviamento di{{seconds}}sec",
+    "press": "Premere",
+    "toContinue": "per continuare a giocare"
+  },
+  "start": {
+    "press": "Premere",
+    "toStart": "per iniziare"
+  },
+  "buttons": {
+    "a": "UNA"
+  },
+  "language": {
+    "select": "Seleziona il linguaggio"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Squalo già realizzato",
+    "sharksAlreadyMade": "Squali già realizzati"
+  }
+}

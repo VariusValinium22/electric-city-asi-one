@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "상어를 만드세요!"
+  },
+  "inactivity": {
+    "restarting": "다시 시작합니다{{seconds}}비서",
+    "press": "누르다",
+    "toContinue": "계속 연주합니다"
+  },
+  "start": {
+    "press": "누르다",
+    "toStart": "시작합니다"
+  },
+  "buttons": {
+    "a": "에이"
+  },
+  "language": {
+    "select": "언어를 선택하십시오"
+  },
+  "counter": {
+    "sharkAlreadyMade": "상어가 이미 만들어졌습니다",
+    "sharksAlreadyMade": "상어는 이미 만들어졌습니다"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "Faites un requin!"
+  },
+  "inactivity": {
+    "restarting": "Redémarrer{{seconds}}seconde",
+    "press": "Presse",
+    "toContinue": "Pour continuer à jouer"
+  },
+  "start": {
+    "press": "Presse",
+    "toStart": "Pour commencer"
+  },
+  "buttons": {
+    "a": "UNE"
+  },
+  "language": {
+    "select": "Sélectionner la langue"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Shark déjà fait",
+    "sharksAlreadyMade": "Les requins déjà fabriqués"
+  }
+}

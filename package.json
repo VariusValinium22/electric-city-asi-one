@@ -37,7 +37,8 @@
     "electron:dist": "npm run build && npm run electron:build && electron-builder --publish=never",
     "deploy:web:staging": "npm run build && aws s3 sync dist/ s3://$STAGING_S3_BUCKET/ --delete --content-type application/javascript --exclude '*' --include '*.cjs' && aws s3 sync dist/ s3://$STAGING_S3_BUCKET/ --delete --exclude '*.cjs' && aws cloudfront create-invalidation --distribution-id $STAGING_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
     "deploy:web:prod": "npm run build && aws s3 sync dist/ s3://$PROD_S3_BUCKET/ --delete --content-type application/javascript --exclude '*' --include '*.cjs' && aws s3 sync dist/ s3://$PROD_S3_BUCKET/ --delete --exclude '*.cjs' && aws cloudfront create-invalidation --distribution-id $PROD_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'",
-    "deploy:electron": "npm run electron:dist && aws s3 sync release/ s3://$ELECTRON_DOWNLOADS_S3_BUCKET/latest/ --exclude '*.blockmap' --exclude '*.yaml'"
+    "deploy:electron": "npm run electron:dist && aws s3 sync release/ s3://$ELECTRON_DOWNLOADS_S3_BUCKET/latest/ --exclude '*.blockmap' --exclude '*.yaml'",
+    "translate": "node scripts/free-translate.cjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "6.7.2",
@@ -54,6 +55,8 @@
     "classnames": "2.5.1",
     "dayjs": "1.11.13",
     "esbuild": "0.25.5",
+    "flag-icons": "7.5.0",
+    "i18next": "25.3.2",
     "imask": "7.6.1",
     "lodash": "4.17.21",
     "mobx": "^6.13.7",
@@ -62,6 +65,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "7.58.1",
+    "react-i18next": "15.6.1",
     "react-loading-skeleton": "3.5.0",
     "react-player": "3.0.0",
     "react-responsive": "10.0.1",
@@ -70,7 +74,8 @@
     "react-spinners": "0.17.0",
     "storybook": "^9.1.0",
     "styled-components": "6.1.19",
-    "tailwind-merge": "3.3.1"
+    "tailwind-merge": "3.3.1",
+    "translate-google": "1.5.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "4.0.1",
@@ -86,6 +91,7 @@
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
+    "@types/i18next": "12.1.0",
     "@types/pluralize": "0.0.33",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",

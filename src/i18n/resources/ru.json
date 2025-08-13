@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "Сделайте акулу!"
+  },
+  "inactivity": {
+    "restarting": "Перезагрузка в{{seconds}}раздел",
+    "press": "Нажимать",
+    "toContinue": "продолжать играть"
+  },
+  "start": {
+    "press": "Нажимать",
+    "toStart": "начать"
+  },
+  "buttons": {
+    "a": "А"
+  },
+  "language": {
+    "select": "Выберите язык"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Акула уже сделана",
+    "sharksAlreadyMade": "Акулы уже сделаны"
+  }
+}

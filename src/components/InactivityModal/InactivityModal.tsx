@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { TextButton } from "../TextButton/TextButton";
 
 interface InactivityModalProps {
@@ -8,6 +9,7 @@ interface InactivityModalProps {
 }
 
 const InactivityModal: React.FC<InactivityModalProps> = ({ secondsLeft, isVisible, onContinue }) => {
+  const { t } = useTranslation();
   if (!isVisible) return null;
 
   return (
@@ -22,16 +24,16 @@ const InactivityModal: React.FC<InactivityModalProps> = ({ secondsLeft, isVisibl
                      text-[clamp(32px,8vw,96px)]
                      max-w-[95vw] px-4"
         >
-          Restarting in {secondsLeft} sec
+          {t('inactivity.restarting', { seconds: secondsLeft })}
         </h2>
 
         <div className="flex flex-wrap items-center justify-center gap-4 px-4">
           <p className="text-white leading-none text-[clamp(32px,8vw,96px)]">
-            Press
+            {t('inactivity.press')}
           </p>
-          <TextButton id="inactivity-button" label="A" onClick={onContinue} />
+          <TextButton id="inactivity-button" label={t('buttons.a')} onClick={onContinue} />
           <p className="text-white leading-none text-[clamp(32px,8vw,96px)]">
-            to continue playing
+            {t('inactivity.toContinue')}
           </p>
         </div>
       </div>

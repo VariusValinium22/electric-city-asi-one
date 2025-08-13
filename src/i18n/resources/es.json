@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "¡Haz un tiburón!"
+  },
+  "inactivity": {
+    "restarting": "Reiniciando en{{seconds}}segunda",
+    "press": "Prensa",
+    "toContinue": "Para seguir jugando"
+  },
+  "start": {
+    "press": "Prensa",
+    "toStart": "para empezar"
+  },
+  "buttons": {
+    "a": "UNA"
+  },
+  "language": {
+    "select": "Lenguaje seleccionado"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Tiburón ya hecho",
+    "sharksAlreadyMade": "Tiburones ya hechos"
+  }
+}

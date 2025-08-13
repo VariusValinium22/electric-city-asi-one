@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "做鲨鱼！"
+  },
+  "inactivity": {
+    "restarting": "重新启动{{seconds}}秒",
+    "press": "按",
+    "toContinue": "继续比赛"
+  },
+  "start": {
+    "press": "按",
+    "toStart": "开始"
+  },
+  "buttons": {
+    "a": "一个"
+  },
+  "language": {
+    "select": "选择语言"
+  },
+  "counter": {
+    "sharkAlreadyMade": "鲨鱼已经做出了",
+    "sharksAlreadyMade": "鲨鱼已经制作了"
+  }
+}

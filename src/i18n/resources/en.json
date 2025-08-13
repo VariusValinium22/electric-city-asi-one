@@ -1,0 +1,24 @@
+{
+    "title": {
+      "main": "Make a Shark!"
+    },
+    "inactivity": {
+      "restarting": "Restarting in {{seconds}} sec",
+      "press": "Press",
+      "toContinue": "to continue playing"
+    },
+    "start": {
+      "press": "Press",
+      "toStart": "to start"
+    },
+    "buttons": {
+      "a": "A"
+    },
+    "language": {
+      "select": "Select Language"
+    },
+    "counter": {
+      "sharkAlreadyMade": "Shark already made",
+      "sharksAlreadyMade": "Sharks already made"
+    }
+}

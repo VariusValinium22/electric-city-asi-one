@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useStore } from "../../store";
 
 const SharkCounter: React.FC = () => {
+  const { t } = useTranslation();
   const [sharkCount, setSharkCount] = useState(0);
   const { mainStore } = useStore()
 
@@ -28,7 +30,7 @@ const SharkCounter: React.FC = () => {
                      text-[clamp(16px,3.5vw,40px)]
                      leading-[clamp(28px,4.2vw,52px)]"
         >
-          {sharkCount === 1 ? "Shark already made" : "Sharks already made"}
+          {sharkCount === 1 ? t('counter.sharkAlreadyMade') : t('counter.sharksAlreadyMade')}
         </p>
       </div>
     </div>

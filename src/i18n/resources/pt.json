@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "Faça um tubarão!"
+  },
+  "inactivity": {
+    "restarting": "Reiniciando{{seconds}}Sec",
+    "press": "Imprensa",
+    "toContinue": "continuar jogando"
+  },
+  "start": {
+    "press": "Imprensa",
+    "toStart": "para começar"
+  },
+  "buttons": {
+    "a": "UMA"
+  },
+  "language": {
+    "select": "Selecione o idioma"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Shark já feito",
+    "sharksAlreadyMade": "Tubarões já feitos"
+  }
+}

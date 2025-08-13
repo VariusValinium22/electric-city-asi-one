@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "Machen Sie einen Hai!"
+  },
+  "inactivity": {
+    "restarting": "Neu starten{{seconds}}Sek",
+    "press": "Drücken",
+    "toContinue": "weiter spielen"
+  },
+  "start": {
+    "press": "Drücken",
+    "toStart": "anfangen"
+  },
+  "buttons": {
+    "a": "A"
+  },
+  "language": {
+    "select": "Sprache auswählen"
+  },
+  "counter": {
+    "sharkAlreadyMade": "Hai schon gemacht",
+    "sharksAlreadyMade": "Haie bereits gemacht"
+  }
+}

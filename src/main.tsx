@@ -5,6 +5,8 @@ import { MainView } from "./views/MainView";
 import "./global/default.css";
 import { StoreProvider } from "./store";
 import { KioskLayout } from "./components/KioskLayout";
+import "./i18n";
+import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           </Routes>
         </BrowserRouter>
       </KioskLayout>
+      <LanguageSelector />
     </StoreProvider>
   </React.StrictMode>
 );

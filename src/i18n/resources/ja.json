@@ -1,0 +1,24 @@
+{
+  "title": {
+    "main": "サメを作りましょう！"
+  },
+  "inactivity": {
+    "restarting": "再起動します{{seconds}}秒",
+    "press": "プレス",
+    "toContinue": "プレイを続けるために"
+  },
+  "start": {
+    "press": "プレス",
+    "toStart": "開始する"
+  },
+  "buttons": {
+    "a": "a"
+  },
+  "language": {
+    "select": "言語を選択します"
+  },
+  "counter": {
+    "sharkAlreadyMade": "サメはすでに作られています",
+    "sharksAlreadyMade": "サメはすでに作られています"
+  }
+}
