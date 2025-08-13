@@ -4,17 +4,17 @@ import { Choice } from "../../types/game";
 import { useABButtons } from "../../hooks/useABButtons";
 import { TextButton } from "../../components/TextButton/TextButton";
 import { Header } from "../../components/Header/Header";
-// import { SizeChoiceCard } from "../../components/SizeChoiceCard/SizeChoiceCard";
 import { SizeCard } from "../../components/SizeCard/SizeCard";
 import Card from "../../components/Card/Card";
-
 import InactivityManager from "../../components/InactivityManager/InactivityManager";
+import { useTranslation } from "react-i18next";
 
 export const ChoiceView = observer(() => {
   const { mainStore } = useStore();
   const currentNode = mainStore.getCurrentNode();
   const { promptState, resetInactivity } = useABButtons();
-
+  const { t } = useTranslation();
+  
   function onButtonAClick() {
     mainStore.makeChoice("a");
     resetInactivity();
@@ -42,7 +42,7 @@ export const ChoiceView = observer(() => {
   }
 
   if (isValidStepCount(stepCount)) {
-    legend = `${stepCount.toString()}/3 steps`;
+    legend = `Step ${stepCount.toString()}/3`;
   } else {
     legend = "Last detail";
   }
@@ -62,10 +62,11 @@ export const ChoiceView = observer(() => {
               <SizeCard size="small" />
               <div>
                 <TextButton
-                  label="A"
+                  label={t('buttons.a')}
                   id="a-button"
                   text={(currentNode as Choice).optionA.text}
                   onClick={onButtonAClick}
+                  isChoiceView={true}
                 />
               </div>
             </div>
@@ -74,10 +75,11 @@ export const ChoiceView = observer(() => {
               <SizeCard size="large" />
               <div>
                 <TextButton
-                  label="B"
+                  label={t('buttons.b')}
                   id="b-button"
                   text={(currentNode as Choice).optionB.text}
                   onClick={onButtonBClick}
+                  isChoiceView={true}
                 />
               </div>
             </div>
@@ -95,10 +97,11 @@ export const ChoiceView = observer(() => {
                 />
                 <div>
                   <TextButton
-                    label="A"
+                    label={t('buttons.a')}
                     id="a-button"
                     text={isValidStepCount(stepCount) ? (currentNode as Choice).optionA.text : ""}
                     onClick={onButtonAClick}
+                    isChoiceView={true}
                   />
                 </div>
               </div>
@@ -114,10 +117,11 @@ export const ChoiceView = observer(() => {
                 />
                 <div>
                   <TextButton
-                    label="B"
+                    label={t('buttons.b')}
                     id="b-button"
                     text={isValidStepCount(stepCount) ? (currentNode as Choice).optionB.text : ""}
                     onClick={onButtonBClick}
+                    isChoiceView={true}
                   />
                 </div>
               </div>

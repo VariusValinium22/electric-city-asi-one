@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "サメはすでに作られています",
-    "sharksAlreadyMade": "サメはすでに作られています"
+    "sharksAlreadyMade": "サメはすでに作られています",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "サイズを選択します",
+    "small": "小さい",
+    "large": "大きい",
+    "outcomeSmall": "サイズ：小",
+    "outcomeLarge": "サイズ：大きい"
+  },
+  "habitat": {
+    "chooseAHabitat": "生息地を選択してください",
+    "bottomDwelling": "下の住居",
+    "openWater": "オープンウォーター",
+    "outcomeBottomDwelling": "生息地：底部の住居",
+    "outcomeOpenWater": "生息地：オープンウォーター"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "水温を選択します",
+    "warm": "暖かい",
+    "cold": "寒い",
+    "outcomeWarm": "水温：暖かい",
+    "outcomeCold": "水温：寒い"
+  },
+  "skinType": {
+    "chooseSkinType": "サメの肌を選んでください！"
+  },
+  "coralCatshark": {
+    "name": "コーラルキャットシャーク",
+    "description": {
+      "range": "サンゴのキャッサークは、インドから東南アジアまで見つけることができます。",
+      "size": "1.5-2フィート;1.5-2.5ポンド",
+      "fact": "サンゴ猫の女性は卵を岩の隙間に押し込みます。\nこれらの卵は、hatch化するのに4〜6か月かかり、小さな財布のように見え、しばしば「マーメイドの財布」と呼ばれます。"
+    }
+  },
+  "epauletteShark": {
+    "name": "エポレットサメ",
+    "description": {
+      "range": "エポレットサメは、オーストラリア北部とパプアニューギニアの浅瀬にあります。",
+      "size": "2-3.5フィート;5-10ポンド",
+      "fact": "エポレットサメは、体を腫れさせ、サンゴ礁を移動するのを助け、歩行運動でひれを使用できます。この動きは、食物を求めて潮の間の土地を移動するのを助けることさえできます。"
+    }
   }
 }

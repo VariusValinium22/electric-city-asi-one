@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "鲨鱼已经做出了",
-    "sharksAlreadyMade": "鲨鱼已经制作了"
+    "sharksAlreadyMade": "鲨鱼已经制作了",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "选择尺寸",
+    "small": "小的",
+    "large": "大的",
+    "outcomeSmall": "尺寸：小",
+    "outcomeLarge": "尺寸：大"
+  },
+  "habitat": {
+    "chooseAHabitat": "选择一个栖息地",
+    "bottomDwelling": "底部",
+    "openWater": "开水",
+    "outcomeBottomDwelling": "栖息地：底部",
+    "outcomeOpenWater": "栖息地：开水"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "选择水温",
+    "warm": "温暖的",
+    "cold": "寒冷的",
+    "outcomeWarm": "水温：温暖",
+    "outcomeCold": "水温：冷"
+  },
+  "skinType": {
+    "chooseSkinType": "选择鲨鱼的皮肤！"
+  },
+  "coralCatshark": {
+    "name": "珊瑚猫",
+    "description": {
+      "range": "从印度到东南亚可以找到珊瑚猫。",
+      "size": "1.5-2英尺；1.5-2.5磅",
+      "fact": "珊瑚猫的雌性将鸡蛋塞入岩石中的缝隙中。\n这些鸡蛋需要4-6个月的孵化，看起来像一个小钱包，通常被称为“美人鱼的钱包”。"
+    }
+  },
+  "epauletteShark": {
+    "name": "epaulette鲨鱼",
+    "description": {
+      "range": "epaulette鲨鱼在北澳大利亚北部和巴布亚新几内亚的浅水中发现。",
+      "size": "2-3.5英尺；5-10磅",
+      "fact": "epaulette鲨鱼可以在行走时使用鳍，使他们的身体膨胀，帮助他们穿过珊瑚礁。这种动议甚至可以帮助他们在潮汐池之间的土地上移动以寻找食物。"
+    }
   }
 }

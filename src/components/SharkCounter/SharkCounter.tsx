@@ -22,7 +22,7 @@ const SharkCounter: React.FC = () => {
                      leading-[clamp(28px,4.2vw,52px)]
                      px-[clamp(.2px,4vw,14px)]"
         >
-          {sharkCount}
+          {t('counter.sharkCount', { count: sharkCount })}
         </p>
         <p
           className="text-white  

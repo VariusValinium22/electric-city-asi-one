@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "Hai schon gemacht",
-    "sharksAlreadyMade": "Haie bereits gemacht"
+    "sharksAlreadyMade": "Haie bereits gemacht",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "Wählen Sie eine Größe",
+    "small": "Klein",
+    "large": "Groß",
+    "outcomeSmall": "Größe: klein",
+    "outcomeLarge": "Größe: groß"
+  },
+  "habitat": {
+    "chooseAHabitat": "Wählen Sie einen Lebensraum",
+    "bottomDwelling": "Bodenwohnung",
+    "openWater": "Offenes Wasser",
+    "outcomeBottomDwelling": "Lebensraum: Bodenwohnung",
+    "outcomeOpenWater": "Lebensraum: offenes Wasser"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "Wählen Sie Wassertemperatur",
+    "warm": "Warm",
+    "cold": "Kalt",
+    "outcomeWarm": "Wassertemperatur: warm",
+    "outcomeCold": "Wassertemperatur: Kalt"
+  },
+  "skinType": {
+    "chooseSkinType": "Wählen Sie die Haut des Hai!"
+  },
+  "coralCatshark": {
+    "name": "Coral Catshark",
+    "description": {
+      "range": "Der Korallenkatshark befindet sich von Indien bis Südostasien.",
+      "size": "1,5-2ft;1,5-2,5 lbs",
+      "fact": "Coral Catshark -Frauen stecken ihre Eier in die Spalten in Felsen.\nDiese Eier, die 4-6 Monate dauern, um zu schlüpfen, sehen aus wie eine kleine Handtasche und werden oft als „Geldbörsen der Meerjungfrau“ bezeichnet."
+    }
+  },
+  "epauletteShark": {
+    "name": "EPAULETTE HHARK",
+    "description": {
+      "range": "Der EKULETTE -Hai findet sich in den flachen Gewässern von Nordaustralien und Papua -Neuguinea.",
+      "size": "2-3,5 Fuß;5-10 Pfund",
+      "fact": "Elektrotethaie können ihre Flossen in einer Wanderbewegung nutzen, während sie ihren Körper wellen und ihnen helfen, sich durch Korallenriffe zu bewegen.Diese Bewegung kann ihnen sogar helfen, auf dem Land zwischen Gezeitenpools auf der Suche nach Lebensmitteln zu landen."
+    }
   }
 }

@@ -12,6 +12,10 @@ const LanguageSelector: React.FC = () => {
 
   const handleLanguageChange = (languageCode: LanguageCode) => {
     i18n.changeLanguage(languageCode);
+    
+    // dispatch custom event to notify other parts of the app
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: languageCode }));
+    
     setIsOpen(false);
   };
 

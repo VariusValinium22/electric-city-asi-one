@@ -9,8 +9,10 @@ import InactivityManager from "../../components/InactivityManager/InactivityMana
 
 import { useABButtons } from "../../hooks/useABButtons";
 import { useStore } from "../../store";
+import { useTranslation } from "react-i18next";
 
 export const StartView = observer(() => {
+  const { t } = useTranslation();
   const { promptState, resetInactivity } = useABButtons();
   const { mainStore } = useStore();
   const currentNode = mainStore.getCurrentNode();
@@ -36,16 +38,14 @@ export const StartView = observer(() => {
                      text-[clamp(16px,3vw,40px)] 
                      leading-none"
       >
-        Press
+        {t('start.press')}
       </p>
-      <TextButton label="A" id="start-button" variant="a" onClick={onButtonAClick} />
-      <p
-        className="text-white font-inter font-medium whitespace-nowrap
+      <TextButton label={t('buttons.a')} id="start-button" variant="a" onClick={onButtonAClick} />
+      <p className="text-white font-inter font-medium whitespace-nowrap
                     text-[clamp(16px,3vw,40px)] 
-                    leading-none"
-      >
-        to start
-      </p>
+                    leading-none">
+                      {t('start.toStart')}
+                      </p>
     </div>
       <LogoCircle />
       <SharkCounter />

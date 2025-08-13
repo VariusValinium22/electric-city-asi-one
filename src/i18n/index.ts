@@ -60,6 +60,22 @@ i18n
 
 i18n.on('languageChanged', (lng) => {
   localStorage.setItem('language', lng);
+  
+  // Refresh game data when language changes to update translations
+  // We need to import this dynamically to avoid circular dependencies
+  setTimeout(() => {
+    try {
+      // Dynamic import to avoid circular dependency issues
+      import('../data/GameDataManager').then(({ gameDataManager }) => {
+        gameDataManager.refreshGameData();
+      }).catch(() => {
+        // Silently fail if the module isn't available yet
+      });
+      // eslint-disable-next-line
+    } catch (error) {
+      // Silently fail if there are any issues
+    }
+  }, 100); // Small delay to ensure the language change is complete
 });
 
 export default i18n;

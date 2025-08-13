@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "Shark já feito",
-    "sharksAlreadyMade": "Tubarões já feitos"
+    "sharksAlreadyMade": "Tubarões já feitos",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "Escolha um tamanho",
+    "small": "Pequena",
+    "large": "Grande",
+    "outcomeSmall": "Tamanho: Pequeno",
+    "outcomeLarge": "Tamanho: grande"
+  },
+  "habitat": {
+    "chooseAHabitat": "Escolha um habitat",
+    "bottomDwelling": "Moradia inferior",
+    "openWater": "Água aberta",
+    "outcomeBottomDwelling": "Habitat: moradia inferior",
+    "outcomeOpenWater": "Habitat: águas abertas"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "Escolha a temperatura da água",
+    "warm": "Esquentar",
+    "cold": "Fria",
+    "outcomeWarm": "Temperatura da água: quente",
+    "outcomeCold": "Temperatura da água: frio"
+  },
+  "skinType": {
+    "chooseSkinType": "Escolha a pele do tubarão!"
+  },
+  "coralCatshark": {
+    "name": "CATSHARK DE CORAL",
+    "description": {
+      "range": "O coral Catshark pode ser encontrado da Índia para o sudeste da Ásia.",
+      "size": "1,5-2ft;1.5-2.5 libras",
+      "fact": "As fêmeas de coral Catshark enfiam seus ovos nas fendas nas rochas.\nEsses ovos, que levam de 4 a 6 meses para eclodir, parecem uma pequena bolsa e são frequentemente chamados de \"bolsas de sereia\"."
+    }
+  },
+  "epauletteShark": {
+    "name": "Epaulette Shark",
+    "description": {
+      "range": "O tubarão Epaulette é encontrado nas águas rasas do norte da Austrália e da Papua Nova Guiné.",
+      "size": "2-3,5 pés;5-10 libras",
+      "fact": "Os tubarões da Epaulette podem usar suas barbatanas em um movimento de caminhada enquanto ondulam seus corpos, ajudando -os a se mover pelos recifes de coral.Esse movimento pode até ajudá -los a seguir em terra entre as piscinas da maré em busca de alimentos."
+    }
   }
 }

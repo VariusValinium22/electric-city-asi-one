@@ -12,13 +12,55 @@
     "toStart": "para empezar"
   },
   "buttons": {
-    "a": "UNA"
+    "a": "UNA",
+    "b": "B"
   },
   "language": {
     "select": "Lenguaje seleccionado"
   },
   "counter": {
     "sharkAlreadyMade": "Tiburón ya hecho",
-    "sharksAlreadyMade": "Tiburones ya hechos"
+    "sharksAlreadyMade": "Tiburones ya hechos",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "Elija un tamaño",
+    "small": "Pequeña",
+    "large": "Grande",
+    "outcomeSmall": "Tamaño: Pequeña",
+    "outcomeLarge": "Tamaño: grande"
+  },
+  "habitat": {
+    "chooseAHabitat": "Elige un hábitat",
+    "bottomDwelling": "Vivienda inferior",
+    "openWater": "Aguas abiertas",
+    "outcomeBottomDwelling": "Hábitat: vivienda de fondo",
+    "outcomeOpenWater": "Hábitat: aguas abiertas"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "Elija la temperatura del agua",
+    "warm": "Cálida",
+    "cold": "Fría",
+    "outcomeWarm": "Temperatura del agua: cálido",
+    "outcomeCold": "Temperatura del agua: frío"
+  },
+  "skinType": {
+    "chooseSkinType": "¡Elige la piel del tiburón!"
+  },
+  "coralCatshark": {
+    "name": "Coral Catshark",
+    "description": {
+      "range": "El Coral Catshark se puede encontrar desde la India hasta el sudeste asiático.",
+      "size": "1.5-2ft;1.5-2.5 libras",
+      "fact": "Las hembras de Coral Catshark meten sus huevos en las grietas de las rocas.\nEstos huevos, que tardan de 4 a 6 meses en eclosionar, parecen un bolso pequeño y a menudo se les conoce como \"bolsos de sirena\"."
+    }
+  },
+  "epauletteShark": {
+    "name": "Tiburón epaulette",
+    "description": {
+      "range": "El tiburón Epaulette se encuentra en las aguas poco profundas del norte de Australia y Papua Nueva Guinea.",
+      "size": "2-3.5ft;5-10 libras",
+      "fact": "Los tiburones ePaulette pueden usar sus aletas en un movimiento de caminar mientras ondulan sus cuerpos, ayudándoles a moverse a través de los arrecifes de coral.Este movimiento puede incluso ayudarlos a moverse en la tierra entre las piscinas de marea en busca de alimentos."
+    }
   }
 }

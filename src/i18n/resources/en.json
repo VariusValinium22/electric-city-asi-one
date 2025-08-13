@@ -12,13 +12,55 @@
       "toStart": "to start"
     },
     "buttons": {
-      "a": "A"
+      "a": "A",
+      "b": "B"
     },
     "language": {
       "select": "Select Language"
     },
     "counter": {
       "sharkAlreadyMade": "Shark already made",
-      "sharksAlreadyMade": "Sharks already made"
+      "sharksAlreadyMade": "Sharks already made",
+      "sharkCount": "{{count}}"
+    },
+    "size": {
+      "chooseASize": "Choose a size",
+      "small": "Small",
+      "large": "Large",
+      "outcomeSmall": "Size: Small",
+      "outcomeLarge": "Size: Large"
+    },
+    "habitat": {
+      "chooseAHabitat": "Choose a habitat",
+      "bottomDwelling": "Bottom dwelling",
+      "openWater": "Open water",
+      "outcomeBottomDwelling": "Habitat: Bottom dwelling",
+      "outcomeOpenWater": "Habitat: Open water"
+    },
+    "waterTemperature": {
+      "chooseWaterTemperature": "Choose water temperature",
+      "warm": "Warm",
+      "cold": "Cold",
+      "outcomeWarm": "Water temperature: Warm",
+      "outcomeCold": "Water temperature: Cold"
+    },
+    "skinType": {
+      "chooseSkinType": "Choose the shark's skin!"
+    },
+    "coralCatshark": {
+      "name": "Coral catshark",
+      "description": {
+        "range": "The Coral catshark can be found from India to Southeast Asia.",
+        "size": "1.5-2ft; 1.5-2.5lbs",
+        "fact": "Coral catshark females tuck their eggs into the crevices in rocks. \nThese eggs, which take 4-6 months to hatch, look like a small purse and are often referred to as “mermaid's purses”."
+      }
+    },
+    "epauletteShark": {
+      "name": "Epaulette shark",
+      "description": {
+        "range": "The Epaulette shark is found in the shallow waters of Northern Australia and Papua New Guinea.",
+        "size": "2-3.5ft; 5-10lbs",
+        "fact": "Epaulette sharks can use their fins in a walking motion as they undulate their bodies, helping them move through coral reefs. This motion can even help them move on land between tide pools in search of food."
+      }
     }
 }

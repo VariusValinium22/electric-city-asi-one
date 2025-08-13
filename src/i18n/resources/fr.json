@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "Shark déjà fait",
-    "sharksAlreadyMade": "Les requins déjà fabriqués"
+    "sharksAlreadyMade": "Les requins déjà fabriqués",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "Choisissez une taille",
+    "small": "Petite",
+    "large": "Grande",
+    "outcomeSmall": "Taille: petite",
+    "outcomeLarge": "Taille: grande"
+  },
+  "habitat": {
+    "chooseAHabitat": "Choisissez un habitat",
+    "bottomDwelling": "Logement inférieur",
+    "openWater": "Eau libre",
+    "outcomeBottomDwelling": "Habitat: logement inférieur",
+    "outcomeOpenWater": "Habitat: eau libre"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "Choisissez la température de l'eau",
+    "warm": "Chaude",
+    "cold": "Froide",
+    "outcomeWarm": "Température de l'eau: chaud",
+    "outcomeCold": "Température de l'eau: froid"
+  },
+  "skinType": {
+    "chooseSkinType": "Choisissez la peau du requin!"
+  },
+  "coralCatshark": {
+    "name": "Coral Catshark",
+    "description": {
+      "range": "Le Coral Catshark peut être trouvé de l'Inde à l'Asie du Sud-Est.",
+      "size": "1,5 à 2 pieds;1,5-2,5 lb",
+      "fact": "Les femelles de Coral Catshark rentrent leurs œufs dans les crevasses dans les rochers.\nCes œufs, qui prennent 4 à 6 mois pour éclos, ressemblent à un petit sac et sont souvent appelés «sacs à main de sirène»."
+    }
+  },
+  "epauletteShark": {
+    "name": "Requin épaulette",
+    "description": {
+      "range": "Le requin épaulette se trouve dans les eaux peu profondes du nord de l'Australie et de la Papouasie-Nouvelle-Guinée.",
+      "size": "2-3,5 pieds;5-10 lbs",
+      "fact": "Les requins d'Epautte peuvent utiliser leurs nageoires dans un mouvement de marche alors qu'ils ondulent leur corps, les aidant à se déplacer à travers les récifs coralliens.Ce mouvement peut même les aider à se déplacer sur des terres entre les piscines de marée à la recherche de nourriture."
+    }
   }
 }

@@ -17,6 +17,16 @@ export class MainStore {
     return gameDataManager.getGameData();
   }
 
+  // method to force refresh of game data (useful when language changes)
+  refreshGameData(): void {
+    // force a refresh by calling the game data manager
+    gameDataManager.refreshGameData();
+    
+    // force mobx to recognize the change by updating a tracked property
+    // eslint-disable-next-line
+    this.count = this.count;
+  }
+
   constructor(initialCount?: number) {
     makeAutoObservable(this);
 
@@ -25,6 +35,23 @@ export class MainStore {
     } else {
       this.count = gameDataManager.getSharkCount();
     }
+
+    // listen for language changes and refresh game data
+    this.setupLanguageChangeListener();
+  }
+
+  private setupLanguageChangeListener(): void {
+    // listen for storage changes (language changes)
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'language') {
+        this.refreshGameData();
+      }
+    });
+
+    // also listen for custom language change events
+    window.addEventListener('languageChanged', () => {
+      this.refreshGameData();
+    });
   }
 
   increment() {

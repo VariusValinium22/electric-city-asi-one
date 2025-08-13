@@ -25,6 +25,9 @@ interface TextButtonProps {
 
   // a text props
   text?: string;
+
+  // whether the button is in the choice view
+  isChoiceView?: boolean;
 }
 
 export const TextButton: React.FC<TextButtonProps> = ({
@@ -36,12 +39,13 @@ export const TextButton: React.FC<TextButtonProps> = ({
   disabled = false,
   className = "",
   ariaLabel,
+  isChoiceView = false,
 }) => {
   const wrapperClass = `
 
     w-[clamp(40px,15vw,64px)]     
     aspect-square                
-    rounded-[20px]            
+    rounded-[25%]            
     bg-white                    
     shadow-lg                    
     flex flex-col justify-center items-center 
@@ -51,7 +55,7 @@ export const TextButton: React.FC<TextButtonProps> = ({
   // These are the styles for the A | B part
   const baseStyles = `
     w-full h-full
-    rounded-[20px]
+    rounded-[25%]
     border-b-[3px] border-b-[#00000080]
     shadow-[inset_-2px_2px_4px_0px_#ffffff]
     p-[10px]
@@ -77,7 +81,7 @@ export const TextButton: React.FC<TextButtonProps> = ({
   const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   return (
-    <div className="flex gap-[20px] justify-between justify-center items-center">
+    <div className={`flex ${isChoiceView ? "justify-between" : "justify-center"} ${text ? "gap-[20px]" : ""} items-center`}>
       <div className={wrapperClass}>
         <button
           type="button"

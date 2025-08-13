@@ -7,12 +7,14 @@ import { TextButton } from "../../components/TextButton/TextButton";
 
 import InactivityManager from "../../components/InactivityManager/InactivityManager";
 import Card from "../../components/Card/Card";
+import { useTranslation } from "react-i18next";
 
 export const OutcomeView = observer(() => {
   const { mainStore } = useStore();
   const currentNode = mainStore.getCurrentNode();
   const { promptState, resetInactivity } = useABButtons();
-
+  const { t } = useTranslation();
+  
   function onButtonAClick() {
     mainStore.makeChoice("a");
     resetInactivity();
@@ -35,7 +37,7 @@ export const OutcomeView = observer(() => {
   let showBButton = true;
 
   if (stepCount !== 4) {
-    legend = `${stepCount.toString()}/3 steps`;
+    legend = `Step ${stepCount.toString()}/3`;
   } else {
     legend = "Your shark";
     showBButton = false;
@@ -59,7 +61,7 @@ export const OutcomeView = observer(() => {
       <section className={mainContainerStyle} id={id}>
         {showBButton && (
           <div className={bButtonContainerStyle}>
-            <TextButton label="B" id="b-button" onClick={onButtonBClick} />
+            <TextButton label={t('buttons.b')} id="b-button" onClick={onButtonBClick} />
             <p className={bButtonTextStyle}>Restart</p>
           </div>
         )}
@@ -92,7 +94,7 @@ export const OutcomeView = observer(() => {
           </div>
         </div>
         <div className={aButtonContainerStyle}>
-          <TextButton label="A" id="a-button" onClick={onButtonAClick} />
+          <TextButton label={t('buttons.a')} id="a-button" onClick={onButtonAClick} />
           <p className={aButtonTextStyle}>{showBButton ? "Continue" : "Restart"}</p>
         </div>
       </section>

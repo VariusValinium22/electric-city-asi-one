@@ -35,20 +35,24 @@ export class GameDataManager {
 
   // core game data access
   public getGameData(): Record<string, GameNode> {
-    return this.gameData;
+    // Always get fresh data from the generator to ensure translations are current
+    return gameDataGenerator.getGameData();
   }
 
   public getNode(nodeId: string): GameNode | null {
-    return this.gameData[nodeId] || null;
+    // Always get fresh data to ensure translations are current
+    const freshGameData = gameDataGenerator.getGameData();
+    return freshGameData[nodeId] || null;
   }
 
   public getStartNode(): GameNode {
-    return this.gameData["start"]!;
+    // Always get fresh data to ensure translations are current
+    const freshGameData = gameDataGenerator.getGameData();
+    return freshGameData["start"]!;
   }
 
   // dynamic data generation
-  public generateNode(nodeId: string, choices: PlayerChoices): GameNode | null {
-    console.log({ nodeId, choices });
+  public generateNode(nodeId: string): GameNode | null {
     // this method can be used to generate nodes dynamically based on player choices
     // for now, we are just returning the pre-generated node
     return this.getNode(nodeId);
@@ -162,6 +166,12 @@ export class GameDataManager {
     this.gameData = dynamicGameData;
     this.sharkCount = 0;
     this.saveSharkCount();
+  }
+
+  // Method to refresh game data when language changes
+  public refreshGameData(): void {
+    // Force regeneration of game data with new translations
+    gameDataGenerator.refreshTranslations();
   }
 }
 

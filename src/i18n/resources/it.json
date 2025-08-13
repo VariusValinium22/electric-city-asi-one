@@ -3,7 +3,7 @@
     "main": "Fai uno squalo!"
   },
   "inactivity": {
-    "restarting": "Riavviamento di{{seconds}}sec",
+    "restarting": "Riavvio in{{seconds}}sec",
     "press": "Premere",
     "toContinue": "per continuare a giocare"
   },
@@ -19,6 +19,47 @@
   },
   "counter": {
     "sharkAlreadyMade": "Squalo già realizzato",
-    "sharksAlreadyMade": "Squali già realizzati"
+    "sharksAlreadyMade": "Squali già realizzati",
+    "sharkCount": "{{count}}"
+  },
+  "size": {
+    "chooseASize": "Scegli una taglia",
+    "small": "Piccola",
+    "large": "Grande",
+    "outcomeSmall": "Dimensioni: piccolo",
+    "outcomeLarge": "Dimensioni: grande"
+  },
+  "habitat": {
+    "chooseAHabitat": "Scegli un habitat",
+    "bottomDwelling": "Dimora inferiore",
+    "openWater": "Acqua aperta",
+    "outcomeBottomDwelling": "Habitat: dimora inferiore",
+    "outcomeOpenWater": "Habitat: acqua aperta"
+  },
+  "waterTemperature": {
+    "chooseWaterTemperature": "Scegli la temperatura dell'acqua",
+    "warm": "Calda",
+    "cold": "Fredda",
+    "outcomeWarm": "Temperatura dell'acqua: caldo",
+    "outcomeCold": "Temperatura dell'acqua: freddo"
+  },
+  "skinType": {
+    "chooseSkinType": "Scegli la pelle dello squalo!"
+  },
+  "coralCatshark": {
+    "name": "Coral Catshark",
+    "description": {
+      "range": "Il Catshark corallino può essere trovato dall'India al sud -est asiatico.",
+      "size": "1,5-2 piedi;1,5-2,5 libbre",
+      "fact": "Le femmine di Catshark coralline infilano le loro uova nelle fessure nelle rocce.\nQueste uova, che impiegano 4-6 mesi per schivare, sembrano una piccola borsa e vengono spesso definite \"borse della sirena\"."
+    }
+  },
+  "epauletteShark": {
+    "name": "Squalo epaulette",
+    "description": {
+      "range": "Lo squalo Epaulette si trova nelle acque poco profonde dell'Australia settentrionale e della Papua Nuova Guinea.",
+      "size": "2-3,5 piedi;5-10 libbre",
+      "fact": "Gli squali di epaulette possono usare le loro pinne in un movimento di camminata mentre ondeggiano i loro corpi, aiutandoli a muoversi attraverso le barriere coralline.Questo movimento può persino aiutarli a muoversi sulla terra tra le piscine di marea in cerca di cibo."
+    }
   }
 }
