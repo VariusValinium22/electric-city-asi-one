@@ -24,7 +24,7 @@ export const StartView = observer(() => {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden z-9">
-      <VideoBackground src="/SharkBackgroundVideo.mp4" />
+      <VideoBackground />
       <SharkTitle title={currentNode.title} />
       <div
         className="absolute 
