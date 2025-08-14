@@ -39,8 +39,8 @@ export default {
       },
       fontFamily: {
         text: ["Rubik", "Arial", "sans"],
-        lilita: ['"Lilita One"', 'cursive'],
-        inter: ['"Inter"', 'cursive'],
+        lilita: ['"Lilita One"', "cursive"],
+        inter: ['"Inter"', "cursive"],
       },
       maxWidth: {
         pageContent: "370px",

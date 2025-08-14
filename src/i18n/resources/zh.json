@@ -12,7 +12,8 @@
     "toStart": "开始"
   },
   "buttons": {
-    "a": "一个"
+    "a": "一个",
+    "b": "b"
   },
   "language": {
     "select": "选择语言"

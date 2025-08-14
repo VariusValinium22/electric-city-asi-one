@@ -20,66 +20,66 @@ import zh from "../i18n/resources/zh.json";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function t(key: string, options?: Record<string, any>): string {
   // get the current language from localStorage
-  const currentLang = localStorage.getItem('language') || 'en';
-  
+  const currentLang = localStorage.getItem("language") || "en";
+
   // get translations based on current language
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let translations: Record<string, any>;
-  
+
   switch (currentLang) {
-    case 'es':
+    case "es":
       translations = es;
       break;
-    case 'fr':
+    case "fr":
       translations = fr;
       break;
-    case 'de':
+    case "de":
       translations = de;
       break;
-    case 'it':
+    case "it":
       translations = it;
       break;
-    case 'pt':
+    case "pt":
       translations = pt;
       break;
-    case 'ru':
+    case "ru":
       translations = ru;
       break;
-    case 'ja':
+    case "ja":
       translations = ja;
       break;
-    case 'ko':
+    case "ko":
       translations = ko;
       break;
-    case 'zh':
+    case "zh":
       translations = zh;
       break;
     default:
       translations = en;
   }
-  
+
   // navigate to the nested key (example: "start.title" -> translations.start.title)
-  const keys = key.split('.');
+  const keys = key.split(".");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let value: any = translations;
-  
+
   for (const k of keys) {
-    if (value && typeof value === 'object' && k in value) {
+    if (value && typeof value === "object" && k in value) {
       value = value[k];
     } else {
       // key not found, return the key itself as fallback
       return key;
     }
   }
-  
+
   // if we have a string value and options for interpolation
-  if (typeof value === 'string' && options) {
+  if (typeof value === "string" && options) {
     return value.replace(/\{\{(\w+)\}\}/g, (match: string, keyName: string) => {
       return options[keyName] !== undefined ? String(options[keyName]) : match;
     });
   }
-  
-  return typeof value === 'string' ? value : key;
+
+  return typeof value === "string" ? value : key;
 }
 
 /**
@@ -101,7 +101,7 @@ export class GameDataGenerator {
     // start node
     this.gameData["start"] = {
       id: "start",
-      title: t('title.main'),
+      title: t("title.main"),
       description: "",
       optionA: {
         text: "Start",
@@ -120,7 +120,7 @@ export class GameDataGenerator {
       title: "Choose a size",
       description: "",
       optionA: {
-        text: t('size.small'),
+        text: t("size.small"),
         nextId: "small-shark-outcome",
         cardHeader: "6 inches — 7 feet",
         leftIcon: "/HumanIcons/HumanIcon.svg",
@@ -128,14 +128,11 @@ export class GameDataGenerator {
         headerSize: "text-2xl font-bold",
         iconSizes: {
           left: "w-[clamp(40px,6vw,80px)] h-auto",
-          right: [
-            "w-[clamp(120px,12vw,180px)] h-auto",
-            "w-[clamp(80px,8vw,120px)] h-auto"
-          ]
-        }
+          right: ["w-[clamp(120px,12vw,180px)] h-auto", "w-[clamp(80px,8vw,120px)] h-auto"],
+        },
       },
       optionB: {
-        text: t('size.large'),
+        text: t("size.large"),
         nextId: "large-shark-outcome",
         cardHeader: "7 feet — 62 feet",
         leftIcon: "/HumanIcons/HumanIcon.svg",
@@ -143,11 +140,8 @@ export class GameDataGenerator {
         headerSize: "text-2xl font-bold",
         iconSizes: {
           left: "w-[clamp(40px,6vw,80px)] h-auto",
-          right: [
-            "w-[clamp(120px,12vw,180px)] h-auto",
-            "w-[clamp(80px,8vw,120px)] h-auto"
-          ]
-        }
+          right: ["w-[clamp(120px,12vw,180px)] h-auto", "w-[clamp(80px,8vw,120px)] h-auto"],
+        },
       },
       type: "choice",
     };
@@ -155,8 +149,9 @@ export class GameDataGenerator {
     // size outcomes
     this.gameData["small-shark-outcome"] = {
       id: "small-shark-outcome",
-      title: t('size.outcomeSmall'),
-      description: "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
+      title: t("size.outcomeSmall"),
+      description:
+        "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
       image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-small",
       type: "outcome",
@@ -164,8 +159,9 @@ export class GameDataGenerator {
 
     this.gameData["large-shark-outcome"] = {
       id: "large-shark-outcome",
-      title: t('size.outcomeLarge'),
-      description: "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water.",
+      title: t("size.outcomeLarge"),
+      description:
+        "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water.",
       image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-large",
       type: "outcome",
@@ -185,15 +181,15 @@ export class GameDataGenerator {
     // small shark habitats
     this.gameData["habitat-choice-small"] = {
       id: "habitat-choice-small",
-      title: t('habitat.chooseAHabitat'),
+      title: t("habitat.chooseAHabitat"),
       description: "",
       optionA: {
-        text: t('habitat.bottomDwelling'),
+        text: t("habitat.bottomDwelling"),
         nextId: "bottom-dwelling-small-outcome",
         image: "/Habitat_BottomDwelling.png",
       },
       optionB: {
-        text: t('habitat.openWater'),
+        text: t("habitat.openWater"),
         nextId: "open-water-small-outcome",
         image: "/Habitat_OpenWater.png",
       },
@@ -203,15 +199,15 @@ export class GameDataGenerator {
     // large shark habitats
     this.gameData["habitat-choice-large"] = {
       id: "habitat-choice-large",
-      title: t('habitat.chooseAHabitat'),
+      title: t("habitat.chooseAHabitat"),
       description: "",
       optionA: {
-        text: t('habitat.bottomDwelling'),
+        text: t("habitat.bottomDwelling"),
         nextId: "bottom-dwelling-large-outcome",
         image: "/Habitat_BottomDwelling.png",
       },
       optionB: {
-        text: t('habitat.openWater'),
+        text: t("habitat.openWater"),
         nextId: "open-water-large-outcome",
         image: "/Habitat_OpenWater.png",
       },
@@ -221,8 +217,9 @@ export class GameDataGenerator {
     // habitat outcomes
     this.gameData["bottom-dwelling-small-outcome"] = {
       id: "bottom-dwelling-small-outcome",
-      title: t('habitat.outcomeBottomDwelling'),
-      description: "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
+      title: t("habitat.outcomeBottomDwelling"),
+      description:
+        "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-small-bottom",
       type: "outcome",
@@ -230,8 +227,9 @@ export class GameDataGenerator {
 
     this.gameData["open-water-small-outcome"] = {
       id: "open-water-small-outcome",
-      title: t('habitat.outcomeOpenWater'),
-      description: "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
+      title: t("habitat.outcomeOpenWater"),
+      description:
+        "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-small-open",
       type: "outcome",
@@ -239,8 +237,9 @@ export class GameDataGenerator {
 
     this.gameData["bottom-dwelling-large-outcome"] = {
       id: "bottom-dwelling-large-outcome",
-      title: t('habitat.outcomeBottomDwelling'),
-      description: "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
+      title: t("habitat.outcomeBottomDwelling"),
+      description:
+        "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-large-bottom",
       type: "outcome",
@@ -248,8 +247,9 @@ export class GameDataGenerator {
 
     this.gameData["open-water-large-outcome"] = {
       id: "open-water-large-outcome",
-      title: t('habitat.outcomeOpenWater'),
-      description: "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
+      title: t("habitat.outcomeOpenWater"),
+      description:
+        "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-large-open",
       type: "outcome",
@@ -268,15 +268,15 @@ export class GameDataGenerator {
       // choice node
       this.gameData[`water-temp-choice-${id}`] = {
         id: `water-temp-choice-${id}`,
-        title: t('waterTemperature.chooseWaterTemperature'),
+        title: t("waterTemperature.chooseWaterTemperature"),
         description: "",
         optionA: {
-          text: t('waterTemperature.warm'),
+          text: t("waterTemperature.warm"),
           nextId: `warm-water-${id}-outcome`,
           image: "/WaterTemp_Warm.png",
         },
         optionB: {
-          text: t('waterTemperature.cold'),
+          text: t("waterTemperature.cold"),
           nextId: `cold-water-${id}-outcome`,
           image: "/WaterTemp_Cold.png",
         },
@@ -286,8 +286,9 @@ export class GameDataGenerator {
       // warm water outcome
       this.gameData[`warm-water-${id}-outcome`] = {
         id: `warm-water-${id}-outcome`,
-        title: t('waterTemperature.outcomeWarm'),
-        description: "Some sharks spend the majority of their lives in warm waters in tropical and sub-tropical climates. Warmer waters typically have larger fish populations that sharks can feed on. These sharks balance reef ecosystems by feeding on sick or unhealthy fish.",
+        title: t("waterTemperature.outcomeWarm"),
+        description:
+          "Some sharks spend the majority of their lives in warm waters in tropical and sub-tropical climates. Warmer waters typically have larger fish populations that sharks can feed on. These sharks balance reef ecosystems by feeding on sick or unhealthy fish.",
         image: "/WaterTemp_Warm.png",
         nextId: `skin-choice-warm-${id}`,
         type: "outcome",
@@ -296,8 +297,9 @@ export class GameDataGenerator {
       // cold water outcome
       this.gameData[`cold-water-${id}-outcome`] = {
         id: `cold-water-${id}-outcome`,
-        title: t('waterTemperature.outcomeCold'),
-        description: "Some sharks inhabit the freezing waters of the arctic and sub-arctic. To survive in these frigid waters many of these sharks species have special adaptations such as higher body temperature, specially evolved blood, and higher metabolic rates.",
+        title: t("waterTemperature.outcomeCold"),
+        description:
+          "Some sharks inhabit the freezing waters of the arctic and sub-arctic. To survive in these frigid waters many of these sharks species have special adaptations such as higher body temperature, specially evolved blood, and higher metabolic rates.",
         image: "/WaterTemp_Cold.png",
         nextId: `skin-choice-cold-${id}`,
         type: "outcome",
@@ -324,10 +326,10 @@ export class GameDataGenerator {
       );
 
       if (availableSharks.length >= 2) {
-        // choice node
+        // choice node when multiple sharks are available
         this.gameData[`skin-choice-${waterTemp}-${id}`] = {
           id: `skin-choice-${waterTemp}-${id}`,
-          title: t('skinType.chooseSkinType'),
+          title: t("skinType.chooseSkinType"),
           description: "",
           optionA: {
             text: availableSharks[0]?.name || "Unknown Shark",
@@ -342,7 +344,7 @@ export class GameDataGenerator {
           type: "choice",
         };
 
-        // final outcomes
+        // final outcomes for multiple sharks
         availableSharks.forEach((shark) => {
           this.gameData[`${shark.id}-outcome`] = {
             id: `${shark.id}-outcome`,
@@ -353,6 +355,37 @@ export class GameDataGenerator {
             type: "outcome",
           };
         });
+      } else if (availableSharks.length === 1) {
+        // choice node with single option when only one shark is available
+        const shark = availableSharks[0];
+        if (shark) {
+          this.gameData[`skin-choice-${waterTemp}-${id}`] = {
+            id: `skin-choice-${waterTemp}-${id}`,
+            title: t("skinType.chooseSkinType"),
+            description: "",
+            optionA: {
+              text: shark.name,
+              nextId: `${shark.id}-outcome`,
+              image: shark.skinChoiceImage || shark.image,
+            },
+            optionB: {
+              text: "",
+              nextId: `${shark.id}-outcome`,
+              image: "",
+            },
+            type: "choice",
+          };
+
+          // final outcome for single shark
+          this.gameData[`${shark.id}-outcome`] = {
+            id: `${shark.id}-outcome`,
+            title: shark.name,
+            description: shark.description,
+            image: shark.image,
+            isFinal: true,
+            type: "outcome",
+          };
+        }
       }
     });
   }

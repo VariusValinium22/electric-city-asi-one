@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ExampleButtonProps {
   /**
@@ -12,7 +12,7 @@ interface ExampleButtonProps {
   /**
    * Optional variant for different button styles
    */
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
   /**
    * Optional disabled state
    */
@@ -22,13 +22,13 @@ interface ExampleButtonProps {
 export const ExampleButton: React.FC<ExampleButtonProps> = ({
   label,
   onClick,
-  variant = 'primary',
+  variant = "primary",
   disabled = false,
 }) => {
-  const baseStyles = 'px-4 py-2 rounded-md font-medium transition-colors duration-200';
+  const baseStyles = "px-4 py-2 rounded-md font-medium transition-colors duration-200";
   const variantStyles = {
-    primary: 'bg-blue-500 text-white hover:bg-blue-600 disabled:bg-blue-300',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:bg-gray-100',
+    primary: "bg-blue-500 text-white hover:bg-blue-600 disabled:bg-blue-300",
+    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:bg-gray-100",
   };
 
   return (

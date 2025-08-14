@@ -19,5 +19,4 @@ export const TenSecondsLeft: Story = {
   args: {
     secondsLeft: 10,
   },
-
 };

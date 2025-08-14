@@ -1,16 +1,16 @@
-import React from 'react';
-import Card, { CardProps } from './Card';
-import type { Meta, StoryFn } from '@storybook/react';
+import React from "react";
+import Card, { CardProps } from "./Card";
+import type { Meta, StoryFn } from "@storybook/react";
 import "../../global/default.css";
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/Card',
+  title: "Components/Card",
   component: Card,
   argTypes: {
-    title: { control: 'text' }, 
-    description: { control: 'text' }, 
-    disabled: { control: 'boolean' },
-    imageUrl: { control: 'text' },
+    title: { control: "text" },
+    description: { control: "text" },
+    disabled: { control: "boolean" },
+    imageUrl: { control: "text" },
   },
 };
 
@@ -22,7 +22,7 @@ const Template: StoryFn<CardProps> = (args) => <Card {...args} />;
 
 export const Default = Template.bind({});
 
-// Version of template with default values 
+// Version of template with default values
 
 Default.args = {
   title: "Shark A (Small Shark)",

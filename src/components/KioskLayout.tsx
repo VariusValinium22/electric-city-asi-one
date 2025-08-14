@@ -6,7 +6,7 @@ interface KioskLayoutProps {
   title?: string;
 }
 
-export const KioskLayout: React.FC<KioskLayoutProps> = ({ children /*, title = "" */}) => {
+export const KioskLayout: React.FC<KioskLayoutProps> = ({ children /*, title = "" */ }) => {
   // const { isOffline, isElectron } = useOfflineStatus();
 
   return (

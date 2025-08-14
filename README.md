@@ -11,6 +11,7 @@ git clone git@github.com:tripleten-externships/electric-city-asi-one.git
 ### Prerequisites
 
 This project requires:
+
 - Node.js version between 18.0.0 and 25.0.0 (recommended: 24.4.1)
 - npm version 9.0.0 or newer
 

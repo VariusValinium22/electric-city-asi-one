@@ -21,7 +21,7 @@ export class MainStore {
   refreshGameData(): void {
     // force a refresh by calling the game data manager
     gameDataManager.refreshGameData();
-    
+
     // force mobx to recognize the change by updating a tracked property
     // eslint-disable-next-line
     this.count = this.count;
@@ -42,14 +42,14 @@ export class MainStore {
 
   private setupLanguageChangeListener(): void {
     // listen for storage changes (language changes)
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'language') {
+    window.addEventListener("storage", (event) => {
+      if (event.key === "language") {
         this.refreshGameData();
       }
     });
 
     // also listen for custom language change events
-    window.addEventListener('languageChanged', () => {
+    window.addEventListener("languageChanged", () => {
       this.refreshGameData();
     });
   }
@@ -68,9 +68,9 @@ export class MainStore {
   }
 
   resetStepCount() {
-    this.stepCount = 0
+    this.stepCount = 0;
   }
-  
+
   get getCurrentStepCount(): number {
     return this.stepCount;
   }
@@ -110,7 +110,7 @@ export class MainStore {
     if (this.gameStage === GameStage.OUTCOME) {
       const currentOutcome = this.getCurrentNode() as Outcome;
       this.incrementStepCount();
-      
+
       // handle restart button (B) - return to start without incrementing
       if (option === "b") {
         this.resetGame();
@@ -149,7 +149,7 @@ export class MainStore {
    * @param option - the option chosen by the player
    *
    * @returns {void}
-   * 
+   *
    * @description
    * This method updates the shark choices based on the current node and the option chosen by the player
    */
@@ -163,7 +163,7 @@ export class MainStore {
       this.currentSharkChoices.size = choiceText.toLowerCase().includes("small")
         ? "small"
         : "large";
-    // if habitat choice, set habitat to bottom-dwelling or open-water
+      // if habitat choice, set habitat to bottom-dwelling or open-water
     } else if (currentNode.id.includes("habitat-choice")) {
       // if choice includes bottom or dwelling, set habitat to bottom-dwelling
       // else set habitat to open-water
@@ -175,12 +175,12 @@ export class MainStore {
       } else {
         this.currentSharkChoices.habitat = "open-water";
       }
-    // if water temperature choice, set water temperature to warm or cold
+      // if water temperature choice, set water temperature to warm or cold
     } else if (currentNode.id.includes("water-temp-choice")) {
       this.currentSharkChoices.waterTemperature = choiceText.toLowerCase().includes("warm")
         ? "warm"
         : "cold";
-    // if skin choice, set skin type to spotted-pattern or solid-pattern
+      // if skin choice, set skin type to spotted-pattern or solid-pattern
     } else if (currentNode.id.includes("skin-choice")) {
       // map shark names to skin types
       const shark = gameDataManager.getAllSharks().find((s) => s.name === choiceText);

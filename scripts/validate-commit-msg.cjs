@@ -4,7 +4,7 @@
  * A simple commit message validator
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 // get the commit message file path from arguments
 const msgFile = process.argv[2];
@@ -16,56 +16,65 @@ if (!msgFile || !fs.existsSync(msgFile)) {
 
 try {
   // read the commit message directly from the file
-  const commitMsg = fs.readFileSync(msgFile, 'utf-8').trim();
-  
+  const commitMsg = fs.readFileSync(msgFile, "utf-8").trim();
+
   // Git commit messages can have comments starting with #, so we need to get only the first line
   // and ignore any lines that start with #
-  const lines = commitMsg.split('\n');
+  const lines = commitMsg.split("\n");
   const firstLine = lines[0].trim();
-  
+
   // If the first line is empty or starts with #, the commit message is invalid
-  if (!firstLine || firstLine.startsWith('#')) {
-    console.error('\n************* Invalid Git Commit Message **************');
-    console.error('Commit message cannot be empty or start with #');
+  if (!firstLine || firstLine.startsWith("#")) {
+    console.error("\n************* Invalid Git Commit Message **************");
+    console.error("Commit message cannot be empty or start with #");
     process.exit(1);
   }
-  
+
   // Format 1: <type>(<scope>): <subject>
-  const conventionalPattern = /^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|temp)(\([a-zA-Z0-9_\-]+\))?: .+/;
+  const conventionalPattern =
+    /^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|temp)(\([a-zA-Z0-9_\-]+\))?: .+/;
   // Format 2: Merge branch <branch> into <branch> (with optional quotes and special characters)
   const mergePattern = /^Merge branch ['"]?[^'"]+['"]? into ['"]?[^'"]+['"]?$/;
-  
+
   if (!conventionalPattern.test(firstLine) && !mergePattern.test(firstLine)) {
-    console.error('\n************* Invalid Git Commit Message **************');
+    console.error("\n************* Invalid Git Commit Message **************");
     console.error(`commit message: ${firstLine}`);
-    console.error('Allowed formats:');
-    console.error('1. <type>(<scope>): <subject>');
-    console.error('   example: docs(ECASI-1): update README\n');
-    console.error('2. Merge branch <branch> into <branch>');
-    console.error('   example: Merge branch \'feature/xyz\' into \'main\'\n');
-    console.error('type:');
-    console.error('  feat     A new feature.');
-    console.error('  fix      A bug fix.');
-    console.error('  docs     Documentation only changes.');
-    console.error('  style    Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).');
-    console.error('  refactor A code change that neither fixes a bug nor adds a feature.');
-    console.error('  test     Adding missing tests or correcting existing ones.');
-    console.error('  chore    Changes to the build process or auxiliary tools and libraries such as documentation generation.');
-    console.error('  perf     A code change that improves performance.');
-    console.error('  ci       Changes to your CI configuration files and scripts.');
-    console.error('  build    Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm).');
-    console.error('  temp     Temporary commit that won\'t be included in your CHANGELOG.\n');
-    console.error('scope:');
-    console.error('  Optional, can be anything specifying the scope of the commit change.');
-    console.error('  For JIRA tickets, use the format: (ECASI-1)\n');
-    console.error('subject:');
-    console.error('  Brief summary of the change in present tense. Not capitalized. No period at the end.\n');
+    console.error("Allowed formats:");
+    console.error("1. <type>(<scope>): <subject>");
+    console.error("   example: docs(ECASI-1): update README\n");
+    console.error("2. Merge branch <branch> into <branch>");
+    console.error("   example: Merge branch 'feature/xyz' into 'main'\n");
+    console.error("type:");
+    console.error("  feat     A new feature.");
+    console.error("  fix      A bug fix.");
+    console.error("  docs     Documentation only changes.");
+    console.error(
+      "  style    Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)."
+    );
+    console.error("  refactor A code change that neither fixes a bug nor adds a feature.");
+    console.error("  test     Adding missing tests or correcting existing ones.");
+    console.error(
+      "  chore    Changes to the build process or auxiliary tools and libraries such as documentation generation."
+    );
+    console.error("  perf     A code change that improves performance.");
+    console.error("  ci       Changes to your CI configuration files and scripts.");
+    console.error(
+      "  build    Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)."
+    );
+    console.error("  temp     Temporary commit that won't be included in your CHANGELOG.\n");
+    console.error("scope:");
+    console.error("  Optional, can be anything specifying the scope of the commit change.");
+    console.error("  For JIRA tickets, use the format: (ECASI-1)\n");
+    console.error("subject:");
+    console.error(
+      "  Brief summary of the change in present tense. Not capitalized. No period at the end.\n"
+    );
     process.exit(1);
   }
-  
-  console.log('Commit message format is valid.');
+
+  console.log("Commit message format is valid.");
   process.exit(0);
 } catch (error) {
   console.error(`Error validating commit message: ${error.message}`);
   process.exit(1);
-} 
+}

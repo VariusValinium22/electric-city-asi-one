@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import { contextBridge, ipcRenderer, IpcRendererEvent } from "electron";
 
 // Define types for touch events
 interface TouchEvent {
@@ -13,32 +13,32 @@ type StorageValue = string | number | boolean | object | null;
 
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
-contextBridge.exposeInMainWorld('electronAPI', {
+contextBridge.exposeInMainWorld("electronAPI", {
   // App info
-  getVersion: () => ipcRenderer.invoke('app:getVersion'),
-  
+  getVersion: () => ipcRenderer.invoke("app:getVersion"),
+
   // Touch/interaction events for kiosk
   onTouchEvent: (callback: (event: TouchEvent) => void) => {
-    ipcRenderer.on('touch-event', (_event: IpcRendererEvent, touchEvent: TouchEvent) => {
+    ipcRenderer.on("touch-event", (_event: IpcRendererEvent, touchEvent: TouchEvent) => {
       callback(touchEvent);
     });
   },
-  
+
   // Remove listeners
   removeAllListeners: (channel: string) => {
     ipcRenderer.removeAllListeners(channel);
   },
 
   // Kiosk controls (if needed for admin interface)
-  exitKiosk: () => ipcRenderer.invoke('kiosk:exit'),
-  
+  exitKiosk: () => ipcRenderer.invoke("kiosk:exit"),
+
   // Offline storage helpers
   storage: {
-    set: (key: string, value: StorageValue) => ipcRenderer.invoke('storage:set', key, value),
-    get: (key: string) => ipcRenderer.invoke('storage:get', key),
-    remove: (key: string) => ipcRenderer.invoke('storage:remove', key),
-    clear: () => ipcRenderer.invoke('storage:clear'),
-  }
+    set: (key: string, value: StorageValue) => ipcRenderer.invoke("storage:set", key, value),
+    get: (key: string) => ipcRenderer.invoke("storage:get", key),
+    remove: (key: string) => ipcRenderer.invoke("storage:remove", key),
+    clear: () => ipcRenderer.invoke("storage:clear"),
+  },
 });
 
 // Add type definitions for TypeScript
@@ -61,4 +61,4 @@ declare global {
 }
 
 // Make this a module
-export {}; 
+export {};

@@ -12,7 +12,8 @@
     "toStart": "para começar"
   },
   "buttons": {
-    "a": "UMA"
+    "a": "UMA",
+    "b": "B"
   },
   "language": {
     "select": "Selecione o idioma"

@@ -8,7 +8,7 @@ const meta: Meta<typeof TextButton> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-    argTypes: {
+  argTypes: {
     variant: {
       control: { type: "radio" },
       options: ["a", "b"],
@@ -19,7 +19,6 @@ const meta: Meta<typeof TextButton> = {
 };
 
 export default meta;
-
 
 type Story = StoryObj<typeof meta>;
 
@@ -48,4 +47,3 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
-

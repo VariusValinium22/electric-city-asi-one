@@ -14,7 +14,7 @@ export const OutcomeView = observer(() => {
   const currentNode = mainStore.getCurrentNode();
   const { promptState, resetInactivity } = useABButtons();
   const { t } = useTranslation();
-  
+
   function onButtonAClick() {
     mainStore.makeChoice("a");
     resetInactivity();
@@ -61,7 +61,7 @@ export const OutcomeView = observer(() => {
       <section className={mainContainerStyle} id={id}>
         {showBButton && (
           <div className={bButtonContainerStyle}>
-            <TextButton label={t('buttons.b')} id="b-button" onClick={onButtonBClick} />
+            <TextButton label={t("buttons.b")} id="b-button" onClick={onButtonBClick} />
             <p className={bButtonTextStyle}>Restart</p>
           </div>
         )}
@@ -69,10 +69,10 @@ export const OutcomeView = observer(() => {
           <Header legend={legend} title={title} className={headerStyle} />
           <div className={bottomContainerStyle}>
             {image && (
-          <div className="outcome-image-container mb-8 z-10 w-[50%]">
-            <Card title="" imageUrl={image} size="lg" />
-          </div>
-        )}
+              <div className="outcome-image-container mb-8 z-10 w-[50%]">
+                <Card title="" imageUrl={image} size="lg" />
+              </div>
+            )}
             {typeof description === "string" ? (
               <p className={descriptionStyle}>{description}</p>
             ) : (
@@ -94,7 +94,7 @@ export const OutcomeView = observer(() => {
           </div>
         </div>
         <div className={aButtonContainerStyle}>
-          <TextButton label={t('buttons.a')} id="a-button" onClick={onButtonAClick} />
+          <TextButton label={t("buttons.a")} id="a-button" onClick={onButtonAClick} />
           <p className={aButtonTextStyle}>{showBButton ? "Continue" : "Restart"}</p>
         </div>
       </section>

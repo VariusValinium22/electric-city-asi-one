@@ -27,8 +27,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "SharkCounter increments by 1 using store logic.",
+        story: "SharkCounter increments by 1 using store logic.",
       },
     },
   },

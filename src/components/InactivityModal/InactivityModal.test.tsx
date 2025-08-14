@@ -22,7 +22,9 @@ describe("InactivityModal", () => {
   });
 
   it("does not render when isVisible is false", () => {
-    const { container } = renderWithI18n(<InactivityModal isVisible={false} secondsLeft={25} onContinue={() => {}} />);
+    const { container } = renderWithI18n(
+      <InactivityModal isVisible={false} secondsLeft={25} onContinue={() => {}} />
+    );
     expect(container.firstChild).toBeNull();
   });
 
@@ -39,6 +41,3 @@ describe("InactivityModal", () => {
     expect(screen.getByRole("dialog")).toHaveAttribute("aria-modal", "true");
   });
 });
-
-
-

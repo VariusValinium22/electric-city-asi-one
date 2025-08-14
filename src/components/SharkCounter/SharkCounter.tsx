@@ -5,14 +5,18 @@ import { useStore } from "../../store";
 const SharkCounter: React.FC = () => {
   const { t } = useTranslation();
   const [sharkCount, setSharkCount] = useState(0);
-  const { mainStore } = useStore()
+  const { mainStore } = useStore();
 
   useEffect(() => {
     setSharkCount(mainStore.currentSharkCount);
-  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
- return (
-    <div className="flex justify-center absolute bottom-12 w-full" aria-live="polite" aria-atomic="true">
+  return (
+    <div
+      className="flex justify-center absolute bottom-12 w-full"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <div className="flex items-center justify-center gap-4 z-10">
         <p
           className="flex items-center justify-center
@@ -22,7 +26,7 @@ const SharkCounter: React.FC = () => {
                      leading-[clamp(28px,4.2vw,52px)]
                      px-[clamp(.2px,4vw,14px)]"
         >
-          {t('counter.sharkCount', { count: sharkCount })}
+          {t("counter.sharkCount", { count: sharkCount })}
         </p>
         <p
           className="text-white  
@@ -30,7 +34,7 @@ const SharkCounter: React.FC = () => {
                      text-[clamp(16px,3.5vw,40px)]
                      leading-[clamp(28px,4.2vw,52px)]"
         >
-          {sharkCount === 1 ? t('counter.sharkAlreadyMade') : t('counter.sharksAlreadyMade')}
+          {sharkCount === 1 ? t("counter.sharkAlreadyMade") : t("counter.sharksAlreadyMade")}
         </p>
       </div>
     </div>

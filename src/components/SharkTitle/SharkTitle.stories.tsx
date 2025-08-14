@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import SharkTitle from './SharkTitle';
+import type { Meta, StoryObj } from "@storybook/react";
+import SharkTitle from "./SharkTitle";
 
 const meta = {
-  title: 'Components/SharkTitle',
+  title: "Components/SharkTitle",
   component: SharkTitle,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div className="relative w-full h-screen bg-blue-500">
@@ -22,12 +22,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Create a Shark!',
+    title: "Create a Shark!",
   },
   parameters: {
     docs: {
       description: {
-        story: 'Large responsive title with white stroke outline and blue fill, optimized for all screen sizes.',
+        story:
+          "Large responsive title with white stroke outline and blue fill, optimized for all screen sizes.",
       },
     },
   },

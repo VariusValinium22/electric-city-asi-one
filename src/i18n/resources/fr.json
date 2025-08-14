@@ -12,7 +12,8 @@
     "toStart": "Pour commencer"
   },
   "buttons": {
-    "a": "UNE"
+    "a": "UNE",
+    "b": "B"
   },
   "language": {
     "select": "Sélectionner la langue"

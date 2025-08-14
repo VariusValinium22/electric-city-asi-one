@@ -10,15 +10,15 @@ export default defineConfig({
     open: true, // open browser automatically
   },
   build: {
-    outDir: 'dist',
+    outDir: "dist",
     emptyOutDir: true,
     sourcemap: true, // enable source maps for debugging
   },
-  base: './', // use relative paths for Electron
+  base: "./", // use relative paths for Electron
   define: {
     __DEV__: true,
   },
   esbuild: {
     sourcemap: true,
   },
-}); 
+});

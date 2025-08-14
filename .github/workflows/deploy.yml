@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: "Environment to deploy to"
         required: true
-        default: 'staging'
+        default: "staging"
         type: choice
         options:
           - staging
@@ -28,8 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      
+          cache: "npm"
+
       - name: Install dependencies
         run: npm ci
 
@@ -73,8 +73,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      
+          cache: "npm"
+
       - name: Install dependencies
         run: npm ci
 
@@ -106,8 +106,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      
+          cache: "npm"
+
       - name: Install dependencies
         run: npm ci
 
@@ -126,7 +126,7 @@ jobs:
           # Create version directory structure
           VERSION=$(node -p "require('./package.json').version")
           TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          
+
           if [ "${{ github.event.inputs.environment }}" = "prod" ]; then
             # Upload to production versioned directory
             aws s3 sync ./release/ s3://${{ secrets.ELECTRON_DOWNLOADS_PROD_S3_BUCKET }}/v$VERSION-$TIMESTAMP/ --exclude "*.blockmap" --exclude "*.yaml"

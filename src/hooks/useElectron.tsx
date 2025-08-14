@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 /**
  * Hook to safely access Electron API
@@ -9,7 +9,7 @@ export const useElectron = () => {
 
   useEffect(() => {
     // Check if we're running in Electron
-    setIsElectron(typeof window !== 'undefined' && window.electronAPI !== undefined);
+    setIsElectron(typeof window !== "undefined" && window.electronAPI !== undefined);
   }, []);
 
   return isElectron ? window.electronAPI : null;
@@ -27,12 +27,12 @@ export const useOfflineStatus = () => {
       setIsOffline(!navigator.onLine);
     };
 
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
 
     return () => {
-      window.removeEventListener('online', updateOnlineStatus);
-      window.removeEventListener('offline', updateOnlineStatus);
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
     };
   }, []);
 
@@ -41,4 +41,4 @@ export const useOfflineStatus = () => {
     isOnline: !isOffline,
     isElectron: !!electronAPI,
   };
-}; 
+};

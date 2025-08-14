@@ -14,7 +14,7 @@ export const ChoiceView = observer(() => {
   const currentNode = mainStore.getCurrentNode();
   const { promptState, resetInactivity } = useABButtons();
   const { t } = useTranslation();
-  
+
   function onButtonAClick() {
     mainStore.makeChoice("a");
     resetInactivity();
@@ -38,8 +38,8 @@ export const ChoiceView = observer(() => {
   let legend = "";
 
   const isValidStepCount = (steps: number) => {
-    return [1, 2, 3].includes(steps)
-  }
+    return [1, 2, 3].includes(steps);
+  };
 
   if (isValidStepCount(stepCount)) {
     legend = `Step ${stepCount.toString()}/3`;
@@ -62,7 +62,7 @@ export const ChoiceView = observer(() => {
               <SizeCard size="small" />
               <div>
                 <TextButton
-                  label={t('buttons.a')}
+                  label={t("buttons.a")}
                   id="a-button"
                   text={(currentNode as Choice).optionA.text}
                   onClick={onButtonAClick}
@@ -75,7 +75,7 @@ export const ChoiceView = observer(() => {
               <SizeCard size="large" />
               <div>
                 <TextButton
-                  label={t('buttons.b')}
+                  label={t("buttons.b")}
                   id="b-button"
                   text={(currentNode as Choice).optionB.text}
                   onClick={onButtonBClick}
@@ -97,7 +97,7 @@ export const ChoiceView = observer(() => {
                 />
                 <div>
                   <TextButton
-                    label={t('buttons.a')}
+                    label={t("buttons.a")}
                     id="a-button"
                     text={isValidStepCount(stepCount) ? (currentNode as Choice).optionA.text : ""}
                     onClick={onButtonAClick}
@@ -106,26 +106,28 @@ export const ChoiceView = observer(() => {
                 </div>
               </div>
             </div>
-            <div>
-              <div className={choiceCardOptionCardsandButtonsClass}>
-                <Card
-                  title={""}
-                  description={""}
-                  imageUrl={(currentNode as Choice).optionB.image || ""}
-                  onClick={onButtonBClick}
-                  size="lg"
-                />
-                <div>
-                  <TextButton
-                    label={t('buttons.b')}
-                    id="b-button"
-                    text={isValidStepCount(stepCount) ? (currentNode as Choice).optionB.text : ""}
+            {(currentNode as Choice).optionB.text && (currentNode as Choice).optionB.image ? (
+              <div>
+                <div className={choiceCardOptionCardsandButtonsClass}>
+                  <Card
+                    title={""}
+                    description={""}
+                    imageUrl={(currentNode as Choice).optionB.image || ""}
                     onClick={onButtonBClick}
-                    isChoiceView={true}
+                    size="lg"
                   />
+                  <div>
+                    <TextButton
+                      label={t("buttons.b")}
+                      id="b-button"
+                      text={isValidStepCount(stepCount) ? (currentNode as Choice).optionB.text : ""}
+                      onClick={onButtonBClick}
+                      isChoiceView={true}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
           </>
         )}
 

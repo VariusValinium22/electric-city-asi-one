@@ -1,5 +1,5 @@
-import React from 'react';
-import { useElectron } from '../hooks/useElectron';
+import React from "react";
+import { useElectron } from "../hooks/useElectron";
 
 interface EnvironmentDetectorProps {
   children: React.ReactNode;
@@ -12,22 +12,22 @@ export const EnvironmentDetector: React.FC<EnvironmentDetectorProps> = ({ childr
   // add environment-specific classes or behavior
   React.useEffect(() => {
     if (isElectron) {
-      document.body.classList.add('electron-app', 'kiosk-mode');
+      document.body.classList.add("electron-app", "kiosk-mode");
     } else {
-      document.body.classList.add('web-app');
+      document.body.classList.add("web-app");
     }
   }, [isElectron]);
 
   return (
-    <div className={`app-container ${isElectron ? 'electron' : 'web'}`}>
+    <div className={`app-container ${isElectron ? "electron" : "web"}`}>
       {children}
-      
+
       {/* show environment indicator in development */}
-      {process.env.NODE_ENV === 'development' && (
+      {process.env.NODE_ENV === "development" && (
         <div className="fixed top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
-          {isElectron ? 'Electron' : 'Web'}
+          {isElectron ? "Electron" : "Web"}
         </div>
       )}
     </div>
   );
-}; 
+};

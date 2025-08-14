@@ -13,16 +13,19 @@ The infrastructure includes:
 ## Resources Created
 
 ### S3 Buckets
+
 - `electric-city-sharks-frontend-staging` - Staging environment
-- `electric-city-sharks-frontend-prod` - Production environment  
+- `electric-city-sharks-frontend-prod` - Production environment
 - `electric-city-sharks-storybook` - Component documentation
 
 ### CloudFront Distributions
+
 - Staging distribution with caching disabled for development
 - Production distribution with optimized caching
 - Storybook distribution with caching disabled
 
 ### IAM Resources
+
 - GitHub Actions user with deployment permissions
 - Policies for S3 and CloudFront access
 - Access keys for CI/CD integration
@@ -30,15 +33,17 @@ The infrastructure includes:
 ## Prerequisites
 
 1. **AWS CLI** installed and configured
+
    ```bash
    aws configure
    ```
 
 2. **jq** for JSON parsing (optional, for deployment script)
+
    ```bash
    # macOS
    brew install jq
-   
+
    # Ubuntu/Debian
    sudo apt-get install jq
    ```
@@ -53,6 +58,7 @@ The infrastructure includes:
 ### Option 1: Using the Deployment Script (Recommended)
 
 1. Make the script executable:
+
    ```bash
    chmod +x infrastructure/deploy-stack.sh
    ```
@@ -63,6 +69,7 @@ The infrastructure includes:
    ```
 
 The script will:
+
 - Deploy the CloudFormation stack
 - Display all resource information
 - Show the exact values needed for GitHub secrets
@@ -85,14 +92,16 @@ aws cloudformation deploy \
 After deployment, add these secrets to your GitHub repository:
 
 **Staging Environment:**
+
 - `STAGING_S3_BUCKET`
-- `STAGING_CLOUDFRONT_DISTRIBUTION_ID`  
+- `STAGING_CLOUDFRONT_DISTRIBUTION_ID`
 - `STORYBOOK_S3_BUCKET`
 - `STORYBOOK_CLOUDFRONT_DISTRIBUTION_ID`
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 
 **Production Environment:**
+
 - `PROD_S3_BUCKET`
 - `PROD_CLOUDFRONT_DISTRIBUTION_ID`
 - `AWS_ACCESS_KEY_ID`
@@ -108,23 +117,24 @@ After deployment, add these secrets to your GitHub repository:
 
 The CloudFormation stack provides these outputs:
 
-| Output | Description |
-|--------|-------------|
-| `StagingBucketName` | S3 bucket name for staging |
-| `ProductionBucketName` | S3 bucket name for production |
-| `StorybookBucketName` | S3 bucket name for storybook |
-| `StagingDistributionId` | CloudFront distribution ID for staging |
-| `ProductionDistributionId` | CloudFront distribution ID for production |
-| `StorybookDistributionId` | CloudFront distribution ID for storybook |
-| `StagingDistributionDomainName` | CloudFront URL for staging |
-| `ProductionDistributionDomainName` | CloudFront URL for production |
-| `StorybookDistributionDomainName` | CloudFront URL for storybook |
-| `GitHubActionsAccessKeyId` | Access key for GitHub Actions |
-| `GitHubActionsSecretAccessKey` | Secret key for GitHub Actions |
+| Output                             | Description                               |
+| ---------------------------------- | ----------------------------------------- |
+| `StagingBucketName`                | S3 bucket name for staging                |
+| `ProductionBucketName`             | S3 bucket name for production             |
+| `StorybookBucketName`              | S3 bucket name for storybook              |
+| `StagingDistributionId`            | CloudFront distribution ID for staging    |
+| `ProductionDistributionId`         | CloudFront distribution ID for production |
+| `StorybookDistributionId`          | CloudFront distribution ID for storybook  |
+| `StagingDistributionDomainName`    | CloudFront URL for staging                |
+| `ProductionDistributionDomainName` | CloudFront URL for production             |
+| `StorybookDistributionDomainName`  | CloudFront URL for storybook              |
+| `GitHubActionsAccessKeyId`         | Access key for GitHub Actions             |
+| `GitHubActionsSecretAccessKey`     | Secret key for GitHub Actions             |
 
 ## Management Commands
 
 ### View Stack Status
+
 ```bash
 aws cloudformation describe-stacks \
   --stack-name electric-city-frontend-infrastructure \
@@ -132,6 +142,7 @@ aws cloudformation describe-stacks \
 ```
 
 ### Update Stack
+
 ```bash
 aws cloudformation deploy \
   --template-file infrastructure/cloudformation-stack.yml \
@@ -142,6 +153,7 @@ aws cloudformation deploy \
 ```
 
 ### Delete Stack
+
 ```bash
 # WARNING: this will delete all resources!
 aws cloudformation delete-stack \
@@ -184,13 +196,15 @@ aws cloudformation delete-stack \
 ## Maintenance
 
 ### Regular Tasks
+
 1. **Monitor AWS costs** in the Billing & Cost Management console
 2. **Rotate IAM access keys** periodically
 3. **Update CloudFormation template** as infrastructure needs change
 4. **Review security settings** quarterly
 
 ### Scaling Considerations
+
 - Add custom domain names when ready for production
 - Consider adding Route 53 for DNS management
 - Add CloudWatch monitoring and alerts
-- Consider adding WAF for security 
+- Consider adding WAF for security

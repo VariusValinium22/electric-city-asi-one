@@ -4,11 +4,7 @@
   "directories": {
     "output": "release"
   },
-  "files": [
-    "dist/**/*",
-    "dist-electron/**/*",
-    "node_modules/**/*"
-  ],
+  "files": ["dist/**/*", "dist-electron/**/*", "node_modules/**/*"],
   "mac": {
     "target": {
       "target": "default",
@@ -49,4 +45,4 @@
   "extraMetadata": {
     "main": "dist-electron/main.cjs"
   }
-} 
+}

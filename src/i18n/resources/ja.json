@@ -12,7 +12,8 @@
     "toStart": "開始する"
   },
   "buttons": {
-    "a": "a"
+    "a": "a",
+    "b": "b"
   },
   "language": {
     "select": "言語を選択します"

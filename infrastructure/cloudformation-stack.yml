@@ -1,13 +1,11 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Electric City Aquarium: Sharks Interactive - Frontend Infrastructure - S3 Buckets, CloudFront Distributions, and IAM Resources'
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Electric City Aquarium: Sharks Interactive - Frontend Infrastructure - S3 Buckets, CloudFront Distributions, and IAM Resources"
 
 Parameters:
   ProjectName:
     Type: String
     Default: electric-city-sharks
     Description: Project name used for resource naming
-  
-
 
 Resources:
   # S3 buckets
@@ -25,9 +23,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   ProductionBucket:
@@ -44,9 +42,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   StorybookBucket:
@@ -63,9 +61,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   # Electron app downloads bucket
@@ -80,9 +78,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   ElectronDownloadsProductionBucket:
@@ -96,9 +94,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   # S3 bucket policies
@@ -110,7 +108,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${StagingBucket.Arn}/*"
 
@@ -122,7 +120,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${ProductionBucket.Arn}/*"
 
@@ -134,7 +132,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${StorybookBucket.Arn}/*"
 
@@ -146,7 +144,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${ElectronDownloadsStagingBucket.Arn}/*"
 
@@ -158,7 +156,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${ElectronDownloadsProductionBucket.Arn}/*"
 
@@ -172,9 +170,9 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: !Sub "${ProjectName}-staging-origin"
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
-          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c  # SecurityHeadersPolicy
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c # SecurityHeadersPolicy
         Origins:
           - Id: !Sub "${ProjectName}-staging-origin"
             DomainName: !Select [1, !Split ["//", !GetAtt StagingBucket.WebsiteURL]]
@@ -204,9 +202,9 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: !Sub "${ProjectName}-prod-origin"
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
-          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c  # SecurityHeadersPolicy
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+          ResponseHeadersPolicyId: 60669652-455b-4ae9-85a4-c4c02393f86c # SecurityHeadersPolicy
         Origins:
           - Id: !Sub "${ProjectName}-prod-origin"
             DomainName: !Select [1, !Split ["//", !GetAtt ProductionBucket.WebsiteURL]]
@@ -236,9 +234,9 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: !Sub "${ProjectName}-storybook-origin"
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
-          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd # SimpleCORS
         Origins:
           - Id: !Sub "${ProjectName}-storybook-origin"
             DomainName: !Select [1, !Split ["//", !GetAtt StorybookBucket.WebsiteURL]]
@@ -268,9 +266,9 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: !Sub "${ProjectName}-electron-downloads-staging-origin"
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
-          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # CachingDisabled
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd # SimpleCORS
           FunctionAssociations:
             - EventType: viewer-response
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
@@ -291,9 +289,9 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: !Sub "${ProjectName}-electron-downloads-prod-origin"
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
-          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # CORS-S3Origin
-          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd  # SimpleCORS
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
+          OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+          ResponseHeadersPolicyId: 5cc3b908-e619-4b99-88e5-2cf7f45965bd # SimpleCORS
           FunctionAssociations:
             - EventType: viewer-response
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
@@ -313,7 +311,7 @@ Resources:
       Policies:
         - PolicyName: !Sub "${ProjectName}-deployment-policy"
           PolicyDocument:
-            Version: '2012-10-17'
+            Version: "2012-10-17"
             Statement:
               - Effect: Allow
                 Action:
@@ -338,7 +336,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - cloudfront:CreateInvalidation
-                Resource: 
+                Resource:
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StagingDistribution}"
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${ProductionDistribution}"
                   - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StorybookDistribution}"
@@ -485,4 +483,4 @@ Outputs:
 
   GitHubActionsSecretAccessKey:
     Description: Secret Access Key for GitHub Actions
-    Value: !GetAtt GitHubActionsAccessKey.SecretAccessKey 
+    Value: !GetAtt GitHubActionsAccessKey.SecretAccessKey

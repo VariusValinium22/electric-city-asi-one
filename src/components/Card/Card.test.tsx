@@ -7,33 +7,33 @@ describe("Card component", () => {
   // Test that the title and description render correctly
   // it("renders with title and description", () => {
   //   render(<Card title="Tiger Shark" description="Aggressive predator" />);
-    
+
   //   // Expect the title to appear in the document
   //   expect(screen.getByText("Tiger Shark")).toBeInTheDocument();
-    
+
   //   // Expect the description to appear in the document
   //   expect(screen.getByText("Aggressive predator")).toBeInTheDocument();
   // });
-it("renders children", () => {
-  render(
-    <Card title={""}>
-      <h3>Great White Shark</h3>
-      <p>Child component</p>
-    </Card>
-  );
-  expect(screen.getByText("Great White Shark")).toBeInTheDocument();
-  expect(screen.getByText("Child component")).toBeInTheDocument();
-});
+  it("renders children", () => {
+    render(
+      <Card title={""}>
+        <h3>Great White Shark</h3>
+        <p>Child component</p>
+      </Card>
+    );
+    expect(screen.getByText("Great White Shark")).toBeInTheDocument();
+    expect(screen.getByText("Child component")).toBeInTheDocument();
+  });
 
   // // Test that clicking the card triggers the onClick handler
   // it("calls onClick when clicked", () => {
   //   const handleClick = vi.fn(); // Create a mock click handler
-    
+
   //   render(<Card title="Shark" onClick={handleClick} />);
-    
+
   //   // Simulate a click on the title
   //   fireEvent.click(screen.getByText("Shark"));
-    
+
   //   // Expect the handler to have been called once
   //   expect(handleClick).toHaveBeenCalledTimes(1);
   // });
@@ -43,27 +43,26 @@ it("renders children", () => {
   //   const handleClick = vi.fn(); // Create a mock click handler
 
   //   render(<Card title="Shark" onClick={handleClick} disabled />);
-    
+
   //   // Try to click the card
   //   fireEvent.click(screen.getByText("Shark"));
-    
+
   //   // Expect the handler NOT to have been called
   //   expect(handleClick).not.toHaveBeenCalled();
   // });
   it("does not call onClick when disabled", () => {
-  const handleClick = vi.fn();
+    const handleClick = vi.fn();
 
-  render(
-    <Card onClick={handleClick} disabled title={""}>
-      <div>Disabled Card</div>
-    </Card>
-  );
+    render(
+      <Card onClick={handleClick} disabled title={""}>
+        <div>Disabled Card</div>
+      </Card>
+    );
 
-  fireEvent.click(screen.getByText("Disabled Card"));
+    fireEvent.click(screen.getByText("Disabled Card"));
 
-  expect(handleClick).not.toHaveBeenCalled();
-});
-
+    expect(handleClick).not.toHaveBeenCalled();
+  });
 
   // Test that children content passed into the Card is rendered
   it("renders children", () => {
@@ -72,10 +71,8 @@ it("renders children", () => {
         <p>Child component</p>
       </Card>
     );
-    
+
     // Expect the child content to appear in the document
     expect(screen.getByText("Child component")).toBeInTheDocument();
   });
 });
-
-

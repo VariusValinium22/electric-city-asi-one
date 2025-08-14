@@ -1,4 +1,5 @@
-## Jira Issue ID 
+## Jira Issue ID
+
 [](https://tripleten-apiary.atlassian.net/browse/)
 
 <!-- Instructions: Add the ECASI issue number between the brackets above -->
@@ -6,11 +7,10 @@
 
 ## Describe your changes
 
-
 ## Testing / Steps to reproduce
 
-
 ## Checklist before requesting a review
+
 - [ ] I have performed a self-review of my code
 - [ ] If there are changes to components, I have added / updated automated tests
 - [ ] I have made any necessary updates to Storybook to accompany these changes

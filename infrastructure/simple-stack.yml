@@ -1,5 +1,5 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Electric City Aquarium: Sharks Interactive - Frontend Infrastructure - S3 Buckets and IAM (Simplified)'
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Electric City Aquarium: Sharks Interactive - Frontend Infrastructure - S3 Buckets and IAM (Simplified)"
 
 Parameters:
   ProjectName:
@@ -23,9 +23,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   ProductionBucket:
@@ -42,9 +42,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   StorybookBucket:
@@ -61,9 +61,9 @@ Resources:
         RestrictPublicBuckets: false
       CorsConfiguration:
         CorsRules:
-          - AllowedHeaders: ['*']
+          - AllowedHeaders: ["*"]
             AllowedMethods: [GET, HEAD]
-            AllowedOrigins: ['*']
+            AllowedOrigins: ["*"]
             MaxAge: 3000
 
   # S3 bucket policies
@@ -75,7 +75,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${StagingBucket}/*"
 
@@ -87,7 +87,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${ProductionBucket}/*"
 
@@ -99,7 +99,7 @@ Resources:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
-            Principal: '*'
+            Principal: "*"
             Action: s3:GetObject
             Resource: !Sub "${StorybookBucket}/*"
 
@@ -111,7 +111,7 @@ Resources:
       Policies:
         - PolicyName: !Sub "${ProjectName}-deployment-policy"
           PolicyDocument:
-            Version: '2012-10-17'
+            Version: "2012-10-17"
             Statement:
               - Effect: Allow
                 Action:
@@ -165,4 +165,4 @@ Outputs:
 
   GitHubActionsSecretAccessKey:
     Description: Secret Access Key for GitHub Actions
-    Value: !GetAtt GitHubActionsAccessKey.SecretAccessKey 
+    Value: !GetAtt GitHubActionsAccessKey.SecretAccessKey

@@ -81,7 +81,9 @@ export const TextButton: React.FC<TextButtonProps> = ({
   const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   return (
-    <div className={`flex ${isChoiceView ? "justify-between" : "justify-center"} ${text ? "gap-[20px]" : ""} items-center`}>
+    <div
+      className={`flex ${isChoiceView ? "justify-between" : "justify-center"} ${text ? "gap-[20px]" : ""} items-center`}
+    >
       <div className={wrapperClass}>
         <button
           type="button"
