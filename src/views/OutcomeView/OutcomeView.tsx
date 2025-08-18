@@ -68,11 +68,7 @@ export const OutcomeView = observer(() => {
         <div className={infoContainerStyle}>
           <Header legend={legend} title={title} className={headerStyle} />
           <div className={bottomContainerStyle}>
-            {image && (
-              <div className="outcome-image-container mb-8 z-10 w-[50%]">
-                <Card title="" imageUrl={image} size="lg" />
-              </div>
-            )}
+            {image && <Card title="" imageUrl={image} size="lg" />}
             {typeof description === "string" ? (
               <p className={descriptionStyle}>{description}</p>
             ) : (

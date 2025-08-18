@@ -47,8 +47,8 @@ export const ChoiceView = observer(() => {
     legend = "Last detail";
   }
 
-  const choiceCardOptionClass = "min-h-screen bg-[#1B3567]";
-  const choiceCardOptionCardClass = "flex mt-[15vh] items-center gap-20 justify-center";
+  const choiceCardOptionClass = "min-h-screen bg-[#1B3567] p-[52px_100px]";
+  const choiceCardOptionCardClass = "flex mt-[60px] items-center gap-20 justify-center";
   const choiceCardSubClass = "flex items-center gap-20 justify-center";
   const choiceCardOptionCardsandButtonsClass = "flex flex-col items-center justify-center gap-10";
 

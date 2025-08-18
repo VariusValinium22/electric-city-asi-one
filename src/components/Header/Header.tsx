@@ -16,9 +16,9 @@ export const Header: React.FC<HeaderProps> = ({
 }: HeaderProps) => {
   // Define the classes for the header, title, and legend based on the variant prop
 
-  const headerClass = ` header bg-transparent text-center pt-[52px] font-normal leading-[100%]  ${className ?? ""}`;
-  const titleClass = `font-lilita text-[7.5vw] mt-[2.5vh] text-center whitespace-nowrap justify-center flex  tracking-[0] text-[#F3F3F1] ${variant}`;
-  const legendClass = `font-inter text-[32px] pt-0 pb-[25px] tracking-[0] text-[#F3F3F199] ${variant}`;
+  const headerClass = `header bg-transparent text-center font-normal leading-none  ${className ?? ""}`;
+  const titleClass = `font-lilita text-[7.5vw] text-center whitespace-nowrap justify-center flex  tracking-[0] text-[#F3F3F1] ${variant}`;
+  const legendClass = `font-inter text-[32px] p-0 tracking-[0] text-[#F3F3F199] ${variant}`;
 
   // Return the header component with the appropriate classes and content
   // The legend is optional and will only render if provided

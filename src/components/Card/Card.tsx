@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({
   const sizeClasses = {
     sm: "w-[25vw] h-[16vh]", // Small card
     md: "w-[30vw] h-[20vh]", // Medium card (default)
-    lg: "w-[40vw] h-[45vh]", // Large card (matches Figma) "w-[820px] h-[553px]"
+    lg: "w-[43.8vw] h-[51.2vh]", // Large card (matches Figma) "w-[820px] h-[553px]"
   };
 
   return (
