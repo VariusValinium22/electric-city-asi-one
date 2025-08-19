@@ -4,7 +4,6 @@ import Card from "./Card";
 
 // Grouping all Card component tests
 describe("Card component", () => {
-  // Test that the title and description render correctly
   // it("renders with title and description", () => {
   //   render(<Card title="Tiger Shark" description="Aggressive predator" />);
 
@@ -74,5 +73,15 @@ describe("Card component", () => {
 
     // Expect the child content to appear in the document
     expect(screen.getByText("Child component")).toBeInTheDocument();
+  });
+
+  it("renders image", () => {
+    const title = "Shark";
+    const imageUrl = "/images/hammerhead.jpg";
+    render(<Card title={title} imageUrl={imageUrl} />);
+
+    const imageComponent: HTMLImageElement = screen.getByAltText(title);
+    expect(imageComponent).toBeInTheDocument();
+    expect(imageComponent.src === imageUrl).toBeDefined();
   });
 });

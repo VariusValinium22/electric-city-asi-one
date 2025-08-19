@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { getSecounds } from "../utils/timeConversion";
+import { getSeconds } from "../utils/timeConversion";
 
 // Note: Might be better to put this Timer class into util.
 type timerID = NodeJS.Timeout | undefined;
@@ -36,12 +36,12 @@ function startTimeoutTimer(setPromptState: setPromptState, timer: Timer) {
   setPromptState(PromptState.Active);
   timer.start(() => {
     setPromptState(PromptState.TimedOut);
-  }, getSecounds(30));
+  }, getSeconds(30));
 }
 
 function startPromptTimer(setPromptState: setPromptState, timer: Timer) {
   setPromptState(PromptState.Inactive);
-  timer.start(startTimeoutTimer, getSecounds(90), setPromptState, timer); // 1.5 minutes = 90 seconds
+  timer.start(startTimeoutTimer, getSeconds(90), setPromptState, timer); // 1.5 minutes = 90 seconds
 }
 
 export const useABButtons = () => {

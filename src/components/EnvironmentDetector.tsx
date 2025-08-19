@@ -19,7 +19,10 @@ export const EnvironmentDetector: React.FC<EnvironmentDetectorProps> = ({ childr
   }, [isElectron]);
 
   return (
-    <div className={`app-container ${isElectron ? "electron" : "web"}`}>
+    <div
+      className={`app-container ${isElectron ? "electron" : "web"}`}
+      data-testid="environment-detector"
+    >
       {children}
 
       {/* show environment indicator in development */}

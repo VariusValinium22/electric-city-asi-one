@@ -21,7 +21,6 @@ const InactivityManager: React.FC<InactivityManagerProps> = ({ promptState, rese
   const handleContinueGame = () => {
     resetInactivity();
   };
-
   // Handle countdown when modal is visible
   useEffect(() => {
     if (!inactivityEnabled) return;
