@@ -37,9 +37,9 @@ export const OutcomeView = observer(() => {
   let showBButton = true;
 
   if (stepCount !== 4) {
-    legend = `Step ${stepCount.toString()}/3`;
+    legend = t("step", { stepCount: stepCount.toString() });
   } else {
-    legend = "Your shark";
+    legend = t("yourShark");
     showBButton = false;
   }
 
@@ -61,37 +61,41 @@ export const OutcomeView = observer(() => {
       <section className={mainContainerStyle} id={id}>
         {showBButton && (
           <div className={bButtonContainerStyle}>
-            <TextButton label={t("buttons.b")} id="b-button" onClick={onButtonBClick} />
-            <p className={bButtonTextStyle}>Restart</p>
+            <TextButton label="B" id="b-button" onClick={onButtonBClick} />
+            <p className={bButtonTextStyle}>{t("restart")}</p>
           </div>
         )}
         <div className={infoContainerStyle}>
-          <Header legend={legend} title={title} className={headerStyle} />
+          <Header
+            legend={legend}
+            title={!showBButton ? t(`${id}.name`) : t(title)}
+            className={headerStyle}
+          />
           <div className={bottomContainerStyle}>
             {image && <Card title="" imageUrl={image} size="lg" />}
             {typeof description === "string" ? (
-              <p className={descriptionStyle}>{description}</p>
+              <p className={descriptionStyle}>{t(description)}</p>
             ) : (
               <div className={descriptionContainerStyle}>
                 <p className={descriptionStyle}>
-                  <span className={boldStyle}>Range: </span>
-                  {description.range}
+                  <span className={boldStyle}>{t("range")}</span>
+                  {t(`${id}.description.range`)}
                 </p>
                 <p className={descriptionStyle}>
-                  <span className={boldStyle}>Size: </span>
-                  {description.size}
+                  <span className={boldStyle}>{t("size")}</span>
+                  {t(`${id}.description.size`)}
                 </p>
                 <p className={descriptionStyle}>
-                  <span className={boldStyle}>Fun Fact: </span>
-                  {description.fact}
+                  <span className={boldStyle}>{t("funFact")}</span>
+                  {t(`${id}.description.fact`)}
                 </p>
               </div>
             )}
           </div>
         </div>
         <div className={aButtonContainerStyle}>
-          <TextButton label={t("buttons.a")} id="a-button" onClick={onButtonAClick} />
-          <p className={aButtonTextStyle}>{showBButton ? "Continue" : "Restart"}</p>
+          <TextButton label="A" id="a-button" onClick={onButtonAClick} />
+          <p className={aButtonTextStyle}>{showBButton ? t("continue") : t("restart")}</p>
         </div>
       </section>
 

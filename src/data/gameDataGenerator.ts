@@ -117,12 +117,12 @@ export class GameDataGenerator {
     // size choice
     this.gameData["size-choice"] = {
       id: "size-choice",
-      title: "Choose a size",
+      title: t("sizeChoice.chooseASize"),
       description: "",
       optionA: {
-        text: t("size.small"),
+        text: t("sizeChoice.small"),
         nextId: "small-shark-outcome",
-        cardHeader: "6 inches — 7 feet",
+        cardHeader: t("sizeChoice.sixInchesSevenFeet"),
         leftIcon: "/HumanIcons/HumanIcon.svg",
         rightIcons: ["/SharkIcons/SharkIcon.svg", "/SharkIcons/SharkIcon.svg"],
         headerSize: "text-2xl font-bold",
@@ -132,9 +132,9 @@ export class GameDataGenerator {
         },
       },
       optionB: {
-        text: t("size.large"),
+        text: t("sizeChoice.large"),
         nextId: "large-shark-outcome",
-        cardHeader: "7 feet — 62 feet",
+        cardHeader: t("sizeChoice.sevenFeetSixtyTwoFeet"),
         leftIcon: "/HumanIcons/HumanIcon.svg",
         rightIcons: ["/SharkIcons/SharkIcon.svg", "/SharkIcons/SharkIcon.svg"],
         headerSize: "text-2xl font-bold",
@@ -149,9 +149,8 @@ export class GameDataGenerator {
     // size outcomes
     this.gameData["small-shark-outcome"] = {
       id: "small-shark-outcome",
-      title: t("size.outcomeSmall"),
-      description:
-        "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
+      title: t("sizeChoice.outcomeSmall"),
+      description: t("sizeChoice.descriptionSmall"),
       image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-small",
       type: "outcome",
@@ -159,9 +158,8 @@ export class GameDataGenerator {
 
     this.gameData["large-shark-outcome"] = {
       id: "large-shark-outcome",
-      title: t("size.outcomeLarge"),
-      description:
-        "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water.",
+      title: t("sizeChoice.outcomeLarge"),
+      description: t("sizeChoice.descriptionLarge"),
       image: "/SharkIcons/SharkIcon.svg",
       nextId: "habitat-choice-large",
       type: "outcome",
@@ -181,15 +179,15 @@ export class GameDataGenerator {
     // small shark habitats
     this.gameData["habitat-choice-small"] = {
       id: "habitat-choice-small",
-      title: t("habitat.chooseAHabitat"),
+      title: t("habitatChoice.chooseAHabitat"),
       description: "",
       optionA: {
-        text: t("habitat.bottomDwelling"),
+        text: t("habitatChoice.bottomDwelling"),
         nextId: "bottom-dwelling-small-outcome",
         image: "/Habitat_BottomDwelling.png",
       },
       optionB: {
-        text: t("habitat.openWater"),
+        text: t("habitatChoice.openWater"),
         nextId: "open-water-small-outcome",
         image: "/Habitat_OpenWater.png",
       },
@@ -199,15 +197,15 @@ export class GameDataGenerator {
     // large shark habitats
     this.gameData["habitat-choice-large"] = {
       id: "habitat-choice-large",
-      title: t("habitat.chooseAHabitat"),
+      title: t("habitatChoice.chooseAHabitat"),
       description: "",
       optionA: {
-        text: t("habitat.bottomDwelling"),
+        text: t("habitatChoice.bottomDwelling"),
         nextId: "bottom-dwelling-large-outcome",
         image: "/Habitat_BottomDwelling.png",
       },
       optionB: {
-        text: t("habitat.openWater"),
+        text: t("habitatChoice.openWater"),
         nextId: "open-water-large-outcome",
         image: "/Habitat_OpenWater.png",
       },
@@ -217,9 +215,8 @@ export class GameDataGenerator {
     // habitat outcomes
     this.gameData["bottom-dwelling-small-outcome"] = {
       id: "bottom-dwelling-small-outcome",
-      title: t("habitat.outcomeBottomDwelling"),
-      description:
-        "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
+      title: t("habitatChoice.outcomeBottomDwelling"),
+      description: t("habitatChoice.descriptionBottomDwelling"),
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-small-bottom",
       type: "outcome",
@@ -227,9 +224,8 @@ export class GameDataGenerator {
 
     this.gameData["open-water-small-outcome"] = {
       id: "open-water-small-outcome",
-      title: t("habitat.outcomeOpenWater"),
-      description:
-        "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
+      title: t("habitatChoice.outcomeOpenWater"),
+      description: t("habitatChoice.descriptionOpenWater"),
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-small-open",
       type: "outcome",
@@ -237,9 +233,8 @@ export class GameDataGenerator {
 
     this.gameData["bottom-dwelling-large-outcome"] = {
       id: "bottom-dwelling-large-outcome",
-      title: t("habitat.outcomeBottomDwelling"),
-      description:
-        "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
+      title: t("habitatChoice.outcomeBottomDwelling"),
+      description: t("habitatChoice.descriptionBottomDwelling"),
       image: "/Habitat_BottomDwelling.png",
       nextId: "water-temp-choice-large-bottom",
       type: "outcome",
@@ -247,9 +242,8 @@ export class GameDataGenerator {
 
     this.gameData["open-water-large-outcome"] = {
       id: "open-water-large-outcome",
-      title: t("habitat.outcomeOpenWater"),
-      description:
-        "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced.",
+      title: t("habitatChoice.outcomeOpenWater"),
+      description: t("habitatChoice.descriptionOpenWater"),
       image: "/Habitat_OpenWater.png",
       nextId: "water-temp-choice-large-open",
       type: "outcome",
@@ -268,15 +262,15 @@ export class GameDataGenerator {
       // choice node
       this.gameData[`water-temp-choice-${id}`] = {
         id: `water-temp-choice-${id}`,
-        title: t("waterTemperature.chooseWaterTemperature"),
+        title: t("waterTemperatureChoice.chooseWaterTemperature"),
         description: "",
         optionA: {
-          text: t("waterTemperature.warm"),
+          text: t("waterTemperatureChoice.warm"),
           nextId: `warm-water-${id}-outcome`,
           image: "/WaterTemp_Warm.png",
         },
         optionB: {
-          text: t("waterTemperature.cold"),
+          text: t("waterTemperatureChoice.cold"),
           nextId: `cold-water-${id}-outcome`,
           image: "/WaterTemp_Cold.png",
         },
@@ -286,9 +280,8 @@ export class GameDataGenerator {
       // warm water outcome
       this.gameData[`warm-water-${id}-outcome`] = {
         id: `warm-water-${id}-outcome`,
-        title: t("waterTemperature.outcomeWarm"),
-        description:
-          "Some sharks spend the majority of their lives in warm waters in tropical and sub-tropical climates. Warmer waters typically have larger fish populations that sharks can feed on. These sharks balance reef ecosystems by feeding on sick or unhealthy fish.",
+        title: t("waterTemperatureChoice.outcomeWarm"),
+        description: t("waterTemperatureChoice.descriptionWarm"),
         image: "/WaterTemp_Warm.png",
         nextId: `skin-choice-warm-${id}`,
         type: "outcome",
@@ -297,9 +290,8 @@ export class GameDataGenerator {
       // cold water outcome
       this.gameData[`cold-water-${id}-outcome`] = {
         id: `cold-water-${id}-outcome`,
-        title: t("waterTemperature.outcomeCold"),
-        description:
-          "Some sharks inhabit the freezing waters of the arctic and sub-arctic. To survive in these frigid waters many of these sharks species have special adaptations such as higher body temperature, specially evolved blood, and higher metabolic rates.",
+        title: t("waterTemperatureChoice.outcomeCold"),
+        description: t("waterTemperatureChoice.descriptionCold"),
         image: "/WaterTemp_Cold.png",
         nextId: `skin-choice-cold-${id}`,
         type: "outcome",
@@ -329,7 +321,7 @@ export class GameDataGenerator {
         // choice node when multiple sharks are available
         this.gameData[`skin-choice-${waterTemp}-${id}`] = {
           id: `skin-choice-${waterTemp}-${id}`,
-          title: t("skinType.chooseSkinType"),
+          title: t("skinTypeChoice.chooseSkinType"),
           description: "",
           optionA: {
             text: availableSharks[0]?.name || "Unknown Shark",
@@ -361,7 +353,7 @@ export class GameDataGenerator {
         if (shark) {
           this.gameData[`skin-choice-${waterTemp}-${id}`] = {
             id: `skin-choice-${waterTemp}-${id}`,
-            title: t("skinType.chooseSkinType"),
+            title: t("skinTypeChoice.chooseSkinType"),
             description: "",
             optionA: {
               text: shark.name,

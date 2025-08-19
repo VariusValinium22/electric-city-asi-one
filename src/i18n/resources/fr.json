@@ -11,10 +11,15 @@
     "press": "Presse",
     "toStart": "Pour commencer"
   },
+  "restart": "Redémarrage",
+  "continue": "Continuer",
   "buttons": {
     "a": "UNE",
     "b": "B"
   },
+  "yourShark": "Votre requin",
+  "step": "Étape{{stepCount}}/ 3",
+  "lastDetail": "Dernier détail",
   "language": {
     "select": "Sélectionner la langue"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "Les requins déjà fabriqués",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6 pouces - 7 pieds",
+    "sevenFeetSixtyTwoFeet": "7 pieds - 62 pieds",
     "chooseASize": "Choisissez une taille",
     "small": "Petite",
     "large": "Grande",
     "outcomeSmall": "Taille: petite",
-    "outcomeLarge": "Taille: grande"
+    "outcomeLarge": "Taille: grande",
+    "descriptionSmall": "Les petits requins peuvent être minuscules, mais ils jouent un grand rôle dans l'écosystème des océans.Beaucoup vivent parmi les récifs et les rochers qu'ils utilisent pour un abri.Ils ont souvent des adaptations spéciales pour aider à éviter les prédateurs et à localiser les aliments.",
+    "descriptionLarge": "De nombreux grands requins sont considérés comme des prédateurs Apex, ce qui signifie qu'ils sont au sommet de la chaîne alimentaire.Ces grands requins puissants se nourrissent de poissons, d'invertébrés et de mammifères.Certains grands requins se nourrissent principalement du petit plancton qu'ils filtrent de l'eau des océans."
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "Choisissez un habitat",
     "bottomDwelling": "Logement inférieur",
     "openWater": "Eau libre",
     "outcomeBottomDwelling": "Habitat: logement inférieur",
-    "outcomeOpenWater": "Habitat: eau libre"
+    "outcomeOpenWater": "Habitat: eau libre",
+    "descriptionBottomDwelling": "De nombreuses espèces de requins habitent les niveaux inférieurs de l'écosystème aquatique.Beaucoup ont des capteurs spécialisés pour détecter les proies qu'ils attrapent parmi les rochers et le sable.D'autres ont un camouflage pour les aider à embusquer leur nourriture sans méfiance.",
+    "descriptionOpenWater": "Les requins en eau libre parcourent les vastes océans ouverts du monde et peuvent parcourir de grandes distances.Ces requins jouent un rôle clé dans l'équilibre des populations de poissons."
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "Choisissez la température de l'eau",
     "warm": "Chaude",
     "cold": "Froide",
     "outcomeWarm": "Température de l'eau: chaud",
-    "outcomeCold": "Température de l'eau: froid"
+    "outcomeCold": "Température de l'eau: froid",
+    "descriptionWarm": "Certains requins passent la majorité de leur vie dans des eaux chaudes dans les climats tropicaux et subtropicaux.Les eaux plus chaudes ont généralement de plus grandes populations de poissons sur lesquelles les requins peuvent se nourrir.Ces requins équilibrent les écosystèmes de récif en se nourrissant de poissons malades ou malsains.",
+    "descriptionCold": "Certains requins habitent les eaux glaciales de l'Arctique et du Sub-Arctique.Pour survivre dans ces eaux glaciales, beaucoup de ces espèces de requins ont des adaptations spéciales telles que la température corporelle plus élevée, le sang spécialement évolué et les taux métaboliques plus élevés."
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "Choisissez la peau du requin!"
   },
-  "coralCatshark": {
+  "range": "Gamme:",
+  "funFact": "Fait amusant:",
+  "size": "Taille:",
+  "coral-catshark-outcome": {
     "name": "Coral Catshark",
     "description": {
       "range": "Le Coral Catshark peut être trouvé de l'Inde à l'Asie du Sud-Est.",
@@ -55,12 +71,108 @@
       "fact": "Les femelles de Coral Catshark rentrent leurs œufs dans les crevasses dans les rochers.\nCes œufs, qui prennent 4 à 6 mois pour éclos, ressemblent à un petit sac et sont souvent appelés «sacs à main de sirène»."
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "Requin épaulette",
     "description": {
       "range": "Le requin épaulette se trouve dans les eaux peu profondes du nord de l'Australie et de la Papouasie-Nouvelle-Guinée.",
       "size": "2-3,5 pieds;5-10 lbs",
       "fact": "Les requins d'Epautte peuvent utiliser leurs nageoires dans un mouvement de marche alors qu'ils ondulent leur corps, les aidant à se déplacer à travers les récifs coralliens.Ce mouvement peut même les aider à se déplacer sur des terres entre les piscines de marée à la recherche de nourriture."
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "Dogfish épineux",
+    "description": {
+      "range": "Le dogfish épineux se trouve dans des eaux tempérées fraîches dans tout l'Atlantique Nord et les océans du Pacifique Nord.",
+      "size": "2-4ft;7-15lbs",
+      "fact": "Le nom «épineux» Dogfish fait référence à deux grandes épines sur les deux nageoires dorsales du requin.Lorsqu'elle est menacée, le dogfish épineux peut utiliser ses épines pour se défendre."
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "Chagrin",
+    "description": {
+      "range": "La chaîne Catshark se trouve dans les eaux profondes de l'océan Atlantique Nord-Ouest jusqu'au golfe du Mexique.",
+      "size": "1,5 à 2 pieds;0,5-1lb",
+      "fact": "Il a été observé que la chaîne a une lueur biofluorescente.On pense que cette lueur peut l'aider à communiquer avec d'autres requins."
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "Shark Sharpnose atlantique",
+    "description": {
+      "range": "Le requin Sharpnose de l'Atlantique se trouve dans l'océan Atlantique occidental jusqu'au golfe du Mexique.",
+      "size": "3,5 à 4 pieds;9-12lbs",
+      "fact": "Une fois qu'une femme est élevée, elle se déplacera au large des eaux plus profondes.Lorsqu'elle est prête à accoucher, elle revient à l'eau peu profonde et donne naissance à 3-7 chiots."
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Bonnethead Shark",
+    "description": {
+      "range": "Le requin Bonnethead se trouve dans l'océan Atlantique occidental et l'océan Pacifique oriental.",
+      "size": "3-4,5 pieds;15-20lbs",
+      "fact": "Le requin Bonnethead est le seul requin qui a été observé comme omnivore, ce qui signifie qu'ils mangent des animaux et des matières végétales.Ils se nourriront facilement des algues et des algues."
+    }
+  },
+  "school-shark-outcome": {
+    "name": "Requin",
+    "description": {
+      "range": "Le requin scolaire se trouve dans les eaux tempérées du monde entier, notamment l'océan Atlantique Nord-Ouest, la mer Méditerranée, l'océan Atlantique du Sud, l'Afrique et l'Australie.",
+      "size": "5-6,5 pieds;45-55 lbs",
+      "fact": "Le requin scolaire est ovovivipare, ce qui signifie que ses œufs sont fécondés en interne et se développent au sein de la femelle.Lorsque l'embryon est prêt, la femme donne naissance à un requin pleinement développé prêt à vivre seul."
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "Infirmière requin",
+    "description": {
+      "range": "Le requin infirmière se trouve dans les eaux peu profondes de l'océan Atlantique Nord-Ouest jusqu'au golfe du Mexique.",
+      "size": "3-4ft;15-20lbs",
+      "fact": "L'infirmière requin est le seul requin qui a été observé comme omnivore, ce qui signifie qu'ils mangent des animaux et des matières végétales.Ils se nourriront facilement des algues et des algues."
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "Wobbegong tacheté",
+    "description": {
+      "range": "Le Wobbegong tacheté se trouve le long des côtes sud et est de l'Australie, de l'est de l'océan Indien et de la mer de Chine méridionale.",
+      "size": "6-9ft;90-150 lbs",
+      "fact": "Le Wobbegong tacheté est un prédateur d'embuscade;Il attend en s'appuyant sur ses marques inhabituelles pour la camoufler à partir de proies sans méfiance."
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "Requin du Groenland",
+    "description": {
+      "range": "Le requin du Groenland se trouve dans les eaux froides de l'océan Atlantique Nord et de l'océan Arctique.",
+      "size": "8-20ft;2200 lbs",
+      "fact": "Ces requins ont la plus longue durée de vie de tout animal vertébré sur la planète.Les scientifiques ont estimé que le requin du Groenland peut vivre jusqu'à 500 ans!"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "Requin hammerhead festloped",
+    "description": {
+      "range": "Le requin hammerhead festonné se trouve dans les eaux côtières le long de l'équateur dans le monde.",
+      "size": "5-9ft;60-90lbs",
+      "fact": "Le marteau festonné peut former de grandes écoles à la recherche de nourriture.Ces groupes de requins peuvent être composés de plusieurs centaines d'individus."
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "Requin-baleine",
+    "description": {
+      "range": "Le requin baleine se trouve dans le monde entier dans des mers tempérées et tropicales chaudes.",
+      "size": "18-32 pieds en moyenne, jusqu'à 60 pieds;40 000 à 70 000 livres",
+      "fact": "Malgré leur énorme taille, les requins baleines se nourrissent principalement du plancton et de petits poissons.Un seul requin baleine peut manger plus de 40 lb de plancton en une journée."
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Requin de porbeagle",
+    "description": {
+      "range": "Le requin Porbeagle se trouve dans les eaux froides de l'océan Atlantique Nord et de la mer Méditerranée.Il a également une large distribution inégale dans tout l'hémisphère sud d'Amérique du Sud, en Afrique, en Australie.",
+      "size": "8-11ft;250-450lbs",
+      "fact": "Le requin porbeagle est un nageur rapide et peut atteindre des vitesses allant jusqu'à 25 mph."
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "Requin saumon",
+    "description": {
+      "range": "Le requin saumon peut être trouvé dans tout l'océan Pacifique du Nord.",
+      "size": "6-8,5 pieds;350-450lbs",
+      "fact": "Alors que le requin saumon se nourrit d'une variété de proies, notamment de calmars, de hareng, de loutres et d'oiseaux, son nom commun provient des énormes quantités de saumon qui composent la majorité de son alimentation."
     }
   }
 }

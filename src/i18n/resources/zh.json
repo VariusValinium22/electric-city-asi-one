@@ -11,10 +11,15 @@
     "press": "按",
     "toStart": "开始"
   },
+  "restart": "重新启动",
+  "continue": "继续",
   "buttons": {
     "a": "一个",
     "b": "b"
   },
+  "yourShark": "你的鲨鱼",
+  "step": "步{{stepCount}}/3",
+  "lastDetail": "最后的细节",
   "language": {
     "select": "选择语言"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "鲨鱼已经制作了",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6英寸 -  7英尺",
+    "sevenFeetSixtyTwoFeet": "7英尺 -  62英尺",
     "chooseASize": "选择尺寸",
     "small": "小的",
     "large": "大的",
     "outcomeSmall": "尺寸：小",
-    "outcomeLarge": "尺寸：大"
+    "outcomeLarge": "尺寸：大",
+    "descriptionSmall": "小鲨鱼可能很小，但它们在海洋生态系统中起着重要作用。许多人生活在用于庇护所的礁石和岩石中。他们经常进行特殊的改编，以帮助他们避免捕食者并找到食物。",
+    "descriptionLarge": "许多大鲨鱼被认为是顶端捕食者，这意味着它们位于食物链的顶部。这些大型强大的鲨鱼以鱼，无脊椎动物和哺乳动物为食。其他一些大鲨鱼主要以小浮游物为食，它们从海洋水中过滤。"
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "选择一个栖息地",
     "bottomDwelling": "底部",
     "openWater": "开水",
     "outcomeBottomDwelling": "栖息地：底部",
-    "outcomeOpenWater": "栖息地：开水"
+    "outcomeOpenWater": "栖息地：开水",
+    "descriptionBottomDwelling": "许多鲨鱼物种居住在水生生态系统的较低水平。许多人具有专门的传感器来检测猎物，它们会在岩石和沙子中捕获。其他人则有伪装来帮助他们伏击毫无戒心的食物。",
+    "descriptionOpenWater": "开放的水鲨在世界上广阔的开阔海洋中漫游，并且可以走很远的距离。这些鲨鱼在保持鱼类种群平衡方面起着关键作用。"
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "选择水温",
     "warm": "温暖的",
     "cold": "寒冷的",
     "outcomeWarm": "水温：温暖",
-    "outcomeCold": "水温：冷"
+    "outcomeCold": "水温：冷",
+    "descriptionWarm": "一些鲨鱼在热带和亚热带气候中度过了大部分一生。温暖的水通常会有鲨鱼可以进食的较大的鱼类种群。这些鲨鱼通过以生病或不健康的鱼为食来平衡礁石生态系统。",
+    "descriptionCold": "一些鲨鱼居住在北极和亚北极的冰冻水域。为了在这些寒冷的水域中生存，许多这些鲨鱼物种都具有特殊的适应性，例如较高的体温，特别进化的血液和较高的代谢率。"
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "选择鲨鱼的皮肤！"
   },
-  "coralCatshark": {
+  "range": "范围：",
+  "funFact": "有趣的事实：",
+  "size": "尺寸：",
+  "coral-catshark-outcome": {
     "name": "珊瑚猫",
     "description": {
       "range": "从印度到东南亚可以找到珊瑚猫。",
@@ -55,12 +71,108 @@
       "fact": "珊瑚猫的雌性将鸡蛋塞入岩石中的缝隙中。\n这些鸡蛋需要4-6个月的孵化，看起来像一个小钱包，通常被称为“美人鱼的钱包”。"
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "epaulette鲨鱼",
     "description": {
       "range": "epaulette鲨鱼在北澳大利亚北部和巴布亚新几内亚的浅水中发现。",
       "size": "2-3.5英尺；5-10磅",
       "fact": "epaulette鲨鱼可以在行走时使用鳍，使他们的身体膨胀，帮助他们穿过珊瑚礁。这种动议甚至可以帮助他们在潮汐池之间的土地上移动以寻找食物。"
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "刺狗鱼",
+    "description": {
+      "range": "在整个北大西洋和北太平洋的凉爽温带水域中发现了多刺的狗鱼。",
+      "size": "2-4英尺；7-15磅",
+      "fact": "“刺”狗鱼这个名字是指鲨鱼背鳍上的两个大刺。当受到威胁时，刺狗鱼可以用刺来防御自身。"
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "连锁catshark",
+    "description": {
+      "range": "可以在墨西哥湾西北大西洋的深水区域中找到链条。",
+      "size": "1.5-2英尺；0.5-1磅",
+      "fact": "已经观察到链链链具有生物荧光光泽。人们认为，这种光芒可能有助于它与其他鲨鱼进行交流。"
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "大西洋尖锐的鲨鱼",
+    "description": {
+      "range": "大西洋尖锐的鲨鱼在西大西洋到墨西哥湾。",
+      "size": "3.5-4英尺；9-12磅",
+      "fact": "雌性繁殖后，她将在海上移动到更深的水域。当她准备出生时，她会返回浅水，生下3-7只幼犬。"
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Bonnethead鲨鱼",
+    "description": {
+      "range": "在西大西洋和东太平洋地区发现了邦纳特鲨鱼。",
+      "size": "3-4.5英尺；15-20磅",
+      "fact": "邦纳特鲨鱼是唯一观察到的鲨鱼，这意味着它们吃动物和植物材料。他们很容易以藻类和海藻为食。"
+    }
+  },
+  "school-shark-outcome": {
+    "name": "学校鲨鱼",
+    "description": {
+      "range": "在世界各地的温带水域中发现了学校鲨鱼，包括西北大西洋，地中海，南大西洋，非洲和澳大利亚。",
+      "size": "5-6.5英尺；45-55磅",
+      "fact": "学校鲨鱼是卵巢的，这意味着其卵在内部受精并在女性内部发育。当胚胎准备就绪时，雌性会生下一个完全发达的鲨鱼，准备自己生活。"
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "护士鲨鱼",
+    "description": {
+      "range": "护士鲨在西北大西洋的浅水中发现了墨西哥湾。",
+      "size": "3-4英尺；15-20磅",
+      "fact": "护士鲨鱼是唯一观察到的鲨鱼，这意味着它们吃动物和植物材料。他们很容易以藻类和海藻为食。"
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "斑点的沃布野",
+    "description": {
+      "range": "斑点的Wobbegong在澳大利亚南部和东部海岸，印度洋和南中国海发现。",
+      "size": "6-9英尺；90-150磅",
+      "fact": "斑点的Wobbegong是伏击捕食者。它在于等待依靠其不寻常的标记来伪装毫无戒心的猎物。"
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "格陵兰鲨鱼",
+    "description": {
+      "range": "在北大西洋和北极海的冷水中发现了格陵兰鲨鱼。",
+      "size": "8-20英尺；2200磅",
+      "fact": "这些鲨鱼在地球上任何脊椎动物的寿命最长。科学家估计，格陵兰鲨鱼可以长达500年！"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "扇形锤鲨",
+    "description": {
+      "range": "扇形锤头鲨在赤道沿全球沿海的沿海水域都发现。",
+      "size": "5-9英尺；60-90磅",
+      "fact": "扇形锤头可以在寻找食物时形成大型学校。这些鲨鱼可以由数百个人组成。"
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "鲸鲨",
+    "description": {
+      "range": "可以在温暖的温带和热带海洋中找到鲸鲨。",
+      "size": "平均18-32英尺，最高60英尺；40,000-70,000磅",
+      "fact": "尽管它们尺寸巨大，鲸鲨主要以浮游生物和小鱼为基础。一只鲸鲨一天可以吃40磅的浮游生物。"
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Porbeagle鲨鱼",
+    "description": {
+      "range": "可以在北大西洋和地中海的冷水中找到porbeagle鲨鱼。从南美洲，非洲到澳大利亚，它在整个南半球也有广泛的分布。",
+      "size": "8-11英尺；250-450磅",
+      "fact": "Porbeagle鲨鱼是快速游泳者，可以达到高达25英里 /小时的速度。"
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "鲑鱼鲨",
+    "description": {
+      "range": "鲑鱼鲨可以在整个北太平洋中找到。",
+      "size": "6-8.5英尺；350-450磅",
+      "fact": "鲑鱼鲨鱼以各种猎物为食，包括鱿鱼，鲱鱼，水獭和鸟类，但其常见名称来自构成其大部分饮食的大量鲑鱼。"
     }
   }
 }

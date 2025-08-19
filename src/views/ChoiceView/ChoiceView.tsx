@@ -42,9 +42,9 @@ export const ChoiceView = observer(() => {
   };
 
   if (isValidStepCount(stepCount)) {
-    legend = `Step ${stepCount.toString()}/3`;
+    legend = t("step", { stepCount: stepCount.toString() });
   } else {
-    legend = "Last detail";
+    legend = t("lastDetail");
   }
 
   const choiceCardOptionClass = "min-h-screen bg-[#1B3567] p-[52px_100px]";
@@ -62,7 +62,7 @@ export const ChoiceView = observer(() => {
               <SizeCard size="small" />
               <div>
                 <TextButton
-                  label={t("buttons.a")}
+                  label="A"
                   id="a-button"
                   text={(currentNode as Choice).optionA.text}
                   onClick={onButtonAClick}
@@ -75,7 +75,7 @@ export const ChoiceView = observer(() => {
               <SizeCard size="large" />
               <div>
                 <TextButton
-                  label={t("buttons.b")}
+                  label="B"
                   id="b-button"
                   text={(currentNode as Choice).optionB.text}
                   onClick={onButtonBClick}
@@ -97,7 +97,7 @@ export const ChoiceView = observer(() => {
                 />
                 <div>
                   <TextButton
-                    label={t("buttons.a")}
+                    label="A"
                     id="a-button"
                     text={isValidStepCount(stepCount) ? (currentNode as Choice).optionA.text : ""}
                     onClick={onButtonAClick}
@@ -118,7 +118,7 @@ export const ChoiceView = observer(() => {
                   />
                   <div>
                     <TextButton
-                      label={t("buttons.b")}
+                      label="B"
                       id="b-button"
                       text={isValidStepCount(stepCount) ? (currentNode as Choice).optionB.text : ""}
                       onClick={onButtonBClick}

@@ -197,6 +197,7 @@ export class MainStore {
     this.playerChoices = {};
     this.currentSharkChoices = {};
     this.hasCompletedGame = false;
+    this.stepCount = 0;
   }
 
   get isChoice(): boolean {

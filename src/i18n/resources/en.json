@@ -11,10 +11,15 @@
     "press": "Press",
     "toStart": "to start"
   },
+  "restart": "Restart",
+  "continue": "Continue",
   "buttons": {
     "a": "A",
     "b": "B"
   },
+  "yourShark": "Your shark",
+  "step": "Step {{stepCount}}/3",
+  "lastDetail": "Last Detail",
   "language": {
     "select": "Select Language"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "Sharks already made",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6 inches – 7 feet",
+    "sevenFeetSixtyTwoFeet": "7 feet – 62 feet",
     "chooseASize": "Choose a size",
     "small": "Small",
     "large": "Large",
     "outcomeSmall": "Size: Small",
-    "outcomeLarge": "Size: Large"
+    "outcomeLarge": "Size: Large",
+    "descriptionSmall": "Small sharks may be tiny but they play a big role in the oceans ecosystem. Many live among reefs and rocks that they use for shelter. They often have special adaptations to help they avoid predators and locate food.",
+    "descriptionLarge": "Many large sharks are considered to be apex predators, meaning they are at the top of the food chain. These large powerful sharks feed on fish, invertebrates, and mammals. Some other large sharks feed primarily on small plankton that they filter from the oceans water."
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "Choose a habitat",
     "bottomDwelling": "Bottom dwelling",
     "openWater": "Open water",
     "outcomeBottomDwelling": "Habitat: Bottom dwelling",
-    "outcomeOpenWater": "Habitat: Open water"
+    "outcomeOpenWater": "Habitat: Open water",
+    "descriptionBottomDwelling": "Many shark species inhabit the lower levels of the aquatic ecosystem. Many have specialized sensors for detecting prey that they catch among the rocks and sand. Others have camouflage to help them ambush their unsuspecting food.",
+    "descriptionOpenWater": "Open water sharks roam the vast open oceans of the world and can travel great distances. These sharks play a key role in keeping fish populations balanced."
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "Choose water temperature",
     "warm": "Warm",
     "cold": "Cold",
     "outcomeWarm": "Water temperature: Warm",
-    "outcomeCold": "Water temperature: Cold"
+    "outcomeCold": "Water temperature: Cold",
+    "descriptionWarm": "Some sharks spend the majority of their lives in warm waters in tropical and sub-tropical climates. Warmer waters typically have larger fish populations that sharks can feed on. These sharks balance reef ecosystems by feeding on sick or unhealthy fish.",
+    "descriptionCold": "Some sharks inhabit the freezing waters of the arctic and sub-arctic. To survive in these frigid waters many of these sharks species have special adaptations such as higher body temperature, specially evolved blood, and higher metabolic rates."
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "Choose the shark's skin!"
   },
-  "coralCatshark": {
+  "range": "Range: ",
+  "funFact": "Fun Fact: ",
+  "size": "Size: ",
+  "coral-catshark-outcome": {
     "name": "Coral catshark",
     "description": {
       "range": "The Coral catshark can be found from India to Southeast Asia.",
@@ -55,12 +71,108 @@
       "fact": "Coral catshark females tuck their eggs into the crevices in rocks. \nThese eggs, which take 4-6 months to hatch, look like a small purse and are often referred to as “mermaid's purses”."
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "Epaulette shark",
     "description": {
       "range": "The Epaulette shark is found in the shallow waters of Northern Australia and Papua New Guinea.",
       "size": "2-3.5ft; 5-10lbs",
       "fact": "Epaulette sharks can use their fins in a walking motion as they undulate their bodies, helping them move through coral reefs. This motion can even help them move on land between tide pools in search of food."
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "Spiny dogfish",
+    "description": {
+      "range": "The spiny dogfish is found in cool temperate waters throughout the North Atlantic and North Pacific Oceans.",
+      "size": "2-4ft; 7-15lbs",
+      "fact": "The name “spiny” dogfish refers to two large spines on both of the shark's dorsal fins. When threatened, the spiny dogfish can use its spines to defend itself."
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "Chain catshark",
+    "description": {
+      "range": "The chain catshark can be found in the deep waters of the Northwest Atlantic Ocean to the Gulf of Mexico.",
+      "size": "1.5-2ft; 0.5-1lb",
+      "fact": "The chain catshark has been observed to have a biofluorescent glow. It is believed that this glow may help it communicate with other sharks."
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "Atlantic sharpnose shark",
+    "description": {
+      "range": "The atlantic sharpnose shark is found in the Western Atlantic Ocean to the Gulf of Mexico.",
+      "size": "3.5-4ft; 9-12lbs",
+      "fact": "After a female is bred, she will move offshore to deeper waters. When she is ready to give birth she returns to shallow water and gives birth to 3-7 pups."
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Bonnethead shark",
+    "description": {
+      "range": "The bonnethead shark is found in the Western Atlantic Ocean and Eastern Pacific Ocean.",
+      "size": "3-4.5ft; 15-20lbs",
+      "fact": "The bonnethead shark is the only shark that has been observed to be omnivorous, meaning they eat animals and plant material. They will readily feed on algae and seaweed."
+    }
+  },
+  "school-shark-outcome": {
+    "name": "School shark",
+    "description": {
+      "range": "The school shark is found in temperate waters throughout the world including the Northwest Atlantic Ocean, Mediterranean Sea, Southern Atlantic Ocean, Africa, and Australia.",
+      "size": "5-6.5ft; 45-55lbs",
+      "fact": "The school shark is ovoviviparous, meaning that its eggs are fertilized internally and develop within the female. When the embryo is ready the female gives birth to a fully developed shark ready to live on its own."
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "Nurse shark",
+    "description": {
+      "range": "The nurse shark is found in the shallow waters of the Northwest Atlantic Ocean to the Gulf of Mexico.",
+      "size": "3-4ft; 15-20lbs",
+      "fact": "The nurse shark is the only shark that has been observed to be omnivorous, meaning they eat animals and plant material. They will readily feed on algae and seaweed."
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "Spotted wobbegong",
+    "description": {
+      "range": "The spotted wobbegong is found along the Southern and Eastern coasts of Australia, the Eastern Indian Ocean, and the South China Sea.",
+      "size": "6-9ft; 90-150lbs",
+      "fact": "The spotted wobbegong is an ambush predator; it lies in wait relying on its unusual markings to camouflage it from unsuspecting prey."
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "Greenland shark",
+    "description": {
+      "range": "The Greenland shark is found in the cold waters of the Northern Atlantic Ocean and the Arctic Ocean.",
+      "size": "8-20ft; 2200lbs",
+      "fact": "These sharks have the longest lifespan of any vertebrate animal on the planet. Scientists have estimated the Greenland shark can live as long as 500 years!"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "Scalloped hammerhead shark",
+    "description": {
+      "range": "The scalloped hammerhead shark is found throughout coastal waters along the equator worldwide.",
+      "size": "5-9ft; 60-90lbs",
+      "fact": "The scalloped hammerhead can form large schools when in search of food. These groups of sharks can be made up of several hundred individuals."
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "Whale shark",
+    "description": {
+      "range": "The whale shark can be found worldwide in warm temperate and tropical seas.",
+      "size": "18-32ft on average, up to 60ft; 40,000-70,000lbs",
+      "fact": "Despite their huge size whale sharks feed primarily on plankton and small fish. A single whale shark can eat over 40lbs of plankton in a day."
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Porbeagle shark",
+    "description": {
+      "range": "The porbeagle shark can be found in the cold waters of the North Atlantic Ocean and Mediterranean Sea. It also has a wide spotty distribution throughout the southern hemisphere from South America, Africa, to Australia.",
+      "size": "8-11ft; 250-450lbs",
+      "fact": "The porbeagle shark is a fast swimmer and can reach speeds of up to 25mph."
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "Salmon shark",
+    "description": {
+      "range": "The salmon shark can be found throughout the Northern Pacific Ocean.",
+      "size": "6-8.5ft; 350-450lbs",
+      "fact": "While the salmon shark feeds on a variety of prey including squid, herring, sea otters, and birds, its common name comes from the huge quantities of salmon that make up the majority of its diet."
     }
   }
 }

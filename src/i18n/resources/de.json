@@ -11,10 +11,15 @@
     "press": "Drücken",
     "toStart": "anfangen"
   },
+  "restart": "Neu starten",
+  "continue": "Weitermachen",
   "buttons": {
     "a": "A",
     "b": "B"
   },
+  "yourShark": "Dein Hai",
+  "step": "Schritt{{stepCount}}/3",
+  "lastDetail": "Letztes Detail",
   "language": {
     "select": "Sprache auswählen"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "Haie bereits gemacht",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6 Zoll - 7 Fuß",
+    "sevenFeetSixtyTwoFeet": "7 Fuß - 62 Fuß",
     "chooseASize": "Wählen Sie eine Größe",
     "small": "Klein",
     "large": "Groß",
     "outcomeSmall": "Größe: klein",
-    "outcomeLarge": "Größe: groß"
+    "outcomeLarge": "Größe: groß",
+    "descriptionSmall": "Kleine Haie mögen winzig sein, aber sie spielen eine große Rolle im Ozeans -Ökosystem.Viele leben zwischen Riffen und Felsen, die sie für Shelter verwenden.Sie haben oft spezielle Anpassungen, um Raubtiere zu vermeiden und Lebensmittel zu lokalisieren.",
+    "descriptionLarge": "Viele große Haie gelten als Apex -Raubtiere, was bedeutet, dass sie sich an der Spitze der Nahrungskette befinden.Diese großen mächtigen Haie ernähren sich von Fisch, Wirbellosen und Säugetieren.Einige andere große Haie ernähren sich hauptsächlich von kleinem Plankton, die sie aus dem Ozeane filtern."
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "Wählen Sie einen Lebensraum",
     "bottomDwelling": "Bodenwohnung",
     "openWater": "Offenes Wasser",
     "outcomeBottomDwelling": "Lebensraum: Bodenwohnung",
-    "outcomeOpenWater": "Lebensraum: offenes Wasser"
+    "outcomeOpenWater": "Lebensraum: offenes Wasser",
+    "descriptionBottomDwelling": "Viele Haifischarten bewohnen die niedrigeren Werte des aquatischen Ökosystems.Viele haben spezialisierte Sensoren, um Beute zu erkennen, die sie unter den Felsen und den Sand fangen.Andere haben Tarn, um ihnen zu helfen, ihr ahnungsloses Essen zu überfallen.",
+    "descriptionOpenWater": "Offene Wasserhaie durchstreifen die riesigen offenen Ozeane der Welt und können große Entfernungen zurücklegen.Diese Haie spielen eine Schlüsselrolle, um die Fischpopulationen ausgeglichen zu halten."
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "Wählen Sie Wassertemperatur",
     "warm": "Warm",
     "cold": "Kalt",
     "outcomeWarm": "Wassertemperatur: warm",
-    "outcomeCold": "Wassertemperatur: Kalt"
+    "outcomeCold": "Wassertemperatur: Kalt",
+    "descriptionWarm": "Einige Haie verbringen den größten Teil ihres Lebens in warmen Gewässern in tropischen und subtropischen Klimazonen.Wärmere Gewässer haben in der Regel größere Fischpopulationen, von denen sich Haie ernähren kann.Diese Haie balancieren Riffökosysteme, indem sie sich von kranken oder ungesunden Fischen ernähren.",
+    "descriptionCold": "Einige Haie bewohnen die gefrorenen Gewässer der Arktis und der Subarktis.Um in diesen kalten Gewässern zu überleben, haben viele dieser Haiearten spezielle Anpassungen wie höhere Körpertemperatur, speziell entwickeltes Blut und höhere Stoffwechselraten."
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "Wählen Sie die Haut des Hai!"
   },
-  "coralCatshark": {
+  "range": "Reichweite:",
+  "funFact": "Lustige Tatsache:",
+  "size": "Größe:",
+  "coral-catshark-outcome": {
     "name": "Coral Catshark",
     "description": {
       "range": "Der Korallenkatshark befindet sich von Indien bis Südostasien.",
@@ -55,12 +71,108 @@
       "fact": "Coral Catshark -Frauen stecken ihre Eier in die Spalten in Felsen.\nDiese Eier, die 4-6 Monate dauern, um zu schlüpfen, sehen aus wie eine kleine Handtasche und werden oft als „Geldbörsen der Meerjungfrau“ bezeichnet."
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "EPAULETTE HHARK",
     "description": {
       "range": "Der EKULETTE -Hai findet sich in den flachen Gewässern von Nordaustralien und Papua -Neuguinea.",
       "size": "2-3,5 Fuß;5-10 Pfund",
       "fact": "Elektrotethaie können ihre Flossen in einer Wanderbewegung nutzen, während sie ihren Körper wellen und ihnen helfen, sich durch Korallenriffe zu bewegen.Diese Bewegung kann ihnen sogar helfen, auf dem Land zwischen Gezeitenpools auf der Suche nach Lebensmitteln zu landen."
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "Stacheliger Dogfish",
+    "description": {
+      "range": "Der stachelige Dogfish ist in kühlen, gemäßigten Gewässern im gesamten Nordatlantik und im Nordpazifischen Ozean zu finden.",
+      "size": "2-4ft;7-15 Pfund",
+      "fact": "Der Name „Spiny“ -Dogfisch bezieht sich auf zwei große Stacheln auf beiden Rückenflossen des Hai.Wenn der stachelige Dogfish bedroht ist, kann er seine Stacheln verwenden, um sich zu verteidigen."
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "Kettenkatze",
+    "description": {
+      "range": "Der Kettenkatshark befindet sich in den tiefen Gewässern des Nordwestatlantikers bis zum Golf von Mexiko.",
+      "size": "1,5-2ft;0,5-1lb",
+      "fact": "Es wurde beobachtet, dass der Kettenkatze einen Biofluoreszenzglühen hat.Es wird angenommen, dass dieses Leuchten dazu beitragen kann, mit anderen Haie zu kommunizieren."
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "Atlantic Sharpnose Shark",
+    "description": {
+      "range": "Der Atlantik -Sharpnose -Hai findet sich im westlichen Atlantik zum Golf von Mexiko.",
+      "size": "3,5-4ft;9-12lbs",
+      "fact": "Nachdem eine Frau gezüchtet wurde, wird sie vor der Küste in tiefere Gewässer ziehen.Wenn sie bereit ist, zur Welt zu kommen, kehrt sie in flaches Wasser zurück und bringt 3-7 Welpen zur Welt."
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Bonnethead Shark",
+    "description": {
+      "range": "Der Bonnethead -Hai findet sich im westlichen Atlantik und im Osten des Ostpazifiks.",
+      "size": "3-4,5 Fuß;15-20lbs",
+      "fact": "Der Bonnethead -Hai ist der einzige Hai, der als Allesfresser beobachtet wurde, was bedeutet, dass sie Tiere und Pflanzenmaterial essen.Sie werden sich von Algen und Seetang leicht ernähren."
+    }
+  },
+  "school-shark-outcome": {
+    "name": "Schulhai",
+    "description": {
+      "range": "Der Schulhai befindet sich in gemäßigten Gewässern auf der ganzen Welt, einschließlich des Nordwestatlantikers, des Mittelmeers, dem südlichen Atlantik, Afrika und Australien.",
+      "size": "5-6,5 Fuß;45-55lbs",
+      "fact": "Der Schulhai ist ovovivipar, was bedeutet, dass seine Eier intern gedüngt und sich innerhalb des Weibchens entwickeln.Wenn der Embryo bereit ist, bringt die Frau einen voll entwickelten Hai zur Welt, der bereit ist, alleine zu leben."
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "Krankenschwesterhai",
+    "description": {
+      "range": "Der Krankenschwesterhai befindet sich in den flachen Gewässern des nordwestlichen Atlantiks zum Golf von Mexiko.",
+      "size": "3-4ft;15-20lbs",
+      "fact": "Der Krankenschwesterhai ist der einzige Hai, der als allesfressend beobachtet wurde, was bedeutet, dass sie Tiere und Pflanzenmaterial essen.Sie werden sich von Algen und Seetang leicht ernähren."
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "Wobbegong entdeckt",
+    "description": {
+      "range": "Der gefleckte Wobbegong befindet sich entlang der südlichen und östlichen Küsten Australiens, dem östlichen Indischen Ozean und dem Südchinesischen Meer.",
+      "size": "6-9ft;90-150 lbs",
+      "fact": "Der gefleckte Wobbegong ist ein Hinterhaltspräber;Es liegt intensiv und stützt sich auf seine ungewöhnlichen Markierungen, um es von ahnungslosen Beute zu tarnen."
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "Grönlandhai",
+    "description": {
+      "range": "Der Grönlandhai befindet sich in den kalten Gewässern des nördlichen Atlantikes und des Arktischen Ozeans.",
+      "size": "8-20 Fuß;2200 Pfund",
+      "fact": "Diese Haie haben die längste Lebensdauer eines jeden Wirbeltiertiers auf dem Planeten.Wissenschaftler haben geschätzt, dass der Grönlandhai bis zu 500 Jahren leben kann!"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "Überbesserte Hammerhai",
+    "description": {
+      "range": "Der überbissene Hammerheadhai findet sich weltweit in den Küstengewässern entlang des Äquators.",
+      "size": "5-9ft;60-90lbs",
+      "fact": "Der überbrochene Hammerkopf kann auf der Suche nach Nahrungsmitteln große Schulen bilden.Diese Gruppen von Haie können aus mehreren hundert Personen bestehen."
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "Walhai",
+    "description": {
+      "range": "Der Walhai befindet sich weltweit in warmen gemäßigten und tropischen Meeren.",
+      "size": "18-32 Fuß im Durchschnitt bis zu 60 Fuß;40.000-70.000 lbs",
+      "fact": "Trotz ihrer riesigen Größenwalenhaie ernähren sich hauptsächlich von Plankton und kleinen Fischen.Ein einzelner Walhai kann an einem Tag über 40 Pfund Plankton essen."
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Porbeagle Shark",
+    "description": {
+      "range": "Der Porbeagle -Hai ist in den kalten Gewässern des Nordatlantikers und des Mittelmeers zu finden.Es hat auch eine große, fleckige Verteilung in der gesamten südlichen Hemisphäre von Südamerika, Afrika, nach Australien.",
+      "size": "8-11ft;250-450 lbs",
+      "fact": "Der Porbeagle Shark ist ein schneller Schwimmer und kann Geschwindigkeiten von bis zu 25 km / h erreichen."
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "Lachshai",
+    "description": {
+      "range": "Der Lachshai befindet sich im gesamten Nordpazifik.",
+      "size": "6-8,5ft;350-450 lbs",
+      "fact": "Während sich der Lachshai von einer Vielzahl von Beute füttert, darunter Tintenfisch, Hering, Seeotter und Vögel, stammt sein gebräuchlicher Name aus den riesigen Mengen an Lachs, die den größten Teil seiner Ernährung ausmachen."
     }
   }
 }

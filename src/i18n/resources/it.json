@@ -3,7 +3,7 @@
     "main": "Fai uno squalo!"
   },
   "inactivity": {
-    "restarting": "Riavvio in{{seconds}}sec",
+    "restarting": "Riavviamento di{{seconds}}sec",
     "press": "Premere",
     "toContinue": "per continuare a giocare"
   },
@@ -11,10 +11,15 @@
     "press": "Premere",
     "toStart": "per iniziare"
   },
+  "restart": "Ricomincia",
+  "continue": "Continuare",
   "buttons": {
     "a": "UNA",
     "b": "B"
   },
+  "yourShark": "Il tuo squalo",
+  "step": "Fare un passo{{stepCount}}/3",
+  "lastDetail": "Ultimo dettaglio",
   "language": {
     "select": "Seleziona il linguaggio"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "Squali già realizzati",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6 pollici - 7 piedi",
+    "sevenFeetSixtyTwoFeet": "7 piedi - 62 piedi",
     "chooseASize": "Scegli una taglia",
     "small": "Piccola",
     "large": "Grande",
     "outcomeSmall": "Dimensioni: piccolo",
-    "outcomeLarge": "Dimensioni: grande"
+    "outcomeLarge": "Dimensioni: grande",
+    "descriptionSmall": "I piccoli squali possono essere piccoli ma svolgono un ruolo importante nell'ecosistema degli oceani.Molti vivono tra barriere coralline e rocce che usano per il riparo.Spesso hanno adattamenti speciali per aiutare a evitare i predatori e individuare il cibo.",
+    "descriptionLarge": "Molti grandi squali sono considerati predatori apice, il che significa che sono in cima alla catena alimentare.Questi grandi potenti squali si nutrono di pesce, invertebrati e mammiferi.Alcuni altri grandi squali si nutrono principalmente sul piccolo plancton che filtrano dall'acqua degli oceani."
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "Scegli un habitat",
     "bottomDwelling": "Dimora inferiore",
     "openWater": "Acqua aperta",
     "outcomeBottomDwelling": "Habitat: dimora inferiore",
-    "outcomeOpenWater": "Habitat: acqua aperta"
+    "outcomeOpenWater": "Habitat: acqua aperta",
+    "descriptionBottomDwelling": "Molte specie di squali abitano i livelli più bassi dell'ecosistema acquatico.Molti hanno sensori specializzati per rilevare prede che catturano tra le rocce e la sabbia.Altri hanno camuffamento per aiutarli a tendere un'imboscata al loro cibo ignaro.",
+    "descriptionOpenWater": "Gli squali in acque libere vagano i vasti oceani aperti del mondo e possono percorrere grandi distanze.Questi squali svolgono un ruolo chiave nel mantenere equilibrata le popolazioni di pesci."
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "Scegli la temperatura dell'acqua",
     "warm": "Calda",
     "cold": "Fredda",
     "outcomeWarm": "Temperatura dell'acqua: caldo",
-    "outcomeCold": "Temperatura dell'acqua: freddo"
+    "outcomeCold": "Temperatura dell'acqua: freddo",
+    "descriptionWarm": "Alcuni squali trascorrono la maggior parte della loro vita in acque calde in climi tropicali e subtropicali.Le acque più calde hanno in genere popolazioni di pesci più grandi che gli squali possono nutrirsi.Questi squali bilanciano gli ecosistemi della barriera corallina alimentando pesci malati o malsani.",
+    "descriptionCold": "Alcuni squali abitano le acque di congelamento dell'Artico e del sub-artico.Per sopravvivere in queste acque gelide molte di queste specie di squali hanno adattamenti speciali come una temperatura corporea più elevata, sangue appositamente evoluto e tassi metabolici più elevati."
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "Scegli la pelle dello squalo!"
   },
-  "coralCatshark": {
+  "range": "Allineare:",
+  "funFact": "Fatto divertente:",
+  "size": "Misurare:",
+  "coral-catshark-outcome": {
     "name": "Coral Catshark",
     "description": {
       "range": "Il Catshark corallino può essere trovato dall'India al sud -est asiatico.",
@@ -55,12 +71,108 @@
       "fact": "Le femmine di Catshark coralline infilano le loro uova nelle fessure nelle rocce.\nQueste uova, che impiegano 4-6 mesi per schivare, sembrano una piccola borsa e vengono spesso definite \"borse della sirena\"."
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "Squalo epaulette",
     "description": {
       "range": "Lo squalo Epaulette si trova nelle acque poco profonde dell'Australia settentrionale e della Papua Nuova Guinea.",
       "size": "2-3,5 piedi;5-10 libbre",
       "fact": "Gli squali di epaulette possono usare le loro pinne in un movimento di camminata mentre ondeggiano i loro corpi, aiutandoli a muoversi attraverso le barriere coralline.Questo movimento può persino aiutarli a muoversi sulla terra tra le piscine di marea in cerca di cibo."
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "Dogfish spinoso",
+    "description": {
+      "range": "Lo spinoso dogfish si trova in acque temperate fresche in tutto il Nord Atlantico e Oceano del Nord Pacifico.",
+      "size": "2-4 piedi;7-15 libbre",
+      "fact": "Il nome \"Spiny\" Dogfish si riferisce a due grandi spine su entrambe le pinne dorsali dello squalo.Se minacciato, il pesce cane spinoso può usare le sue spine per difendersi."
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "Catena catshark",
+    "description": {
+      "range": "La catena Catshark può essere trovata nelle acque profonde dell'Oceano Atlantico nord -occidentale nel Golfo del Messico.",
+      "size": "1,5-2 piedi;0,5-1LB",
+      "fact": "È stato osservato che il catshark a catena ha un bagliore biofluorescente.Si ritiene che questo bagliore possa aiutarlo a comunicare con altri squali."
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "Shark Atlantic Sharpnose",
+    "description": {
+      "range": "Lo squalo nitido atlantico si trova nell'Oceano Atlantico occidentale nel Golfo del Messico.",
+      "size": "3,5-4 piedi;9-12 libbre",
+      "fact": "Dopo che una femmina è cresciuta, si sposterà al largo in acque più profonde.Quando è pronta a partorire, ritorna in acque poco profonde e dà alla luce 3-7 cuccioli."
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Bonnethead Shark",
+    "description": {
+      "range": "Lo squalo Bonnethead si trova nell'Oceano Atlantico occidentale e nell'Oceano Pacifico orientale.",
+      "size": "3-4,5 piedi;15-20 libbre",
+      "fact": "Lo squalo Bonnethead è l'unico squalo che è stato osservato come onnivoro, il che significa che mangiano animali e materiale vegetale.Si nutriranno prontamente di alghe e alghe."
+    }
+  },
+  "school-shark-outcome": {
+    "name": "Squalo scolastico",
+    "description": {
+      "range": "Lo squalo della scuola si trova in acque temperate in tutto il mondo tra cui l'Oceano Atlantico nord -occidentale, il Mar Mediterraneo, l'Oceano Atlantico meridionale, l'Africa e l'Australia.",
+      "size": "5-6.5ft;45-55 libbre",
+      "fact": "Lo squalo scolastico è ovoviviparo, il che significa che le sue uova sono fecondate internamente e si sviluppano all'interno della femmina.Quando l'embrione è pronto, la femmina dà alla luce uno squalo completamente sviluppato pronto a vivere da solo."
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "Squalo infermiere",
+    "description": {
+      "range": "Lo squalo infermiere si trova nelle acque poco profonde dell'Oceano Atlantico nord -occidentale nel Golfo del Messico.",
+      "size": "3-4 piedi;15-20 libbre",
+      "fact": "Lo squalo infermiere è l'unico squalo che è stato osservato come onnivoro, il che significa che mangiano animali e materiale vegetale.Si nutriranno prontamente di alghe e alghe."
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "Spotted Wobbegong",
+    "description": {
+      "range": "Il Wobbegong macchiato si trova lungo le coste meridionali e orientali dell'Australia, dell'Oceano Indiano orientale e del Mar Cinese Meridionale.",
+      "size": "6-9ft;90-150 libbre",
+      "fact": "Il Wobbegong maculato è un predator di agguato;È in attesa di affidamento sui suoi insoliti segni per mimetizzarlo da una preda ignaro."
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "Squalo della Groenlandia",
+    "description": {
+      "range": "Lo squalo della Groenlandia si trova nelle fredde acque dell'Oceano Atlantico settentrionale e dell'Oceano Artico.",
+      "size": "8-20 piedi;2200 libbre",
+      "fact": "Questi squali hanno la durata più lunga di qualsiasi animale vertebrato sul pianeta.Gli scienziati hanno stimato che lo squalo della Groenlandia può vivere fino a 500 anni!"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "Scatto di martello smerlato",
+    "description": {
+      "range": "Lo squalo martello smerlato si trova in tutte le acque costiere lungo l'equatore in tutto il mondo.",
+      "size": "5-9ft;60-90 libbre",
+      "fact": "Il martello smerlato può formare grandi scuole durante la ricerca di cibo.Questi gruppi di squali possono essere costituiti da diverse centinaia di persone."
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "Squalo balena",
+    "description": {
+      "range": "Lo squalo balena può essere trovato in tutto il mondo in mari caldi temperati e tropicali.",
+      "size": "18-32 piedi in media, fino a 60 piedi;40.000-70.000 libbre",
+      "fact": "Nonostante i loro enormi squali balena si nutrono principalmente di plancton e piccoli pesci.Un singolo squalo balena può mangiare oltre 40 libbre di plancton in un giorno."
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Porbeagle Shark",
+    "description": {
+      "range": "Lo squalo porbeagle può essere trovato nelle acque fredde dell'Oceano Nord Atlantico e del Mar Mediterraneo.Ha anche una vasta distribuzione in tutto l'emisfero meridionale dal Sud America, in Africa, in Australia.",
+      "size": "8-11ft;250-450lbs",
+      "fact": "Lo squalo Porbeagle è un nuotatore veloce e può raggiungere velocità fino a 25 miglia all'ora."
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "Squalo di salmone",
+    "description": {
+      "range": "Lo squalo di salmone si trova in tutto l'Oceano Pacifico settentrionale.",
+      "size": "6-8.5ft;350-450lbs",
+      "fact": "Mentre lo squalo salmone si nutre di una varietà di prede tra cui calamari, aringhe, lontre marine e uccelli, il suo nome comune deriva dalle enormi quantità di salmone che costituiscono la maggior parte della sua dieta."
     }
   }
 }

@@ -11,10 +11,15 @@
     "press": "Prensa",
     "toStart": "para empezar"
   },
+  "restart": "Reanudar",
+  "continue": "Continuar",
   "buttons": {
     "a": "UNA",
     "b": "B"
   },
+  "yourShark": "Tu tiburón",
+  "step": "Paso{{stepCount}}/3",
+  "lastDetail": "Último detalle",
   "language": {
     "select": "Lenguaje seleccionado"
   },
@@ -23,31 +28,42 @@
     "sharksAlreadyMade": "Tiburones ya hechos",
     "sharkCount": "{{count}}"
   },
-  "size": {
+  "sizeChoice": {
+    "sixInchesSevenFeet": "6 pulgadas - 7 pies",
+    "sevenFeetSixtyTwoFeet": "7 pies - 62 pies",
     "chooseASize": "Elija un tamaño",
     "small": "Pequeña",
     "large": "Grande",
     "outcomeSmall": "Tamaño: Pequeña",
-    "outcomeLarge": "Tamaño: grande"
+    "outcomeLarge": "Tamaño: grande",
+    "descriptionSmall": "Los tiburones pequeños pueden ser pequeños, pero juegan un papel importante en el ecosistema de los océanos.Muchos viven entre arrecifes y rocas que usan para refugio.A menudo tienen adaptaciones especiales para ayudar a evitar depredadores y localizar alimentos.",
+    "descriptionLarge": "Se considera que muchos tiburones grandes son depredadores de ápice, lo que significa que están en la parte superior de la cadena alimentaria.Estos grandes tiburones poderosos se alimentan de peces, invertebrados y mamíferos.Algunos otros tiburones grandes se alimentan principalmente de pequeños plancton que filtran desde el agua del océano."
   },
-  "habitat": {
+  "habitatChoice": {
     "chooseAHabitat": "Elige un hábitat",
     "bottomDwelling": "Vivienda inferior",
     "openWater": "Aguas abiertas",
     "outcomeBottomDwelling": "Hábitat: vivienda de fondo",
-    "outcomeOpenWater": "Hábitat: aguas abiertas"
+    "outcomeOpenWater": "Hábitat: aguas abiertas",
+    "descriptionBottomDwelling": "Muchas especies de tiburones habitan los niveles más bajos del ecosistema acuático.Muchos tienen sensores especializados para detectar presas que atrapan entre las rocas y la arena.Otros tienen camuflaje para ayudarlos a emboscar su comida desprevenida.",
+    "descriptionOpenWater": "Los tiburones de aguas abiertas deambulan por los vastos océanos abiertos del mundo y pueden viajar grandes distancias.Estos tiburones juegan un papel clave para mantener equilibradas las poblaciones de peces."
   },
-  "waterTemperature": {
+  "waterTemperatureChoice": {
     "chooseWaterTemperature": "Elija la temperatura del agua",
     "warm": "Cálida",
     "cold": "Fría",
     "outcomeWarm": "Temperatura del agua: cálido",
-    "outcomeCold": "Temperatura del agua: frío"
+    "outcomeCold": "Temperatura del agua: frío",
+    "descriptionWarm": "Algunos tiburones pasan la mayor parte de sus vidas en aguas cálidas en climas tropicales y subtropicales.Las aguas más cálidas generalmente tienen poblaciones de peces más grandes de las que los tiburones pueden alimentar.Estos tiburones equilibran los ecosistemas de arrecifes al alimentarse de peces enfermos o poco saludables.",
+    "descriptionCold": "Algunos tiburones habitan las aguas heladas del Ártico y la subártica.Para sobrevivir en estas aguas frías, muchas de estas especies de tiburones tienen adaptaciones especiales, como una temperatura corporal más alta, sangre especialmente evolucionada y tasas metabólicas más altas."
   },
-  "skinType": {
+  "skinTypeChoice": {
     "chooseSkinType": "¡Elige la piel del tiburón!"
   },
-  "coralCatshark": {
+  "range": "Rango:",
+  "funFact": "Dato curioso:",
+  "size": "Tamaño:",
+  "coral-catshark-outcome": {
     "name": "Coral Catshark",
     "description": {
       "range": "El Coral Catshark se puede encontrar desde la India hasta el sudeste asiático.",
@@ -55,12 +71,108 @@
       "fact": "Las hembras de Coral Catshark meten sus huevos en las grietas de las rocas.\nEstos huevos, que tardan de 4 a 6 meses en eclosionar, parecen un bolso pequeño y a menudo se les conoce como \"bolsos de sirena\"."
     }
   },
-  "epauletteShark": {
+  "epaulette-shark-outcome": {
     "name": "Tiburón epaulette",
     "description": {
       "range": "El tiburón Epaulette se encuentra en las aguas poco profundas del norte de Australia y Papua Nueva Guinea.",
       "size": "2-3.5ft;5-10 libras",
       "fact": "Los tiburones ePaulette pueden usar sus aletas en un movimiento de caminar mientras ondulan sus cuerpos, ayudándoles a moverse a través de los arrecifes de coral.Este movimiento puede incluso ayudarlos a moverse en la tierra entre las piscinas de marea en busca de alimentos."
+    }
+  },
+  "spiny-dogfish-outcome": {
+    "name": "Pescado espino",
+    "description": {
+      "range": "El pez perro espinoso se encuentra en aguas templadas frías en todo el Atlántico Norte y los Océanos del Pacífico Norte.",
+      "size": "2-4 pies;7-15 libras",
+      "fact": "El nombre \"Spiny\" Dogfish se refiere a dos grandes espinas en ambas aletas dorsales del tiburón.Cuando está amenazado, el pez dog de espinosas puede usar sus espinas para defenderse."
+    }
+  },
+  "chain-catshark-outcome": {
+    "name": "Cadena Catshark",
+    "description": {
+      "range": "La cadena Catshark se puede encontrar en las profundas aguas del Océano Atlántico noroeste al Golfo de México.",
+      "size": "1.5-2ft;0.5-1lb",
+      "fact": "Se ha observado que la cadena Catshark tiene un brillo biofluorescente.Se cree que este brillo puede ayudarlo a comunicarse con otros tiburones."
+    }
+  },
+  "atlantic-sharpnose-shark-outcome": {
+    "name": "Tiburón atlántico sharpnose",
+    "description": {
+      "range": "El tiburón del Atlántico Sharpnose se encuentra en el Océano Atlántico occidental al Golfo de México.",
+      "size": "3.5-4ft;9-12 libras",
+      "fact": "Después de criar una mujer, se moverá en alta mar a aguas más profundas.Cuando está lista para dar a luz, regresa a aguas poco profundas y da a luz 3-7 cachorros."
+    }
+  },
+  "bonnethead-shark-outcome": {
+    "name": "Tiburón bonnethead",
+    "description": {
+      "range": "El tiburón Bonnethead se encuentra en el Océano Atlántico occidental y el Océano Pacífico oriental.",
+      "size": "3-4.5 pies;15-20 libras",
+      "fact": "El tiburón Bonnethead es el único tiburón que se ha observado que es omnívoro, lo que significa que comen animales y material vegetal.Se alimentarán fácilmente de algas y algas."
+    }
+  },
+  "school-shark-outcome": {
+    "name": "Tiburón escolar",
+    "description": {
+      "range": "El tiburón escolar se encuentra en aguas templadas en todo el mundo, incluido el Océano Atlántico noroeste, el mar Mediterráneo, el Océano Atlántico del Sur, África y Australia.",
+      "size": "5-6.5 pies;45-55 libras",
+      "fact": "El tiburón escolar es ovovivíparo, lo que significa que sus huevos se fertilizan internamente y se desarrollan dentro de la mujer.Cuando el embrión está listo, la hembra da a luz a un tiburón completamente desarrollado listo para vivir solo."
+    }
+  },
+  "nurse-shark-outcome": {
+    "name": "Tiburón de enfermera",
+    "description": {
+      "range": "El tiburón de la enfermera se encuentra en las aguas poco profundas del Océano Atlántico noroeste al Golfo de México.",
+      "size": "3-4ft;15-20 libras",
+      "fact": "El tiburón de la enfermera es el único tiburón que se ha observado que es omnívoro, lo que significa que comen animales y material vegetal.Se alimentarán fácilmente de algas y algas."
+    }
+  },
+  "spotted-wobbegong-outcome": {
+    "name": "Manchado wobbegong",
+    "description": {
+      "range": "El wobbegong manchado se encuentra a lo largo de las costas sur y este de Australia, el Océano Índico oriental y el Mar del Sur de China.",
+      "size": "6-9 pies;90-150 libras",
+      "fact": "El wobbegong manchado es un depredador de emboscada;Se encuentra en la espera de confiar en sus marcas inusuales para camuflarlo de presas desprevenidas."
+    }
+  },
+  "greenland-shark-outcome": {
+    "name": "Tiburón de Groenlandia",
+    "description": {
+      "range": "El tiburón de Groenlandia se encuentra en las frías aguas del Océano Atlántico norte y el Océano Ártico.",
+      "size": "8-20 pies;2200 libras",
+      "fact": "Estos tiburones tienen la vida útil más larga de cualquier animal vertebrado en el planeta.¡Los científicos han estimado que el tiburón de Groenlandia puede vivir hasta 500 años!"
+    }
+  },
+  "scalloped-hammerhead-outcome": {
+    "name": "Tiburón martillos",
+    "description": {
+      "range": "El tiburón martillo festoneado se encuentra en las aguas costeras a lo largo del ecuador en todo el mundo.",
+      "size": "5-9 pies;60-90 libras",
+      "fact": "El martillo festoneado puede formar grandes escuelas cuando busque alimentos.Estos grupos de tiburones pueden estar compuestos por varios cientos de personas."
+    }
+  },
+  "whale-shark-outcome": {
+    "name": "Tiburón ballena",
+    "description": {
+      "range": "El tiburón ballena se puede encontrar en todo el mundo en mares templados y tropicales cálidos.",
+      "size": "18-32 pies en promedio, hasta 60 pies;40,000-70,000 libras",
+      "fact": "A pesar de su gran tamaño, los tiburones ballena se alimentan principalmente de plancton y peces pequeños.Un solo tiburón de ballenas puede comer más de 40 libras de plancton en un día."
+    }
+  },
+  "porbeagle-shark-outcome": {
+    "name": "Tiburón porbeagle",
+    "description": {
+      "range": "El tiburón Porbeagle se puede encontrar en las aguas frías del Océano Atlántico Norte y el mar Mediterráneo.También tiene una amplia distribución irregular en todo el hemisferio sur desde América del Sur, África, a Australia.",
+      "size": "8-11 pies;250-450 libras",
+      "fact": "El tiburón Porbeagle es un nadador rápido y puede alcanzar velocidades de hasta 25 mph."
+    }
+  },
+  "salmon-shark-outcome": {
+    "name": "Tiburón salmón",
+    "description": {
+      "range": "El tiburón de salmón se puede encontrar en todo el Océano Pacífico Norte.",
+      "size": "6-8.5 pies;350-450 libras",
+      "fact": "Mientras que el tiburón de salmón se alimenta de una variedad de presas que incluyen calamares, arenques, nutrias marinas y aves, su nombre común proviene de las grandes cantidades de salmón que constituyen la mayor parte de su dieta."
     }
   }
 }

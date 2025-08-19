@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainView } from "./views/MainView";
 import "./global/default.css";
 import { StoreProvider } from "./store";
-import { KioskLayout } from "./components/KioskLayout";
+import { KioskLayout } from "./components/KioskLayout/KioskLayout";
 import "./i18n";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 
