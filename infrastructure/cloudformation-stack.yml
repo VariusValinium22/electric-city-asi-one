@@ -278,6 +278,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: ""
         Enabled: true
+        DefaultRootObject: "latest/release-info.json"
         PriceClass: PriceClass_100
 
   ElectronDownloadsProductionDistribution:
@@ -301,6 +302,7 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: ""
         Enabled: true
+        DefaultRootObject: "latest/release-info.json"
         PriceClass: PriceClass_100
 
   # IAM user for GitHub actions
@@ -476,6 +478,14 @@ Outputs:
   ElectronDownloadsProductionDistributionDomainName:
     Description: CloudFront distribution domain name for electron downloads production
     Value: !GetAtt ElectronDownloadsProductionDistribution.DomainName
+
+  ElectronDownloadsStagingDistributionURL:
+    Description: CloudFront distribution HTTPS URL for electron downloads staging
+    Value: !Sub "https://${ElectronDownloadsStagingDistribution.DomainName}"
+
+  ElectronDownloadsProductionDistributionURL:
+    Description: CloudFront distribution HTTPS URL for electron downloads production
+    Value: !Sub "https://${ElectronDownloadsProductionDistribution.DomainName}"
 
   GitHubActionsAccessKeyId:
     Description: Access Key ID for GitHub Actions
