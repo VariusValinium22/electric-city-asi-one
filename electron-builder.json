@@ -6,10 +6,12 @@
   },
   "files": ["dist/**/*", "dist-electron/**/*", "node_modules/**/*"],
   "mac": {
-    "target": {
-      "target": "default",
-      "arch": ["x64", "arm64"]
-    },
+    "target": [
+      {
+        "target": "zip",
+        "arch": ["x64", "arm64"]
+      }
+    ],
     "category": "public.app-category.education",
     "icon": "assets/icon.icns"
   },

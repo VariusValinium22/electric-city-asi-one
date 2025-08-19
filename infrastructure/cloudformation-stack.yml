@@ -71,6 +71,9 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "${ProjectName}-electron-downloads-staging"
+      WebsiteConfiguration:
+        IndexDocument: latest/release-info.json
+        ErrorDocument: latest/release-info.json
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
@@ -87,6 +90,9 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "${ProjectName}-electron-downloads-prod"
+      WebsiteConfiguration:
+        IndexDocument: latest/release-info.json
+        ErrorDocument: latest/release-info.json
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
         BlockPublicPolicy: false
@@ -274,9 +280,11 @@ Resources:
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
         Origins:
           - Id: !Sub "${ProjectName}-electron-downloads-staging-origin"
-            DomainName: !GetAtt ElectronDownloadsStagingBucket.RegionalDomainName
-            S3OriginConfig:
-              OriginAccessIdentity: ""
+            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsStagingBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: "latest/release-info.json"
         PriceClass: PriceClass_100
@@ -298,9 +306,11 @@ Resources:
               FunctionARN: !GetAtt ContentTypeFunction.FunctionARN
         Origins:
           - Id: !Sub "${ProjectName}-electron-downloads-prod-origin"
-            DomainName: !GetAtt ElectronDownloadsProductionBucket.RegionalDomainName
-            S3OriginConfig:
-              OriginAccessIdentity: ""
+            DomainName: !Select [1, !Split ["//", !GetAtt ElectronDownloadsProductionBucket.WebsiteURL]]
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
         Enabled: true
         DefaultRootObject: "latest/release-info.json"
         PriceClass: PriceClass_100

@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Interactive shark learning experience for Electric City Aquarium",
+  "author": "TripleTen",
   "main": "dist-electron/main.cjs",
   "engines": {
     "node": ">=18.0.0 <25.0.0",
@@ -123,6 +125,7 @@
     "typescript-eslint": "^8.35.0",
     "validate-branch-name": "1.3.2",
     "vite": "7.0.0",
+    "vite-plugin-pwa": "1.0.3",
     "vitest": "3.2.4",
     "wait-on": "^8.0.3"
   },
