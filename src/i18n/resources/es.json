@@ -95,7 +95,7 @@
       "fact": "Se ha observado que la cadena Catshark tiene un brillo biofluorescente.Se cree que este brillo puede ayudarlo a comunicarse con otros tiburones."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Tiburón atlántico sharpnose",
     "description": {
       "range": "El tiburón del Atlántico Sharpnose se encuentra en el Océano Atlántico occidental al Golfo de México.",
@@ -103,7 +103,7 @@
       "fact": "Después de criar una mujer, se moverá en alta mar a aguas más profundas.Cuando está lista para dar a luz, regresa a aguas poco profundas y da a luz 3-7 cachorros."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Tiburón bonnethead",
     "description": {
       "range": "El tiburón Bonnethead se encuentra en el Océano Atlántico occidental y el Océano Pacífico oriental.",
@@ -159,7 +159,7 @@
       "fact": "A pesar de su gran tamaño, los tiburones ballena se alimentan principalmente de plancton y peces pequeños.Un solo tiburón de ballenas puede comer más de 40 libras de plancton en un día."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Tiburón porbeagle",
     "description": {
       "range": "El tiburón Porbeagle se puede encontrar en las aguas frías del Océano Atlántico Norte y el mar Mediterráneo.También tiene una amplia distribución irregular en todo el hemisferio sur desde América del Sur, África, a Australia.",

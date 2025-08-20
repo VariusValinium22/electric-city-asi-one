@@ -95,7 +95,7 @@
       "fact": "The chain catshark has been observed to have a biofluorescent glow. It is believed that this glow may help it communicate with other sharks."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Atlantic sharpnose shark",
     "description": {
       "range": "The atlantic sharpnose shark is found in the Western Atlantic Ocean to the Gulf of Mexico.",
@@ -103,7 +103,7 @@
       "fact": "After a female is bred, she will move offshore to deeper waters. When she is ready to give birth she returns to shallow water and gives birth to 3-7 pups."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead shark",
     "description": {
       "range": "The bonnethead shark is found in the Western Atlantic Ocean and Eastern Pacific Ocean.",
@@ -159,7 +159,7 @@
       "fact": "Despite their huge size whale sharks feed primarily on plankton and small fish. A single whale shark can eat over 40lbs of plankton in a day."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Porbeagle shark",
     "description": {
       "range": "The porbeagle shark can be found in the cold waters of the North Atlantic Ocean and Mediterranean Sea. It also has a wide spotty distribution throughout the southern hemisphere from South America, Africa, to Australia.",

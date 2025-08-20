@@ -95,7 +95,7 @@
       "fact": "Observou -se que o gato de corrente possui um brilho biofluorescente.Acredita -se que esse brilho possa ajudá -lo a se comunicar com outros tubarões."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Shark Sharpnose do Atlântico",
     "description": {
       "range": "O tubarão do Atlântico Sharpnose é encontrado no Oceano Atlântico Ocidental até o Golfo do México.",
@@ -103,7 +103,7 @@
       "fact": "Depois que uma mulher é criada, ela se moverá para o mar para águas mais profundas.Quando ela estiver pronta para dar à luz, ela retorna às águas rasas e dá à luz 3-7 filhotes."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead Shark",
     "description": {
       "range": "O tubarão Bonnethead é encontrado no Oceano Atlântico Ocidental e no Oceano Pacífico Oriental.",
@@ -159,7 +159,7 @@
       "fact": "Apesar de seus enormes tubarões -baleias, se alimentam principalmente de plâncton e peixes pequenos.Um único tubarão -baleia pode comer mais de 40 libras de plâncton em um dia."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Porqueagagle Shark",
     "description": {
       "range": "O tubarão Porbeagle pode ser encontrado nas águas frias do Oceano Atlântico Norte e do Mar Mediterrâneo.Ele também tem uma ampla distribuição irregular em todo o Hemisfério Sul da América do Sul, África e Austrália.",

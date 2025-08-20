@@ -95,7 +95,7 @@
       "fact": "Es wurde beobachtet, dass der Kettenkatze einen Biofluoreszenzglühen hat.Es wird angenommen, dass dieses Leuchten dazu beitragen kann, mit anderen Haie zu kommunizieren."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Atlantic Sharpnose Shark",
     "description": {
       "range": "Der Atlantik -Sharpnose -Hai findet sich im westlichen Atlantik zum Golf von Mexiko.",
@@ -103,7 +103,7 @@
       "fact": "Nachdem eine Frau gezüchtet wurde, wird sie vor der Küste in tiefere Gewässer ziehen.Wenn sie bereit ist, zur Welt zu kommen, kehrt sie in flaches Wasser zurück und bringt 3-7 Welpen zur Welt."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead Shark",
     "description": {
       "range": "Der Bonnethead -Hai findet sich im westlichen Atlantik und im Osten des Ostpazifiks.",
@@ -159,7 +159,7 @@
       "fact": "Trotz ihrer riesigen Größenwalenhaie ernähren sich hauptsächlich von Plankton und kleinen Fischen.Ein einzelner Walhai kann an einem Tag über 40 Pfund Plankton essen."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Porbeagle Shark",
     "description": {
       "range": "Der Porbeagle -Hai ist in den kalten Gewässern des Nordatlantikers und des Mittelmeers zu finden.Es hat auch eine große, fleckige Verteilung in der gesamten südlichen Hemisphäre von Südamerika, Afrika, nach Australien.",

@@ -95,7 +95,7 @@
       "fact": "已经观察到链链链具有生物荧光光泽。人们认为，这种光芒可能有助于它与其他鲨鱼进行交流。"
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "大西洋尖锐的鲨鱼",
     "description": {
       "range": "大西洋尖锐的鲨鱼在西大西洋到墨西哥湾。",
@@ -103,7 +103,7 @@
       "fact": "雌性繁殖后，她将在海上移动到更深的水域。当她准备出生时，她会返回浅水，生下3-7只幼犬。"
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead鲨鱼",
     "description": {
       "range": "在西大西洋和东太平洋地区发现了邦纳特鲨鱼。",
@@ -159,7 +159,7 @@
       "fact": "尽管它们尺寸巨大，鲸鲨主要以浮游生物和小鱼为基础。一只鲸鲨一天可以吃40磅的浮游生物。"
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Porbeagle鲨鱼",
     "description": {
       "range": "可以在北大西洋和地中海的冷水中找到porbeagle鲨鱼。从南美洲，非洲到澳大利亚，它在整个南半球也有广泛的分布。",

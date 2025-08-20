@@ -95,7 +95,7 @@
       "fact": "È stato osservato che il catshark a catena ha un bagliore biofluorescente.Si ritiene che questo bagliore possa aiutarlo a comunicare con altri squali."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Shark Atlantic Sharpnose",
     "description": {
       "range": "Lo squalo nitido atlantico si trova nell'Oceano Atlantico occidentale nel Golfo del Messico.",
@@ -103,7 +103,7 @@
       "fact": "Dopo che una femmina è cresciuta, si sposterà al largo in acque più profonde.Quando è pronta a partorire, ritorna in acque poco profonde e dà alla luce 3-7 cuccioli."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead Shark",
     "description": {
       "range": "Lo squalo Bonnethead si trova nell'Oceano Atlantico occidentale e nell'Oceano Pacifico orientale.",
@@ -159,7 +159,7 @@
       "fact": "Nonostante i loro enormi squali balena si nutrono principalmente di plancton e piccoli pesci.Un singolo squalo balena può mangiare oltre 40 libbre di plancton in un giorno."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Porbeagle Shark",
     "description": {
       "range": "Lo squalo porbeagle può essere trovato nelle acque fredde dell'Oceano Nord Atlantico e del Mar Mediterraneo.Ha anche una vasta distribuzione in tutto l'emisfero meridionale dal Sud America, in Africa, in Australia.",

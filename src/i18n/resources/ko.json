@@ -95,7 +95,7 @@
       "fact": "체인 Catshark는 생물 형광 광선을 갖는 것으로 관찰되었습니다.이 빛이 다른 상어와 의사 소통하는 데 도움이 될 수 있다고 믿어집니다."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "대서양 선명한 상어",
     "description": {
       "range": "대서양 선취 상어는 서부 대서양에서 멕시코만까지 발견됩니다.",
@@ -103,7 +103,7 @@
       "fact": "암컷이 자란 후에, 그녀는 해외로 더 깊은 물로 옮길 것입니다.그녀가 출산 할 준비가되었을 때 그녀는 얕은 물로 돌아와 3-7 마리의 강아지를 낳습니다."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead Shark",
     "description": {
       "range": "Bonnethead Shark는 서부 대서양과 태평양 동부에서 발견됩니다.",
@@ -159,7 +159,7 @@
       "fact": "그들의 큰 크기의 고래 상어는 주로 플랑크톤과 작은 물고기에 먹이를줍니다.고래 상어는 하루에 40 파운드 이상의 플랑크톤을 먹을 수 있습니다."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "포르 비글 상어",
     "description": {
       "range": "Porbeagle 상어는 북대서양과 지중해의 냉수에서 찾을 수 있습니다.또한 남미, 아프리카에서 호주까지 남반구 전체에 광범위한 스팟 분포가 있습니다.",

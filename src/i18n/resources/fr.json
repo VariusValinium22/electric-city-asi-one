@@ -95,7 +95,7 @@
       "fact": "Il a été observé que la chaîne a une lueur biofluorescente.On pense que cette lueur peut l'aider à communiquer avec d'autres requins."
     }
   },
-  "atlantic-sharpnose-shark-outcome": {
+  "atlantic-sharpnose-outcome": {
     "name": "Shark Sharpnose atlantique",
     "description": {
       "range": "Le requin Sharpnose de l'Atlantique se trouve dans l'océan Atlantique occidental jusqu'au golfe du Mexique.",
@@ -103,7 +103,7 @@
       "fact": "Une fois qu'une femme est élevée, elle se déplacera au large des eaux plus profondes.Lorsqu'elle est prête à accoucher, elle revient à l'eau peu profonde et donne naissance à 3-7 chiots."
     }
   },
-  "bonnethead-shark-outcome": {
+  "bonnethead-outcome": {
     "name": "Bonnethead Shark",
     "description": {
       "range": "Le requin Bonnethead se trouve dans l'océan Atlantique occidental et l'océan Pacifique oriental.",
@@ -159,7 +159,7 @@
       "fact": "Malgré leur énorme taille, les requins baleines se nourrissent principalement du plancton et de petits poissons.Un seul requin baleine peut manger plus de 40 lb de plancton en une journée."
     }
   },
-  "porbeagle-shark-outcome": {
+  "porbeagle-outcome": {
     "name": "Requin de porbeagle",
     "description": {
       "range": "Le requin Porbeagle se trouve dans les eaux froides de l'océan Atlantique Nord et de la mer Méditerranée.Il a également une large distribution inégale dans tout l'hémisphère sud d'Amérique du Sud, en Afrique, en Australie.",
