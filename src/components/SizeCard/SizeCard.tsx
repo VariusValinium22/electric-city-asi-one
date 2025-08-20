@@ -44,8 +44,8 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
           alt="human"
           className={`absolute object-contain ${
             isSmall
-              ? "left-[clamp(40px,7vw,152px)] bottom-[clamp(20px,5vw,52px)] w-[clamp(43px,12vw,110px)] h-[clamp(110px,25vw,311px)]"
-              : "left-[clamp(20px,2vw,70px)] bottom-[clamp(10px,2vw,41px)] w-[clamp(19px,1.875vw,54px)] h-[clamp(50px,5vw,138px)]"
+              ? "left-[clamp(40px,7vw,50px)] bottom-[clamp(20px,5vw,52px)] w-[clamp(43px,12vw,110px)] h-[clamp(110px,25vw,311px)]"
+              : "left-[clamp(50px,2vw,70px)] bottom-[clamp(10px,4vw,100px)] w-[clamp(19px,1.875vw,54px)] h-[clamp(80px,5vw,100px)]"
           }`}
         />
         </div>
@@ -57,8 +57,8 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
           alt="shark large"
           className={`absolute object-contain ${
             isSmall
-              ? "right-[clamp(54px,8vw,117px)] bottom-[clamp(64px,12vw,213px)] w-[clamp(110px,22vw,337px)] h-[clamp(60px,9vw,110px)]"
-              : "right-[clamp(20px,3vw,51px)] bottom-[clamp(56px,10vw,194px)] w-[clamp(202px,40vw,619px)] h-[clamp(100px,12vw,202px)]"
+              ? "right-[clamp(54px,8vw,75px)] left-[clamp(250px,40vw,75px)] bottom-[clamp(64px,15vw,213px)] w-[clamp(110px,22vw,337px)] h-[clamp(60px,9vw,110px)]"
+              : "right-[clamp(20px,3vw,10px)] left-[clamp(20px,10vw,60px)] bottom-[clamp(56px,13vw,194px)] w-[clamp(202px,40vw,619px)] h-[clamp(100px,12vw,202px)]"
           }`}
         />
         {/* {small shark} */}
@@ -67,8 +67,8 @@ export const SizeCard = ({ size }: { size: CardSize }) => {
           alt="shark small"
           className={`grid-card__shark absolute object-contain ${
             isSmall
-              ? "right-[clamp(96px,10vw,250px)] bottom-[clamp(50px,8vw,180px)] w-[clamp(40px,5vw,94px)] h-[clamp(15px,2vw,30px)]"
-              : "right-[clamp(80px,5vw,255px)] bottom-[clamp(20px,3vw,60px)] w-[clamp(101px,20vw,307px)] h-[clamp(40px,6vw,101px)]"
+              ? "right-[clamp(96px,10vw,250px)] bottom-[clamp(50px,8vw,180px)] left-[clamp(325px,40vw,75px)] w-[clamp(40px,5vw,94px)] h-[clamp(15px,2vw,30px)]"
+              : "right-[clamp(80px,5vw,255px)] bottom-[clamp(20px,10vw,60px)] left-[clamp(200px,40vw,75px)] w-[clamp(101px,20vw,307px)] h-[clamp(40px,6vw,101px)]"
           }`}
         />
         </div>
