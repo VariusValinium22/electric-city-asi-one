@@ -8,6 +8,7 @@ import { TextButton } from "../../components/TextButton/TextButton";
 import InactivityManager from "../../components/InactivityManager/InactivityManager";
 import Card from "../../components/Card/Card";
 import { useTranslation } from "react-i18next";
+import { LargeSizeCard, SmallSizeCard } from "../../components/SizeCard/SizeCard";
 
 export const OutcomeView = observer(() => {
   const { mainStore } = useStore();
@@ -31,6 +32,10 @@ export const OutcomeView = observer(() => {
   }
 
   const { id, title, description, image } = node as Outcome;
+
+  const isSizeOutcome = ["small-shark-outcome", "large-shark-outcome"].includes(id);
+  const isSmallSizeOutcome = title.includes("Small");
+
 
   const stepCount = mainStore.getCurrentStepCount;
   let legend = "";
@@ -72,7 +77,8 @@ export const OutcomeView = observer(() => {
             className={headerStyle}
           />
           <div className={bottomContainerStyle}>
-            {image && <Card title="" imageUrl={image} size="lg" />}
+            {image && !isSizeOutcome ? <Card title="" imageUrl={image} size="lg" /> :
+            isSizeOutcome && isSmallSizeOutcome ? <SmallSizeCard /> : <LargeSizeCard />}
             {typeof description === "string" ? (
               <p className={descriptionStyle}>{t(description)}</p>
             ) : (

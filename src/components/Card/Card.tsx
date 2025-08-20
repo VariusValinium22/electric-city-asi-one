@@ -52,7 +52,7 @@ const Card: React.FC<CardProps> = ({
         <img
           src={imageUrl}
           alt={title}
-          className="card-image w-full h-full object-cover rounded-[32px]" // "card-image w-full h-full object-cover rounded-xl mb-3"
+          className="card-image w-full h-full object-fill rounded-[32px]" // "card-image w-full h-full object-cover rounded-xl mb-3"
         />
       )}
       {imageUrl && imageUrl.includes(".mp4") && (
@@ -61,7 +61,7 @@ const Card: React.FC<CardProps> = ({
           loop
           muted
           playsInline
-          className="card-video w-full h-full object-cover rounded-[32px]"
+          className="card-video w-full h-full object-fill rounded-[32px]"
         >
           <source src={imageUrl} type="video/mp4" />
           Your browser does not support the video tag.
