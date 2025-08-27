@@ -81,7 +81,8 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: true, // enable source maps for debugging
   },
-  base: "./", // use relative paths for Electron
+  base: "/electric-city-asi-one/", 
+  //base: "./", // use relative paths for Electron
   define: {
     __DEV__: true,
   },
